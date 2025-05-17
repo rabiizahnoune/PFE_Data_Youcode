@@ -1,0 +1,35 @@
+[2025-05-08T14:03:12.456+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T14:02:34.246588+00:00 [queued]>
+[2025-05-08T14:03:12.465+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T14:02:34.246588+00:00 [queued]>
+[2025-05-08T14:03:12.466+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-08T14:03:12.483+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): transform_gold_data> on 2025-05-08 14:02:34.246588+00:00
+[2025-05-08T14:03:12.489+0000] {standard_task_runner.py:57} INFO - Started process 5375 to run task
+[2025-05-08T14:03:12.493+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipeline', 'transform_gold_data', 'manual__2025-05-08T14:02:34.246588+00:00', '--job-id', '33', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp0m7o_ao5']
+[2025-05-08T14:03:12.496+0000] {standard_task_runner.py:85} INFO - Job 33: Subtask transform_gold_data
+[2025-05-08T14:03:12.550+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T14:02:34.246588+00:00 [running]> on host 223a2d167166
+[2025-05-08T14:03:12.660+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipeline' AIRFLOW_CTX_TASK_ID='transform_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-08T14:02:34.246588+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-08T14:02:34.246588+00:00'
+[2025-05-08T14:03:12.664+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/gold_prices/2025-05-08.csv'.
+[2025-05-08T14:03:12.717+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/fed_rates/2025-05-08.csv'.
+[2025-05-08T14:03:12.762+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/sp500/2025-05-08.csv'.
+[2025-05-08T14:03:12.839+0000] {logging_mixin.py:151} INFO - Columns in merged_df: ['date', 'source_name', 'ticker_symbol', 'open_price', 'prix_or', 'volume_or', 'ingestion_timestamp', 'prix_sp500', 'volume_sp500', 'taux_fed']
+[2025-05-08T14:03:12.840+0000] {logging_mixin.py:151} INFO - Shape of merged_df: (186, 10)
+[2025-05-08T14:03:12.848+0000] {logging_mixin.py:151} INFO - Sample of merged_df:
+                        date source_name ticker_symbol  open_price  prix_or  volume_or ingestion_timestamp  prix_sp500  volume_sp500  taux_fed
+0 2025-04-08 00:00:00.815807         NaN           NaN         NaN      NaN        NaN                 NaN         NaN           NaN      4.33
+1 2025-04-08 04:00:00.815807         NaN           NaN         NaN      NaN        NaN                 NaN         NaN           NaN      4.33
+2 2025-04-08 08:00:00.815807         NaN           NaN         NaN      NaN        NaN                 NaN         NaN           NaN      4.33
+3 2025-04-08 12:00:00.815807         NaN           NaN         NaN      NaN        NaN                 NaN         NaN           NaN      4.33
+4 2025-04-08 16:00:00.815807         NaN           NaN         NaN      NaN        NaN                 NaN         NaN           NaN      4.33
+[2025-05-08T14:03:12.855+0000] {logging_mixin.py:151} INFO - Shape of merged_df after dropna: (0, 10)
+[2025-05-08T14:03:12.856+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/transform.py", line 95, in transform_gold_data
+    raise ValueError("prix_or column is empty after processing. Cannot calculate price variation.")
+ValueError: prix_or column is empty after processing. Cannot calculate price variation.
+[2025-05-08T14:03:12.870+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=gold_pipeline, task_id=transform_gold_data, execution_date=20250508T140234, start_date=20250508T140312, end_date=20250508T140312
+[2025-05-08T14:03:12.889+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 33 for task transform_gold_data (prix_or column is empty after processing. Cannot calculate price variation.; 5375)
+[2025-05-08T14:03:12.906+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-08T14:03:12.935+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

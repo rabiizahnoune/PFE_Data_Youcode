@@ -1,0 +1,35 @@
+[2025-05-12T17:02:16.396+0000] {processor.py:157} INFO - Started process (PID=166) to work on /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:02:16.402+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_streaming.py for tasks to queue
+[2025-05-12T17:02:16.414+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:02:16.413+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:02:29.080+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_news_pipeline']) retrieved from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:02:30.704+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:02:30.703+0000] {security.py:708} INFO - Not syncing DAG-level permissions for DAG 'DAG:gold_news_pipeline' as access control is unset.
+[2025-05-12T17:02:30.714+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:02:30.714+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-12T17:02:30.834+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:02:30.834+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_news_pipeline to 2025-05-12T16:52:30.834021+00:00, run_after=2025-05-12T17:02:30.834021+00:00
+[2025-05-12T17:02:30.965+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_streaming.py took 11.865 seconds
+[2025-05-12T17:03:01.118+0000] {processor.py:157} INFO - Started process (PID=199) to work on /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:03:01.119+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_streaming.py for tasks to queue
+[2025-05-12T17:03:01.120+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:03:01.120+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:03:02.184+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_news_pipeline']) retrieved from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:03:02.235+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:03:02.234+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-12T17:03:02.281+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:03:02.281+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_news_pipeline to 2025-05-12T16:53:02.281151+00:00, run_after=2025-05-12T17:03:02.281151+00:00
+[2025-05-12T17:03:02.340+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_streaming.py took 1.230 seconds
+[2025-05-12T17:03:32.550+0000] {processor.py:157} INFO - Started process (PID=242) to work on /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:03:32.571+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_streaming.py for tasks to queue
+[2025-05-12T17:03:32.588+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:03:32.577+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:03:35.106+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_news_pipeline']) retrieved from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:03:35.274+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:03:35.273+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-12T17:03:35.357+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:03:35.356+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_news_pipeline to 2025-05-12T16:53:35.356024+00:00, run_after=2025-05-12T17:03:35.356024+00:00
+[2025-05-12T17:03:35.518+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_streaming.py took 2.980 seconds
+[2025-05-12T17:04:06.181+0000] {processor.py:157} INFO - Started process (PID=283) to work on /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:04:06.183+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_streaming.py for tasks to queue
+[2025-05-12T17:04:06.185+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:04:06.184+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:04:06.742+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_news_pipeline']) retrieved from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:04:06.771+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:04:06.771+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-12T17:04:06.801+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:04:06.801+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_news_pipeline to 2025-05-12T16:54:06.800755+00:00, run_after=2025-05-12T17:04:06.800755+00:00
+[2025-05-12T17:04:06.834+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/dag_streaming.py took 0.664 seconds
+[2025-05-12T17:04:37.605+0000] {processor.py:157} INFO - Started process (PID=352) to work on /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:04:37.607+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/dag_streaming.py for tasks to queue
+[2025-05-12T17:04:37.608+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:04:37.608+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:04:38.404+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_news_pipeline']) retrieved from /opt/airflow/dags/dag_streaming.py
+[2025-05-12T17:04:38.489+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:04:38.488+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-12T17:04:38.600+0000] {logging_mixin.py:151} INFO - [2025-05-12T17:04:38.591+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_news_pipeline to 2025-05-12T16:54:38.590836+00:00, run_after=2025-05-12T17:04:38.590836+00:00

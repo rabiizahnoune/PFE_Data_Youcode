@@ -1,0 +1,15 @@
+[2025-05-03T21:51:27.203+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipeline.extract_gold_data manual__2025-05-03T21:51:13.621212+00:00 [queued]>
+[2025-05-03T21:51:27.212+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipeline.extract_gold_data manual__2025-05-03T21:51:13.621212+00:00 [queued]>
+[2025-05-03T21:51:27.213+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-03T21:51:27.227+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_gold_data> on 2025-05-03 21:51:13.621212+00:00
+[2025-05-03T21:51:27.236+0000] {standard_task_runner.py:57} INFO - Started process 1225 to run task
+[2025-05-03T21:51:27.241+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipeline', 'extract_gold_data', 'manual__2025-05-03T21:51:13.621212+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpb1bxmgbh']
+[2025-05-03T21:51:27.245+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask extract_gold_data
+[2025-05-03T21:51:27.324+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipeline.extract_gold_data manual__2025-05-03T21:51:13.621212+00:00 [running]> on host 889058e2ea92
+[2025-05-03T21:51:27.462+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipeline' AIRFLOW_CTX_TASK_ID='extract_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T21:51:13.621212+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T21:51:13.621212+00:00'
+[2025-05-03T21:51:44.064+0000] {history.py:250} ERROR - $GC=F: possibly delisted; no price data found  (4h 2025-04-03 -> 2025-05-03)
+[2025-05-03T21:51:44.065+0000] {logging_mixin.py:151} INFO - Aucune donnée récupérée pour GC=F entre 2025-04-03 et 2025-05-03
+[2025-05-03T21:51:44.066+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-05-03T21:51:44.076+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_pipeline, task_id=extract_gold_data, execution_date=20250503T215113, start_date=20250503T215127, end_date=20250503T215144
+[2025-05-03T21:51:44.128+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-03T21:51:44.156+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

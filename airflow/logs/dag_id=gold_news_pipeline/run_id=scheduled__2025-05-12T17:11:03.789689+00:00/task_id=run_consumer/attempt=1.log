@@ -1,0 +1,157 @@
+[2025-05-12T17:21:44.706+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_news_pipeline.run_consumer scheduled__2025-05-12T17:11:03.789689+00:00 [queued]>
+[2025-05-12T17:21:44.719+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_news_pipeline.run_consumer scheduled__2025-05-12T17:11:03.789689+00:00 [queued]>
+[2025-05-12T17:21:44.720+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-12T17:21:44.739+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): run_consumer> on 2025-05-12 17:11:03.789689+00:00
+[2025-05-12T17:21:44.751+0000] {standard_task_runner.py:57} INFO - Started process 2421 to run task
+[2025-05-12T17:21:44.770+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_news_pipeline', 'run_consumer', 'scheduled__2025-05-12T17:11:03.789689+00:00', '--job-id', '82', '--raw', '--subdir', 'DAGS_FOLDER/dag_news.py', '--cfg-path', '/tmp/tmposq1zgw1']
+[2025-05-12T17:21:44.773+0000] {standard_task_runner.py:85} INFO - Job 82: Subtask run_consumer
+[2025-05-12T17:21:44.844+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_news_pipeline.run_consumer scheduled__2025-05-12T17:11:03.789689+00:00 [running]> on host 51d6065cf9f5
+[2025-05-12T17:21:45.010+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_news_pipeline' AIRFLOW_CTX_TASK_ID='run_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-05-12T17:11:03.789689+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-12T17:11:03.789689+00:00'
+[2025-05-12T17:21:45.015+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-12T17:21:45.017+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec gold_price_project-spark-1 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,com.datastax.spark:spark-cassandra-connector_2.12:3.5.0 /scripts/spark_news.py']
+[2025-05-12T17:21:45.035+0000] {subprocess.py:86} INFO - Output:
+[2025-05-12T17:21:53.456+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-05-12T17:21:53.972+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /root/.ivy2/cache
+[2025-05-12T17:21:53.973+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /root/.ivy2/jars
+[2025-05-12T17:21:53.986+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2025-05-12T17:21:53.988+0000] {subprocess.py:93} INFO - com.datastax.spark#spark-cassandra-connector_2.12 added as a dependency
+[2025-05-12T17:21:54.000+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-fa351c42-c8c9-419d-bd6c-aca97f9793af;1.0
+[2025-05-12T17:21:54.002+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-05-12T17:21:58.291+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 in central
+[2025-05-12T17:21:59.090+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 in central
+[2025-05-12T17:21:59.268+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.4.1 in central
+[2025-05-12T17:21:59.442+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2025-05-12T17:21:59.625+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+[2025-05-12T17:22:00.632+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.7 in central
+[2025-05-12T17:22:03.824+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+[2025-05-12T17:22:04.525+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+[2025-05-12T17:22:08.643+0000] {subprocess.py:93} INFO - 	found commons-logging#commons-logging;1.1.3 in central
+[2025-05-12T17:22:08.807+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-05-12T17:22:10.931+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.11.1 in central
+[2025-05-12T17:22:11.054+0000] {subprocess.py:93} INFO - 	found com.datastax.spark#spark-cassandra-connector_2.12;3.5.0 in central
+[2025-05-12T17:22:11.175+0000] {subprocess.py:93} INFO - 	found com.datastax.spark#spark-cassandra-connector-driver_2.12;3.5.0 in central
+[2025-05-12T17:22:11.235+0000] {subprocess.py:93} INFO - 	found org.scala-lang.modules#scala-collection-compat_2.12;2.11.0 in central
+[2025-05-12T17:22:11.322+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-core-shaded;4.13.0 in central
+[2025-05-12T17:22:11.366+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#native-protocol;1.5.0 in central
+[2025-05-12T17:22:11.404+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-shaded-guava;25.1-jre-graal-sub-1 in central
+[2025-05-12T17:22:11.435+0000] {subprocess.py:93} INFO - 	found com.typesafe#config;1.4.1 in central
+[2025-05-12T17:22:11.497+0000] {subprocess.py:93} INFO - 	found io.dropwizard.metrics#metrics-core;4.1.18 in central
+[2025-05-12T17:22:11.561+0000] {subprocess.py:93} INFO - 	found org.hdrhistogram#HdrHistogram;2.1.12 in central
+[2025-05-12T17:22:11.605+0000] {subprocess.py:93} INFO - 	found org.reactivestreams#reactive-streams;1.0.3 in central
+[2025-05-12T17:22:11.708+0000] {subprocess.py:93} INFO - 	found com.github.stephenc.jcip#jcip-annotations;1.0-1 in central
+[2025-05-12T17:22:11.771+0000] {subprocess.py:93} INFO - 	found com.github.spotbugs#spotbugs-annotations;3.1.12 in central
+[2025-05-12T17:22:11.846+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.2 in central
+[2025-05-12T17:22:11.887+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-mapper-runtime;4.13.0 in central
+[2025-05-12T17:22:12.072+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-query-builder;4.13.0 in central
+[2025-05-12T17:22:13.216+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-lang3;3.10 in central
+[2025-05-12T17:22:14.885+0000] {subprocess.py:93} INFO - 	found com.thoughtworks.paranamer#paranamer;2.8 in central
+[2025-05-12T17:22:15.068+0000] {subprocess.py:93} INFO - 	found org.scala-lang#scala-reflect;2.12.11 in central
+[2025-05-12T17:22:15.174+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.5.0/spark-sql-kafka-0-10_2.12-3.5.0.jar ...
+[2025-05-12T17:22:15.367+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0!spark-sql-kafka-0-10_2.12.jar (244ms)
+[2025-05-12T17:22:15.427+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.12/3.5.0/spark-cassandra-connector_2.12-3.5.0.jar ...
+[2025-05-12T17:22:15.932+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/spark/spark-token-provider-kafka-0-10_2.12/3.5.0/spark-token-provider-kafka-0-10_2.12-3.5.0.jar ...
+[2025-05-12T17:22:16.011+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0!spark-token-provider-kafka-0-10_2.12.jar (120ms)
+[2025-05-12T17:22:16.073+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.4.1/kafka-clients-3.4.1.jar ...
+[2025-05-12T17:22:17.232+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.kafka#kafka-clients;3.4.1!kafka-clients.jar (1202ms)
+[2025-05-12T17:22:17.288+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/commons/commons-pool2/2.11.1/commons-pool2-2.11.1.jar ...
+[2025-05-12T17:22:17.394+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.commons#commons-pool2;2.11.1!commons-pool2.jar (168ms)
+[2025-05-12T17:22:17.434+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-runtime/3.3.4/hadoop-client-runtime-3.3.4.jar ...
+[2025-05-12T17:22:24.036+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-runtime;3.3.4!hadoop-client-runtime.jar (6664ms)
+[2025-05-12T17:22:24.114+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar ...
+[2025-05-12T17:22:24.298+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.lz4#lz4-java;1.8.0!lz4-java.jar (259ms)
+[2025-05-12T17:22:24.346+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.10.3/snappy-java-1.1.10.3.jar ...
+[2025-05-12T17:22:24.784+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.10.3!snappy-java.jar(bundle) (485ms)
+[2025-05-12T17:22:24.832+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar ...
+[2025-05-12T17:22:24.894+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.slf4j#slf4j-api;2.0.7!slf4j-api.jar (108ms)
+[2025-05-12T17:22:24.945+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-api/3.3.4/hadoop-client-api-3.3.4.jar ...
+[2025-05-12T17:22:28.341+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-api;3.3.4!hadoop-client-api.jar (3446ms)
+[2025-05-12T17:22:28.391+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar ...
+[2025-05-12T17:22:28.446+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] commons-logging#commons-logging;1.1.3!commons-logging.jar (105ms)
+[2025-05-12T17:22:28.509+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/com/datastax/oss/java-driver-query-builder/4.13.0/java-driver-query-builder-4.13.0.jar ...
+[2025-05-12T17:22:28.600+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] com.datastax.oss#java-driver-query-builder;4.13.0!java-driver-query-builder.jar(bundle) (137ms)
+[2025-05-12T17:22:28.601+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 21130ms :: artifacts dl 13474ms
+[2025-05-12T17:22:28.602+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-05-12T17:22:28.602+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-core-shaded;4.13.0 from central in [default]
+[2025-05-12T17:22:28.603+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-mapper-runtime;4.13.0 from central in [default]
+[2025-05-12T17:22:28.604+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-query-builder;4.13.0 from central in [default]
+[2025-05-12T17:22:28.604+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-shaded-guava;25.1-jre-graal-sub-1 from central in [default]
+[2025-05-12T17:22:28.605+0000] {subprocess.py:93} INFO - 	com.datastax.oss#native-protocol;1.5.0 from central in [default]
+[2025-05-12T17:22:28.606+0000] {subprocess.py:93} INFO - 	com.datastax.spark#spark-cassandra-connector-driver_2.12;3.5.0 from central in [default]
+[2025-05-12T17:22:28.606+0000] {subprocess.py:93} INFO - 	com.datastax.spark#spark-cassandra-connector_2.12;3.5.0 from central in [default]
+[2025-05-12T17:22:28.607+0000] {subprocess.py:93} INFO - 	com.github.spotbugs#spotbugs-annotations;3.1.12 from central in [default]
+[2025-05-12T17:22:28.607+0000] {subprocess.py:93} INFO - 	com.github.stephenc.jcip#jcip-annotations;1.0-1 from central in [default]
+[2025-05-12T17:22:28.608+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.2 from central in [default]
+[2025-05-12T17:22:28.609+0000] {subprocess.py:93} INFO - 	com.thoughtworks.paranamer#paranamer;2.8 from central in [default]
+[2025-05-12T17:22:28.610+0000] {subprocess.py:93} INFO - 	com.typesafe#config;1.4.1 from central in [default]
+[2025-05-12T17:22:28.614+0000] {subprocess.py:93} INFO - 	commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-05-12T17:22:28.616+0000] {subprocess.py:93} INFO - 	io.dropwizard.metrics#metrics-core;4.1.18 from central in [default]
+[2025-05-12T17:22:28.621+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-lang3;3.10 from central in [default]
+[2025-05-12T17:22:28.622+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+[2025-05-12T17:22:28.623+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+[2025-05-12T17:22:28.625+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+[2025-05-12T17:22:28.627+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+[2025-05-12T17:22:28.628+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 from central in [default]
+[2025-05-12T17:22:28.628+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 from central in [default]
+[2025-05-12T17:22:28.629+0000] {subprocess.py:93} INFO - 	org.hdrhistogram#HdrHistogram;2.1.12 from central in [default]
+[2025-05-12T17:22:28.630+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2025-05-12T17:22:28.630+0000] {subprocess.py:93} INFO - 	org.reactivestreams#reactive-streams;1.0.3 from central in [default]
+[2025-05-12T17:22:28.631+0000] {subprocess.py:93} INFO - 	org.scala-lang#scala-reflect;2.12.11 from central in [default]
+[2025-05-12T17:22:28.631+0000] {subprocess.py:93} INFO - 	org.scala-lang.modules#scala-collection-compat_2.12;2.11.0 from central in [default]
+[2025-05-12T17:22:28.632+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.7 from central in [default]
+[2025-05-12T17:22:28.632+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+[2025-05-12T17:22:28.633+0000] {subprocess.py:93} INFO - 	:: evicted modules:
+[2025-05-12T17:22:28.633+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 by [com.google.code.findbugs#jsr305;3.0.2] in [default]
+[2025-05-12T17:22:28.634+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;1.7.26 by [org.slf4j#slf4j-api;2.0.7] in [default]
+[2025-05-12T17:22:28.634+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-12T17:22:28.635+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-05-12T17:22:28.635+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-05-12T17:22:28.636+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-12T17:22:28.637+0000] {subprocess.py:93} INFO - 	|      default     |   30  |   15  |   15  |   2   ||   28  |   11  |
+[2025-05-12T17:22:28.637+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-12T17:22:28.638+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.638+0000] {subprocess.py:93} INFO - :: problems summary ::
+[2025-05-12T17:22:28.639+0000] {subprocess.py:93} INFO - :::: WARNINGS
+[2025-05-12T17:22:28.640+0000] {subprocess.py:93} INFO - 		[FAILED     ] com.datastax.spark#spark-cassandra-connector_2.12;3.5.0!spark-cassandra-connector_2.12.jar: Downloaded file size (0) doesn't match expected Content Length (1649483) for https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.12/3.5.0/spark-cassandra-connector_2.12-3.5.0.jar. Please retry. (498ms)
+[2025-05-12T17:22:28.641+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.642+0000] {subprocess.py:93} INFO - 		[FAILED     ] com.datastax.spark#spark-cassandra-connector_2.12;3.5.0!spark-cassandra-connector_2.12.jar: Downloaded file size (0) doesn't match expected Content Length (1649483) for https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.12/3.5.0/spark-cassandra-connector_2.12-3.5.0.jar. Please retry. (498ms)
+[2025-05-12T17:22:28.642+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.643+0000] {subprocess.py:93} INFO - 	==== central: tried
+[2025-05-12T17:22:28.643+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.644+0000] {subprocess.py:93} INFO - 	  https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.12/3.5.0/spark-cassandra-connector_2.12-3.5.0.jar
+[2025-05-12T17:22:28.644+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.645+0000] {subprocess.py:93} INFO - 		::::::::::::::::::::::::::::::::::::::::::::::
+[2025-05-12T17:22:28.645+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.645+0000] {subprocess.py:93} INFO - 		::              FAILED DOWNLOADS            ::
+[2025-05-12T17:22:28.646+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.646+0000] {subprocess.py:93} INFO - 		:: ^ see resolution messages for details  ^ ::
+[2025-05-12T17:22:28.647+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.647+0000] {subprocess.py:93} INFO - 		::::::::::::::::::::::::::::::::::::::::::::::
+[2025-05-12T17:22:28.648+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.648+0000] {subprocess.py:93} INFO - 		:: com.datastax.spark#spark-cassandra-connector_2.12;3.5.0!spark-cassandra-connector_2.12.jar
+[2025-05-12T17:22:28.649+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.649+0000] {subprocess.py:93} INFO - 		::::::::::::::::::::::::::::::::::::::::::::::
+[2025-05-12T17:22:28.650+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.650+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.650+0000] {subprocess.py:93} INFO - 
+[2025-05-12T17:22:28.651+0000] {subprocess.py:93} INFO - :: USE VERBOSE OR DEBUG MESSAGE LEVEL FOR MORE DETAILS
+[2025-05-12T17:22:28.651+0000] {subprocess.py:93} INFO - Exception in thread "main" java.lang.RuntimeException: [download failed: com.datastax.spark#spark-cassandra-connector_2.12;3.5.0!spark-cassandra-connector_2.12.jar]
+[2025-05-12T17:22:28.652+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmitUtils$.resolveMavenCoordinates(SparkSubmit.scala:1608)
+[2025-05-12T17:22:28.652+0000] {subprocess.py:93} INFO - 	at org.apache.spark.util.DependencyUtils$.resolveMavenDependencies(DependencyUtils.scala:185)
+[2025-05-12T17:22:28.652+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.prepareSubmitEnvironment(SparkSubmit.scala:334)
+[2025-05-12T17:22:28.653+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:964)
+[2025-05-12T17:22:28.653+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.doRunMain$1(SparkSubmit.scala:194)
+[2025-05-12T17:22:28.654+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.submit(SparkSubmit.scala:217)
+[2025-05-12T17:22:28.655+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.doSubmit(SparkSubmit.scala:91)
+[2025-05-12T17:22:28.657+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit$$anon$2.doSubmit(SparkSubmit.scala:1120)
+[2025-05-12T17:22:28.658+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:1129)
+[2025-05-12T17:22:28.658+0000] {subprocess.py:93} INFO - 	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+[2025-05-12T17:22:28.712+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-05-12T17:22:28.739+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-05-12T17:22:28.748+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=gold_news_pipeline, task_id=run_consumer, execution_date=20250512T171103, start_date=20250512T172144, end_date=20250512T172228
+[2025-05-12T17:22:28.772+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 82 for task run_consumer (Bash command failed. The command returned a non-zero exit code 1.; 2421)
+[2025-05-12T17:22:28.789+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-12T17:22:28.827+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

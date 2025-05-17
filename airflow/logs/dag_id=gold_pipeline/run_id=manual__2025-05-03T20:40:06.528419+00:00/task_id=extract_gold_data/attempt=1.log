@@ -1,0 +1,23 @@
+[2025-05-03T20:40:09.432+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipeline.extract_gold_data manual__2025-05-03T20:40:06.528419+00:00 [queued]>
+[2025-05-03T20:40:09.447+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipeline.extract_gold_data manual__2025-05-03T20:40:06.528419+00:00 [queued]>
+[2025-05-03T20:40:09.448+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-03T20:40:09.467+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_gold_data> on 2025-05-03 20:40:06.528419+00:00
+[2025-05-03T20:40:09.478+0000] {standard_task_runner.py:57} INFO - Started process 603 to run task
+[2025-05-03T20:40:09.481+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipeline', 'extract_gold_data', 'manual__2025-05-03T20:40:06.528419+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpqjv1i01m']
+[2025-05-03T20:40:09.485+0000] {standard_task_runner.py:85} INFO - Job 6: Subtask extract_gold_data
+[2025-05-03T20:40:09.544+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipeline.extract_gold_data manual__2025-05-03T20:40:06.528419+00:00 [running]> on host 889058e2ea92
+[2025-05-03T20:40:09.643+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipeline' AIRFLOW_CTX_TASK_ID='extract_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-03T20:40:06.528419+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-03T20:40:06.528419+00:00'
+[2025-05-03T20:40:10.146+0000] {logging_mixin.py:151} INFO - Réponse Alpha Vantage: {'Error Message': 'Invalid API call. Please retry or visit the documentation (https://www.alphavantage.co/documentation/) for TIME_SERIES_INTRADAY.'}
+[2025-05-03T20:40:10.147+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/extract_gold.py", line 20, in extract_gold_data
+    raise ValueError("Erreur Alpha Vantage: 'Time Series (240min)' non trouvé. Vérifiez la clé API, le symbole ou la réponse.")
+ValueError: Erreur Alpha Vantage: 'Time Series (240min)' non trouvé. Vérifiez la clé API, le symbole ou la réponse.
+[2025-05-03T20:40:10.166+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=gold_pipeline, task_id=extract_gold_data, execution_date=20250503T204006, start_date=20250503T204009, end_date=20250503T204010
+[2025-05-03T20:40:10.184+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 6 for task extract_gold_data (Erreur Alpha Vantage: 'Time Series (240min)' non trouvé. Vérifiez la clé API, le symbole ou la réponse.; 603)
+[2025-05-03T20:40:10.218+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-03T20:40:10.246+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

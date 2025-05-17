@@ -1,0 +1,73 @@
+[2025-05-08T14:10:16.148+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T14:09:35.853260+00:00 [queued]>
+[2025-05-08T14:10:16.161+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T14:09:35.853260+00:00 [queued]>
+[2025-05-08T14:10:16.162+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-08T14:10:16.179+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): transform_gold_data> on 2025-05-08 14:09:35.853260+00:00
+[2025-05-08T14:10:16.185+0000] {standard_task_runner.py:57} INFO - Started process 6298 to run task
+[2025-05-08T14:10:16.188+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipeline', 'transform_gold_data', 'manual__2025-05-08T14:09:35.853260+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp4a8wn5_r']
+[2025-05-08T14:10:16.192+0000] {standard_task_runner.py:85} INFO - Job 37: Subtask transform_gold_data
+[2025-05-08T14:10:16.252+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T14:09:35.853260+00:00 [running]> on host 223a2d167166
+[2025-05-08T14:10:16.361+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipeline' AIRFLOW_CTX_TASK_ID='transform_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-08T14:09:35.853260+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-08T14:09:35.853260+00:00'
+[2025-05-08T14:10:16.364+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/gold_prices/2025-05-08.csv'.
+[2025-05-08T14:10:16.402+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/fed_rates/2025-05-08.csv'.
+[2025-05-08T14:10:16.425+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/sp500/2025-05-08.csv'.
+[2025-05-08T14:10:16.463+0000] {logging_mixin.py:151} INFO - Dates uniques dans gold_df: <DatetimeArray>
+['2025-04-08 00:00:00', '2025-04-08 04:00:00', '2025-04-08 08:00:00',
+ '2025-04-08 12:00:00', '2025-04-08 16:00:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-08T14:10:16.464+0000] {logging_mixin.py:151} INFO - Dates uniques dans sp500_df: <DatetimeArray>
+['2025-04-08 09:30:00', '2025-04-08 10:30:00', '2025-04-08 11:30:00',
+ '2025-04-08 12:30:00', '2025-04-08 13:30:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-08T14:10:16.472+0000] {logging_mixin.py:151} INFO - Dates uniques dans sp500_4h: <DatetimeArray>
+['2025-04-08 08:00:00', '2025-04-08 12:00:00', '2025-04-09 08:00:00',
+ '2025-04-09 12:00:00', '2025-04-10 08:00:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-08T14:10:16.475+0000] {logging_mixin.py:151} INFO - Dates uniques dans calendar_df: <DatetimeArray>
+['2025-04-08 00:00:00', '2025-04-08 04:00:00', '2025-04-08 08:00:00',
+ '2025-04-08 12:00:00', '2025-04-08 16:00:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-08T14:10:16.487+0000] {logging_mixin.py:151} INFO - Colonnes dans merged_df: ['date', 'source_name', 'ticker_symbol', 'open_price', 'prix_or', 'volume_or', 'ingestion_timestamp', 'prix_sp500', 'volume_sp500', 'taux_fed']
+[2025-05-08T14:10:16.488+0000] {logging_mixin.py:151} INFO - Taille de merged_df: (186, 10)
+[2025-05-08T14:10:16.492+0000] {logging_mixin.py:151} INFO - Échantillon de merged_df:
+                 date source_name ticker_symbol   open_price      prix_or  volume_or         ingestion_timestamp   prix_sp500  volume_sp500  taux_fed
+0 2025-04-08 00:00:00    yfinance          GC=F  3008.600098  3018.000000    18916.0  2025-05-08T14:09:53.749446          NaN           NaN      4.33
+1 2025-04-08 04:00:00    yfinance          GC=F  3017.699951  3034.100098    27702.0  2025-05-08T14:09:53.749594          NaN           NaN      4.33
+2 2025-04-08 08:00:00    yfinance          GC=F  3034.199951  3016.000000    63689.0  2025-05-08T14:09:53.749659  5190.683268  1.025031e+09      4.33
+3 2025-04-08 12:00:00    yfinance          GC=F  3015.800049  2999.100098    47138.0  2025-05-08T14:09:53.749719  5015.814941  2.399507e+09      4.33
+4 2025-04-08 16:00:00    yfinance          GC=F  2998.899902  2991.800049     8421.0  2025-05-08T14:09:53.749778          NaN           NaN      4.33
+[2025-05-08T14:10:16.496+0000] {logging_mixin.py:151} INFO - Taille de merged_df après dropna: (186, 10)
+[2025-05-08T14:10:16.521+0000] {client.py:496} INFO - Writing to '/gold_datalake/processed/gold_prices_2025-05-08.parquet'.
+[2025-05-08T14:10:16.539+0000] {logging_mixin.py:151} WARNING - Traceback (most recent call last):
+[2025-05-08T14:10:16.540+0000] {logging_mixin.py:151} WARNING -   File "/home/***/.local/lib/python3.8/site-packages/pyarrow/parquet/core.py", line 990, in __init__
+[2025-05-08T14:10:16.543+0000] {logging_mixin.py:151} WARNING -     self.writer = _parquet.ParquetWriter(
+[2025-05-08T14:10:16.544+0000] {logging_mixin.py:151} WARNING - AttributeError: 'AsyncWriter' object has no attribute 'closed'
+[2025-05-08T14:10:16.555+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "pyarrow/_parquet.pyx", line 1718, in pyarrow._parquet.ParquetWriter.__cinit__
+  File "/home/airflow/.local/lib/python3.8/site-packages/pyarrow/util.py", line 93, in _stringify_path
+    raise TypeError("not a path-like object")
+TypeError: not a path-like object
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/transform.py", line 137, in transform_gold_data
+    pq.write_table(table, writer)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pyarrow/parquet/core.py", line 3071, in write_table
+    with ParquetWriter(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pyarrow/parquet/core.py", line 990, in __init__
+    self.writer = _parquet.ParquetWriter(
+  File "pyarrow/_parquet.pyx", line 1720, in pyarrow._parquet.ParquetWriter.__cinit__
+  File "pyarrow/io.pxi", line 1807, in pyarrow.lib.get_writer
+  File "pyarrow/io.pxi", line 214, in pyarrow.lib.NativeFile.get_output_stream
+  File "pyarrow/io.pxi", line 228, in pyarrow.lib.NativeFile._assert_writable
+  File "pyarrow/io.pxi", line 219, in pyarrow.lib.NativeFile._assert_open
+ValueError: I/O operation on closed file
+[2025-05-08T14:10:16.578+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=gold_pipeline, task_id=transform_gold_data, execution_date=20250508T140935, start_date=20250508T141016, end_date=20250508T141016
+[2025-05-08T14:10:16.609+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 37 for task transform_gold_data (I/O operation on closed file; 6298)
+[2025-05-08T14:10:16.645+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-08T14:10:16.736+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

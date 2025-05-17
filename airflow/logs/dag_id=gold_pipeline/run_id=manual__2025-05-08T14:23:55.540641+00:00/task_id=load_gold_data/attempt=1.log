@@ -1,0 +1,67 @@
+[2025-05-08T14:24:35.954+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipeline.load_gold_data manual__2025-05-08T14:23:55.540641+00:00 [queued]>
+[2025-05-08T14:24:35.970+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipeline.load_gold_data manual__2025-05-08T14:23:55.540641+00:00 [queued]>
+[2025-05-08T14:24:35.971+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-08T14:24:35.998+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): load_gold_data> on 2025-05-08 14:23:55.540641+00:00
+[2025-05-08T14:24:36.005+0000] {standard_task_runner.py:57} INFO - Started process 8092 to run task
+[2025-05-08T14:24:36.012+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipeline', 'load_gold_data', 'manual__2025-05-08T14:23:55.540641+00:00', '--job-id', '43', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmp8ezgp592']
+[2025-05-08T14:24:36.017+0000] {standard_task_runner.py:85} INFO - Job 43: Subtask load_gold_data
+[2025-05-08T14:24:36.111+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipeline.load_gold_data manual__2025-05-08T14:23:55.540641+00:00 [running]> on host 223a2d167166
+[2025-05-08T14:24:36.258+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipeline' AIRFLOW_CTX_TASK_ID='load_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-08T14:23:55.540641+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-08T14:23:55.540641+00:00'
+[2025-05-08T14:24:39.966+0000] {logging_mixin.py:151} INFO - Permissions définies avec succès sur /gold_datalake/processed (777)
+[2025-05-08T14:24:39.967+0000] {client.py:724} INFO - Reading file '/gold_datalake/processed/gold_prices_2025-05-08.parquet'.
+[2025-05-08T14:24:40.057+0000] {logging_mixin.py:151} INFO - Fichier Parquet lu avec succès depuis HDFS: /gold_datalake/processed/gold_prices_2025-05-08.parquet
+[2025-05-08T14:24:40.058+0000] {client.py:724} INFO - Reading file '/gold_datalake/processed/dim_date_2025-05-08.parquet'.
+[2025-05-08T14:24:40.087+0000] {logging_mixin.py:151} INFO - Fichier Parquet lu avec succès depuis HDFS: /gold_datalake/processed/dim_date_2025-05-08.parquet
+[2025-05-08T14:24:40.088+0000] {client.py:724} INFO - Reading file '/gold_datalake/processed/dim_marche_2025-05-08.parquet'.
+[2025-05-08T14:24:40.107+0000] {logging_mixin.py:151} INFO - Fichier Parquet lu avec succès depuis HDFS: /gold_datalake/processed/dim_marche_2025-05-08.parquet
+[2025-05-08T14:24:40.108+0000] {connection.py:314} INFO - Snowflake Connector for Python Version: 3.1.1, Python Version: 3.8.18, Platform: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.2.5
+[2025-05-08T14:24:40.109+0000] {connection.py:1050} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-05-08T14:24:40.110+0000] {connection.py:1068} INFO - Setting use_openssl_only mode to False
+[2025-05-08T14:24:42.617+0000] {cursor.py:804} INFO - query: [TRUNCATE TABLE GOLD_ANALYSIS.MARCHE.Dim_Date]
+[2025-05-08T14:24:42.972+0000] {cursor.py:817} INFO - query execution done
+[2025-05-08T14:24:42.972+0000] {cursor.py:959} INFO - Number of results in first chunk: 1
+[2025-05-08T14:24:42.975+0000] {logging_mixin.py:151} WARNING - /opt/***/dags/load.py:69 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2025-05-08T14:24:42.978+0000] {cursor.py:804} INFO - query: [ROLLBACK]
+[2025-05-08T14:24:43.221+0000] {cursor.py:817} INFO - query execution done
+[2025-05-08T14:24:43.222+0000] {cursor.py:959} INFO - Number of results in first chunk: 1
+[2025-05-08T14:24:43.223+0000] {connection.py:640} INFO - closed
+[2025-05-08T14:24:46.126+0000] {connection.py:646} INFO - No async queries seem to be running, deleting session
+[2025-05-08T14:24:46.196+0000] {logging_mixin.py:151} INFO - Connexion Snowflake fermée
+[2025-05-08T14:24:46.198+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 2202, in execute
+    cur.execute(sql, *args)
+  File "/home/airflow/.local/lib/python3.8/site-packages/snowflake/connector/cursor.py", line 772, in execute
+    query = self._preprocess_pyformat_query(command, params)
+  File "/home/airflow/.local/lib/python3.8/site-packages/snowflake/connector/cursor.py", line 604, in _preprocess_pyformat_query
+    query = command % processed_params
+TypeError: not all arguments converted during string formatting
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/load.py", line 69, in load_gold_data
+    dim_date.to_sql("Dim_Date", conn, schema="GOLD_ANALYSIS.MARCHE", index=False, if_exists="append", method="multi")
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 2878, in to_sql
+    return sql.to_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 769, in to_sql
+    return pandas_sql.to_sql(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 2378, in to_sql
+    table.create()
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 903, in create
+    if self.exists():
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 889, in exists
+    return self.pd_sql.has_table(self.name, self.schema)
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 2385, in has_table
+    return len(self.execute(query, [name]).fetchall()) > 0
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 2214, in execute
+    raise ex from exc
+pandas.errors.DatabaseError: Execution failed on sql 'SELECT name FROM sqlite_master WHERE type='table' AND name=?;': not all arguments converted during string formatting
+[2025-05-08T14:24:46.221+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=gold_pipeline, task_id=load_gold_data, execution_date=20250508T142355, start_date=20250508T142435, end_date=20250508T142446
+[2025-05-08T14:24:46.240+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 43 for task load_gold_data (Execution failed on sql 'SELECT name FROM sqlite_master WHERE type='table' AND name=?;': not all arguments converted during string formatting; 8092)
+[2025-05-08T14:24:46.259+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-08T14:24:46.278+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

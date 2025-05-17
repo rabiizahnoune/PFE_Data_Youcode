@@ -1,0 +1,259 @@
+
+networks:
+  airflow_network:
+    driver: bridge
+
+volumes:
+  postgres_db_volume:
+  namenode_data:
+  datanode1_data:
+  hadoop_datanode:
+  kafka_data:
+  zookeeper-data:
+  # mlflow_data:
+  spark-checkpoint:
+  cassandra-data:
+
+
+services:
+  # PostgreSQL pour Airflow
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres_db_volume:/var/lib/postgresql/data
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - airflow_network
+
+  # Airflow Initialisation
+  airflow-init:
+    image: apache/airflow:2.7.1
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./scripts/mapreduce:/mnt/hadoop_data/mapreduce
+      - /var/run/docker.sock:/var/run/docker.sock
+      - hadoop_datanode:/mnt/hadoop_data
+      - ./scripts/batch:/mnt/scripts/batch
+    entrypoint: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Admin --lastname User --email admin@example.com --role Admin"
+    networks:
+      - airflow_network
+    depends_on:
+      - postgres
+
+  # Airflow Webserver
+  airflow-webserver:
+    build:
+      context: ./docker
+      dockerfile: apache.dockerfile
+    restart: always
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__API__AUTH_BACKENDS=airflow.api.auth.backend.basic_auth
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      - airflow-init
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - /var/run/docker.sock:/var/run/docker.sock
+      - hadoop_datanode:/mnt/hadoop_data
+      - ./scripts/mapreduce:/mnt/hadoop_data/mapreduce
+      - ./scripts/batch:/mnt/scripts/batch
+    command: webserver
+    networks:
+      - airflow_network
+
+  # Airflow Scheduler
+  airflow-scheduler:
+    build:
+      context: ./docker
+      dockerfile: apache.dockerfile
+    restart: always
+    environment:
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - hadoop_datanode:/mnt/hadoop_data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./scripts/mapreduce:/mnt/hadoop_data/mapreduce
+      - ./scripts/batch:/mnt/scripts/batch
+    command: scheduler
+    depends_on:
+      - postgres
+      - airflow-init
+    networks:
+      - airflow_network
+
+  # HDFS Namenode
+  namenode:
+    build:
+      context: ./docker
+      dockerfile: hadoop.dockerfile
+    container_name: namenode
+    ports:
+      - "9870:9870"
+    volumes:
+      - namenode_data:/hadoop/dfs/name
+      - hadoop_datanode:/mnt/hadoop_data
+      - ./scripts/mapreduce:/mnt/hadoop_data/mapreduce
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_replication=1
+      - CLUSTER_NAME=test
+    deploy:
+      resources:
+        limits:
+          memory: 4g
+        reservations:
+          memory: 2g
+    networks:
+      - airflow_network
+
+  # HDFS Datanode
+  datanode1:
+    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+    container_name: datanode1
+    ports:
+      - "9864:9864"
+    volumes:
+      - datanode1_data:/hadoop/dfs/data
+      - hadoop_datanode:/mnt/hadoop_data
+      - ./scripts/mapreduce:/mnt/hadoop_data/mapreduce
+    environment:
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_replication=1
+      - CLUSTER_NAME=test
+    depends_on:
+      - namenode
+    deploy:
+      resources:
+        limits:
+          memory: 4g
+        reservations:
+          memory: 2g
+    networks:
+      - airflow_network
+
+  # Zookeeper pour Kafka
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.3.0
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    volumes:
+        - zookeeper-data:/var/lib/zookeeper/data
+    networks:
+      - airflow_network
+
+  # Service Kafka
+  kafka:
+    build:
+      context: .
+      dockerfile: stream/kafka/Dockerfile
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      
+    ports:
+      - "9092:9092"
+    volumes:
+      - ./stream/kafka/scripts:/scripts
+    networks:
+      - airflow_network
+
+  kafka-init:
+      build:
+        context: .
+        dockerfile: stream/kafka/Dockerfile
+      depends_on:
+        - kafka
+      command: >
+        sh -c "sleep 60 && kafka-setup-k8s.sh"
+      networks:
+        - airflow_network
+
+  # Spark Master
+  spark:
+    build:
+      context: .
+      dockerfile: stream/spark/Dockerfile
+    depends_on:
+      kafka:
+        condition: service_started
+      kafka-init:
+        condition: service_completed_successfully
+      
+    volumes:
+      - spark-checkpoint:/opt/spark/checkpoint
+      - ./stream/spark:/scripts
+    networks:
+      - airflow_network
+ 
+
+  
+  # MLflow Server
+  # mlflow-server:
+  #   build: 
+  #     context: ./docker
+  #     dockerfile: ai_trainer.dockerfile
+  #   container_name: mlflow-server
+  #   ports:
+  #     - "5000:5000"
+  #   volumes:
+  #     - mlflow_data:/mlflow
+  #     - ./mlflow:/mlflow_scripts
+  #     - ./ai_scripts:/ai_scripts
+  #   command: >
+  #     bash -c "pip install mlflow && mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri /mlflow/mlruns --default-artifact-root /mlflow/artifacts"
+    
+  #   networks:
+  #     - airflow_network
+  
+
+  cassandra:
+    image: cassandra:4.1
+    container_name: cassandra
+    environment:
+      CASSANDRA_CLUSTER_NAME: 'fintech-cluster'
+      CASSANDRA_DC: DC1
+      CASSANDRA_RACK: RAC1
+      CASSANDRA_ENDPOINT_SNITCH: GossipingPropertyFileSnitch
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra-data:/var/lib/cassandra
+      - ./stream/cassandra/cassandra-setup.cql:/docker-entrypoint-initdb.d/cassandra-setup.cql
+    healthcheck:
+      test: ["CMD", "cqlsh", "-f", "/docker-entrypoint-initdb.d/cassandra-setup.cql"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+
+    networks:
+      - airflow_network
+
+
+
+ 

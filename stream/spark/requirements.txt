@@ -1,0 +1,6 @@
+kafka-python==2.0.2
+pyspark==3.5.0
+cassandra-driver==3.28.0
+finnhub-python>=2.4.10
+rel==0.4.9
+websocket-client==1.5.1

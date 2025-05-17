@@ -1,0 +1,5 @@
+pandas
+snowflake-connector-python
+hdfs
+pyarrow
+snowflake-sqlalchemy

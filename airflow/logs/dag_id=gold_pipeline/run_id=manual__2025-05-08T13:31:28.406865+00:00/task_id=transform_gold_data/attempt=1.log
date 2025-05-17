@@ -1,0 +1,33 @@
+[2025-05-08T13:31:59.972+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T13:31:28.406865+00:00 [queued]>
+[2025-05-08T13:31:59.983+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T13:31:28.406865+00:00 [queued]>
+[2025-05-08T13:31:59.983+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-08T13:32:00.006+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): transform_gold_data> on 2025-05-08 13:31:28.406865+00:00
+[2025-05-08T13:32:00.012+0000] {standard_task_runner.py:57} INFO - Started process 1473 to run task
+[2025-05-08T13:32:00.017+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipeline', 'transform_gold_data', 'manual__2025-05-08T13:31:28.406865+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpg8tfdt68']
+[2025-05-08T13:32:00.020+0000] {standard_task_runner.py:85} INFO - Job 20: Subtask transform_gold_data
+[2025-05-08T13:32:00.071+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipeline.transform_gold_data manual__2025-05-08T13:31:28.406865+00:00 [running]> on host 223a2d167166
+[2025-05-08T13:32:00.170+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipeline' AIRFLOW_CTX_TASK_ID='transform_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-08T13:31:28.406865+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-08T13:31:28.406865+00:00'
+[2025-05-08T13:32:00.172+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/gold_prices/2025-05-08.csv'.
+[2025-05-08T13:32:00.224+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/fed_rates/2025-05-08.csv'.
+[2025-05-08T13:32:00.252+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/sp500/2025-05-08.csv'.
+[2025-05-08T13:32:00.309+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/transform.py", line 52, in transform_gold_data
+    merged_df = calendar_df.merge(gold_df, on="date", how="left") \
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 9843, in merge
+    return merge(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 148, in merge
+    op = _MergeOperation(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 741, in __init__
+    self._maybe_coerce_merge_keys()
+  File "/home/airflow/.local/lib/python3.8/site-packages/pandas/core/reshape/merge.py", line 1415, in _maybe_coerce_merge_keys
+    raise ValueError(msg)
+ValueError: You are trying to merge on datetime64[ns] and datetime64[ns, UTC-04:00] columns. If you wish to proceed you should use pd.concat
+[2025-05-08T13:32:00.324+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=gold_pipeline, task_id=transform_gold_data, execution_date=20250508T133128, start_date=20250508T133159, end_date=20250508T133200
+[2025-05-08T13:32:00.340+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 20 for task transform_gold_data (You are trying to merge on datetime64[ns] and datetime64[ns, UTC-04:00] columns. If you wish to proceed you should use pd.concat; 1473)
+[2025-05-08T13:32:00.389+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-08T13:32:00.423+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
