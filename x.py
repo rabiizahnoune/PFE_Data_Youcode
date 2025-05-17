@@ -25,3 +25,7 @@ if __name__ == "__main__":
                                 on_error=on_error,
                                 on_close=on_close)
     ws.run_forever()
+
+
+
+# streamlit run gold_trading_dashboard.py --server.port=8050 --server.address=0.0.0.0

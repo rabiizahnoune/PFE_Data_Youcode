@@ -21,7 +21,7 @@ with DAG(
     'gold_news_pipeline',
     default_args=default_args,
     description='Pipeline to ingest gold market news with Kafka, Spark, and Cassandra',
-    schedule_interval=timedelta(minutes=10),  # Run every 10 minutes
+    schedule_interval=None,  # Run every 10 minutes
     start_date=days_ago(1),
     catchup=False,
 ) as dag:

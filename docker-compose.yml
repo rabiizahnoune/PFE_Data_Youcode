@@ -261,6 +261,9 @@ services:
 
     ports:
       - "8050:8050"
+
+    volumes:
+      - ./dashboard_batch:/app
     networks:
       - airflow_network
 

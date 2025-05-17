@@ -1,0 +1,946 @@
+[2025-05-17T15:45:52.487+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_news_pipeline.run_consumer manual__2025-05-17T15:45:45.785038+00:00 [queued]>
+[2025-05-17T15:45:52.506+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_news_pipeline.run_consumer manual__2025-05-17T15:45:45.785038+00:00 [queued]>
+[2025-05-17T15:45:52.507+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 4
+[2025-05-17T15:45:52.532+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): run_consumer> on 2025-05-17 15:45:45.785038+00:00
+[2025-05-17T15:45:52.539+0000] {standard_task_runner.py:57} INFO - Started process 5097 to run task
+[2025-05-17T15:45:52.546+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_news_pipeline', 'run_consumer', 'manual__2025-05-17T15:45:45.785038+00:00', '--job-id', '10', '--raw', '--subdir', 'DAGS_FOLDER/dag_news.py', '--cfg-path', '/tmp/tmpy087nrjr']
+[2025-05-17T15:45:52.549+0000] {standard_task_runner.py:85} INFO - Job 10: Subtask run_consumer
+[2025-05-17T15:45:52.618+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_news_pipeline.run_consumer manual__2025-05-17T15:45:45.785038+00:00 [running]> on host 75a565b94570
+[2025-05-17T15:45:52.750+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_news_pipeline' AIRFLOW_CTX_TASK_ID='run_consumer' AIRFLOW_CTX_EXECUTION_DATE='2025-05-17T15:45:45.785038+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-17T15:45:45.785038+00:00'
+[2025-05-17T15:45:52.752+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-17T15:45:52.753+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'docker exec gold_price_project-spark-1 bash -c "export PYSPARK_PYTHON=/usr/bin/python3.8 && spark-submit --conf spark.pyspark.python=/usr/bin/python3.8 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.0,com.datastax.spark:spark-cassandra-connector_2.12:3.5.0 /scripts/spark_news.py"']
+[2025-05-17T15:45:52.771+0000] {subprocess.py:86} INFO - Output:
+[2025-05-17T15:45:57.432+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-05-17T15:45:57.666+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /root/.ivy2/cache
+[2025-05-17T15:45:57.666+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /root/.ivy2/jars
+[2025-05-17T15:45:57.677+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2025-05-17T15:45:57.678+0000] {subprocess.py:93} INFO - com.datastax.spark#spark-cassandra-connector_2.12 added as a dependency
+[2025-05-17T15:45:57.679+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-8b679930-e207-4471-9293-3ca9c88ce578;1.0
+[2025-05-17T15:45:57.679+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-05-17T15:45:57.952+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 in central
+[2025-05-17T15:45:58.063+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 in central
+[2025-05-17T15:45:58.131+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.4.1 in central
+[2025-05-17T15:45:58.179+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2025-05-17T15:45:58.229+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+[2025-05-17T15:45:58.270+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.7 in central
+[2025-05-17T15:45:58.308+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+[2025-05-17T15:45:58.364+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+[2025-05-17T15:45:58.421+0000] {subprocess.py:93} INFO - 	found commons-logging#commons-logging;1.1.3 in central
+[2025-05-17T15:45:58.483+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-05-17T15:45:58.595+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.11.1 in central
+[2025-05-17T15:45:58.643+0000] {subprocess.py:93} INFO - 	found com.datastax.spark#spark-cassandra-connector_2.12;3.5.0 in central
+[2025-05-17T15:45:58.675+0000] {subprocess.py:93} INFO - 	found com.datastax.spark#spark-cassandra-connector-driver_2.12;3.5.0 in central
+[2025-05-17T15:45:58.721+0000] {subprocess.py:93} INFO - 	found org.scala-lang.modules#scala-collection-compat_2.12;2.11.0 in central
+[2025-05-17T15:45:58.766+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-core-shaded;4.13.0 in central
+[2025-05-17T15:45:58.819+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#native-protocol;1.5.0 in central
+[2025-05-17T15:45:58.851+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-shaded-guava;25.1-jre-graal-sub-1 in central
+[2025-05-17T15:45:58.873+0000] {subprocess.py:93} INFO - 	found com.typesafe#config;1.4.1 in central
+[2025-05-17T15:45:58.912+0000] {subprocess.py:93} INFO - 	found io.dropwizard.metrics#metrics-core;4.1.18 in central
+[2025-05-17T15:45:58.938+0000] {subprocess.py:93} INFO - 	found org.hdrhistogram#HdrHistogram;2.1.12 in central
+[2025-05-17T15:45:58.957+0000] {subprocess.py:93} INFO - 	found org.reactivestreams#reactive-streams;1.0.3 in central
+[2025-05-17T15:45:58.981+0000] {subprocess.py:93} INFO - 	found com.github.stephenc.jcip#jcip-annotations;1.0-1 in central
+[2025-05-17T15:45:59.001+0000] {subprocess.py:93} INFO - 	found com.github.spotbugs#spotbugs-annotations;3.1.12 in central
+[2025-05-17T15:45:59.022+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.2 in central
+[2025-05-17T15:45:59.042+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-mapper-runtime;4.13.0 in central
+[2025-05-17T15:45:59.063+0000] {subprocess.py:93} INFO - 	found com.datastax.oss#java-driver-query-builder;4.13.0 in central
+[2025-05-17T15:45:59.086+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-lang3;3.10 in central
+[2025-05-17T15:45:59.115+0000] {subprocess.py:93} INFO - 	found com.thoughtworks.paranamer#paranamer;2.8 in central
+[2025-05-17T15:45:59.132+0000] {subprocess.py:93} INFO - 	found org.scala-lang#scala-reflect;2.12.11 in central
+[2025-05-17T15:45:59.814+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-runtime/3.3.4/hadoop-client-runtime-3.3.4.jar ...
+[2025-05-17T15:46:02.522+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-runtime;3.3.4!hadoop-client-runtime.jar (3335ms)
+[2025-05-17T15:46:02.552+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/lz4/lz4-java/1.8.0/lz4-java-1.8.0.jar ...
+[2025-05-17T15:46:02.684+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.lz4#lz4-java;1.8.0!lz4-java.jar (142ms)
+[2025-05-17T15:46:02.709+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/xerial/snappy/snappy-java/1.1.10.3/snappy-java-1.1.10.3.jar ...
+[2025-05-17T15:46:02.913+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.xerial.snappy#snappy-java;1.1.10.3!snappy-java.jar(bundle) (244ms)
+[2025-05-17T15:46:02.946+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/slf4j/slf4j-api/2.0.7/slf4j-api-2.0.7.jar ...
+[2025-05-17T15:46:02.987+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.slf4j#slf4j-api;2.0.7!slf4j-api.jar (70ms)
+[2025-05-17T15:46:03.021+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-client-api/3.3.4/hadoop-client-api-3.3.4.jar ...
+[2025-05-17T15:46:04.732+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] org.apache.hadoop#hadoop-client-api;3.3.4!hadoop-client-api.jar (1743ms)
+[2025-05-17T15:46:04.764+0000] {subprocess.py:93} INFO - downloading https://repo1.maven.org/maven2/commons-logging/commons-logging/1.1.3/commons-logging-1.1.3.jar ...
+[2025-05-17T15:46:04.802+0000] {subprocess.py:93} INFO - 	[SUCCESSFUL ] commons-logging#commons-logging;1.1.3!commons-logging.jar (65ms)
+[2025-05-17T15:46:04.896+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 1486ms :: artifacts dl 5731ms
+[2025-05-17T15:46:04.898+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-05-17T15:46:04.899+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-core-shaded;4.13.0 from central in [default]
+[2025-05-17T15:46:04.899+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-mapper-runtime;4.13.0 from central in [default]
+[2025-05-17T15:46:04.900+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-query-builder;4.13.0 from central in [default]
+[2025-05-17T15:46:04.901+0000] {subprocess.py:93} INFO - 	com.datastax.oss#java-driver-shaded-guava;25.1-jre-graal-sub-1 from central in [default]
+[2025-05-17T15:46:04.902+0000] {subprocess.py:93} INFO - 	com.datastax.oss#native-protocol;1.5.0 from central in [default]
+[2025-05-17T15:46:04.903+0000] {subprocess.py:93} INFO - 	com.datastax.spark#spark-cassandra-connector-driver_2.12;3.5.0 from central in [default]
+[2025-05-17T15:46:04.904+0000] {subprocess.py:93} INFO - 	com.datastax.spark#spark-cassandra-connector_2.12;3.5.0 from central in [default]
+[2025-05-17T15:46:04.908+0000] {subprocess.py:93} INFO - 	com.github.spotbugs#spotbugs-annotations;3.1.12 from central in [default]
+[2025-05-17T15:46:04.909+0000] {subprocess.py:93} INFO - 	com.github.stephenc.jcip#jcip-annotations;1.0-1 from central in [default]
+[2025-05-17T15:46:04.910+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.2 from central in [default]
+[2025-05-17T15:46:04.911+0000] {subprocess.py:93} INFO - 	com.thoughtworks.paranamer#paranamer;2.8 from central in [default]
+[2025-05-17T15:46:04.912+0000] {subprocess.py:93} INFO - 	com.typesafe#config;1.4.1 from central in [default]
+[2025-05-17T15:46:04.913+0000] {subprocess.py:93} INFO - 	commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-05-17T15:46:04.914+0000] {subprocess.py:93} INFO - 	io.dropwizard.metrics#metrics-core;4.1.18 from central in [default]
+[2025-05-17T15:46:04.914+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-lang3;3.10 from central in [default]
+[2025-05-17T15:46:04.915+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+[2025-05-17T15:46:04.916+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+[2025-05-17T15:46:04.917+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+[2025-05-17T15:46:04.917+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+[2025-05-17T15:46:04.918+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.0 from central in [default]
+[2025-05-17T15:46:04.922+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.0 from central in [default]
+[2025-05-17T15:46:04.923+0000] {subprocess.py:93} INFO - 	org.hdrhistogram#HdrHistogram;2.1.12 from central in [default]
+[2025-05-17T15:46:04.924+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2025-05-17T15:46:04.925+0000] {subprocess.py:93} INFO - 	org.reactivestreams#reactive-streams;1.0.3 from central in [default]
+[2025-05-17T15:46:04.925+0000] {subprocess.py:93} INFO - 	org.scala-lang#scala-reflect;2.12.11 from central in [default]
+[2025-05-17T15:46:04.926+0000] {subprocess.py:93} INFO - 	org.scala-lang.modules#scala-collection-compat_2.12;2.11.0 from central in [default]
+[2025-05-17T15:46:04.927+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.7 from central in [default]
+[2025-05-17T15:46:04.927+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+[2025-05-17T15:46:04.928+0000] {subprocess.py:93} INFO - 	:: evicted modules:
+[2025-05-17T15:46:04.928+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 by [com.google.code.findbugs#jsr305;3.0.2] in [default]
+[2025-05-17T15:46:04.929+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;1.7.26 by [org.slf4j#slf4j-api;2.0.7] in [default]
+[2025-05-17T15:46:04.930+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-17T15:46:04.930+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-05-17T15:46:04.931+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-05-17T15:46:04.931+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-17T15:46:04.933+0000] {subprocess.py:93} INFO - 	|      default     |   30  |   0   |   0   |   2   ||   28  |   6   |
+[2025-05-17T15:46:04.936+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-17T15:46:04.947+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-8b679930-e207-4471-9293-3ca9c88ce578
+[2025-05-17T15:46:04.948+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-05-17T15:46:05.604+0000] {subprocess.py:93} INFO - 	28 artifacts copied, 0 already retrieved (75061kB/656ms)
+[2025-05-17T15:46:06.190+0000] {subprocess.py:93} INFO - 25/05/17 15:46:06 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-17T15:46:11.712+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SparkContext: Running Spark version 3.5.1
+[2025-05-17T15:46:11.713+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-05-17T15:46:11.714+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SparkContext: Java version 11.0.22
+[2025-05-17T15:46:11.750+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO ResourceUtils: ==============================================================
+[2025-05-17T15:46:11.753+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-05-17T15:46:11.754+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO ResourceUtils: ==============================================================
+[2025-05-17T15:46:11.755+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SparkContext: Submitted application: GoldNewsStreaming
+[2025-05-17T15:46:11.802+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-05-17T15:46:11.828+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO ResourceProfile: Limiting resource is cpu
+[2025-05-17T15:46:11.828+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-05-17T15:46:11.929+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SecurityManager: Changing view acls to: root
+[2025-05-17T15:46:11.938+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SecurityManager: Changing modify acls to: root
+[2025-05-17T15:46:11.939+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SecurityManager: Changing view acls groups to:
+[2025-05-17T15:46:11.940+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SecurityManager: Changing modify acls groups to:
+[2025-05-17T15:46:11.941+0000] {subprocess.py:93} INFO - 25/05/17 15:46:11 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+[2025-05-17T15:46:12.511+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO Utils: Successfully started service 'sparkDriver' on port 45225.
+[2025-05-17T15:46:12.575+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO SparkEnv: Registering MapOutputTracker
+[2025-05-17T15:46:12.655+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO SparkEnv: Registering BlockManagerMaster
+[2025-05-17T15:46:12.697+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-05-17T15:46:12.699+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-05-17T15:46:12.707+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-05-17T15:46:12.755+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-efc86da2-84c1-43aa-bf58-9120ab4a100b
+[2025-05-17T15:46:12.777+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-05-17T15:46:12.802+0000] {subprocess.py:93} INFO - 25/05/17 15:46:12 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-05-17T15:46:13.145+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-05-17T15:46:13.244+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-05-17T15:46:13.294+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar at spark://613f75a3f4b1:45225/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.295+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar at spark://613f75a3f4b1:45225/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.295+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar at spark://613f75a3f4b1:45225/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.296+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://613f75a3f4b1:45225/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.297+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://613f75a3f4b1:45225/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.298+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://613f75a3f4b1:45225/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.298+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://613f75a3f4b1:45225/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.299+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://613f75a3f4b1:45225/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.300+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://613f75a3f4b1:45225/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.302+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://613f75a3f4b1:45225/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.304+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://613f75a3f4b1:45225/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.305+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar at spark://613f75a3f4b1:45225/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.306+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar at spark://613f75a3f4b1:45225/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.307+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar at spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.307+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar at spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.308+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.commons_commons-lang3-3.10.jar at spark://613f75a3f4b1:45225/jars/org.apache.commons_commons-lang3-3.10.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.308+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.thoughtworks.paranamer_paranamer-2.8.jar at spark://613f75a3f4b1:45225/jars/com.thoughtworks.paranamer_paranamer-2.8.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.309+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.scala-lang_scala-reflect-2.12.11.jar at spark://613f75a3f4b1:45225/jars/org.scala-lang_scala-reflect-2.12.11.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.309+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.datastax.oss_native-protocol-1.5.0.jar at spark://613f75a3f4b1:45225/jars/com.datastax.oss_native-protocol-1.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.310+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar at spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.310+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.typesafe_config-1.4.1.jar at spark://613f75a3f4b1:45225/jars/com.typesafe_config-1.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.311+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar at spark://613f75a3f4b1:45225/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.312+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar at spark://613f75a3f4b1:45225/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.312+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.reactivestreams_reactive-streams-1.0.3.jar at spark://613f75a3f4b1:45225/jars/org.reactivestreams_reactive-streams-1.0.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.313+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar at spark://613f75a3f4b1:45225/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.313+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar at spark://613f75a3f4b1:45225/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.314+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.2.jar at spark://613f75a3f4b1:45225/jars/com.google.code.findbugs_jsr305-3.0.2.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.314+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar at spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.315+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar at file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.315+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar
+[2025-05-17T15:46:13.332+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar at file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.333+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar
+[2025-05-17T15:46:13.341+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar at file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.341+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar
+[2025-05-17T15:46:13.347+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.348+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-05-17T15:46:13.358+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.359+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-05-17T15:46:13.365+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.366+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-05-17T15:46:13.400+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.401+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.lz4_lz4-java-1.8.0.jar
+[2025-05-17T15:46:13.408+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.410+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-05-17T15:46:13.420+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.421+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.slf4j_slf4j-api-2.0.7.jar
+[2025-05-17T15:46:13.428+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.429+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-05-17T15:46:13.453+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.454+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/commons-logging_commons-logging-1.1.3.jar
+[2025-05-17T15:46:13.460+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar at file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.461+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar
+[2025-05-17T15:46:13.468+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar at file:///root/.ivy2/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.469+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar
+[2025-05-17T15:46:13.474+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar at file:///root/.ivy2/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.475+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-core-shaded-4.13.0.jar
+[2025-05-17T15:46:13.490+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar at file:///root/.ivy2/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.491+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar
+[2025-05-17T15:46:13.497+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.commons_commons-lang3-3.10.jar at file:///root/.ivy2/jars/org.apache.commons_commons-lang3-3.10.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.498+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.apache.commons_commons-lang3-3.10.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-lang3-3.10.jar
+[2025-05-17T15:46:13.513+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.thoughtworks.paranamer_paranamer-2.8.jar at file:///root/.ivy2/jars/com.thoughtworks.paranamer_paranamer-2.8.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.513+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.thoughtworks.paranamer_paranamer-2.8.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.thoughtworks.paranamer_paranamer-2.8.jar
+[2025-05-17T15:46:13.519+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.scala-lang_scala-reflect-2.12.11.jar at file:///root/.ivy2/jars/org.scala-lang_scala-reflect-2.12.11.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.520+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.scala-lang_scala-reflect-2.12.11.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang_scala-reflect-2.12.11.jar
+[2025-05-17T15:46:13.529+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.datastax.oss_native-protocol-1.5.0.jar at file:///root/.ivy2/jars/com.datastax.oss_native-protocol-1.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.530+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.datastax.oss_native-protocol-1.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_native-protocol-1.5.0.jar
+[2025-05-17T15:46:13.536+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar at file:///root/.ivy2/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.537+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar
+[2025-05-17T15:46:13.552+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.typesafe_config-1.4.1.jar at file:///root/.ivy2/jars/com.typesafe_config-1.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.553+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.typesafe_config-1.4.1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.typesafe_config-1.4.1.jar
+[2025-05-17T15:46:13.558+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar at file:///root/.ivy2/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.559+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/io.dropwizard.metrics_metrics-core-4.1.18.jar
+[2025-05-17T15:46:13.563+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar at file:///root/.ivy2/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.564+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.hdrhistogram_HdrHistogram-2.1.12.jar
+[2025-05-17T15:46:13.570+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/org.reactivestreams_reactive-streams-1.0.3.jar at file:///root/.ivy2/jars/org.reactivestreams_reactive-streams-1.0.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.571+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/org.reactivestreams_reactive-streams-1.0.3.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.reactivestreams_reactive-streams-1.0.3.jar
+[2025-05-17T15:46:13.577+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar at file:///root/.ivy2/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.578+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar
+[2025-05-17T15:46:13.584+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar at file:///root/.ivy2/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.585+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.spotbugs_spotbugs-annotations-3.1.12.jar
+[2025-05-17T15:46:13.591+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.2.jar at file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.2.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.592+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.2.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.google.code.findbugs_jsr305-3.0.2.jar
+[2025-05-17T15:46:13.597+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO SparkContext: Added file file:///root/.ivy2/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar at file:///root/.ivy2/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.597+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: Copying /root/.ivy2/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-query-builder-4.13.0.jar
+[2025-05-17T15:46:13.726+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Starting executor ID driver on host 613f75a3f4b1
+[2025-05-17T15:46:13.727+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-05-17T15:46:13.728+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Java version 11.0.22
+[2025-05-17T15:46:13.743+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-05-17T15:46:13.744+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@cca5f6 for default.
+[2025-05-17T15:46:13.765+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.799+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar
+[2025-05-17T15:46:13.803+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.commons_commons-lang3-3.10.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.805+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.apache.commons_commons-lang3-3.10.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-lang3-3.10.jar
+[2025-05-17T15:46:13.809+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.828+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-05-17T15:46:13.832+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.861+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-05-17T15:46:13.867+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.871+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar
+[2025-05-17T15:46:13.876+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.878+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/io.dropwizard.metrics_metrics-core-4.1.18.jar
+[2025-05-17T15:46:13.884+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.885+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar
+[2025-05-17T15:46:13.891+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.900+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-core-shaded-4.13.0.jar
+[2025-05-17T15:46:13.905+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.typesafe_config-1.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.907+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.typesafe_config-1.4.1.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.typesafe_config-1.4.1.jar
+[2025-05-17T15:46:13.914+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.917+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-05-17T15:46:13.925+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.reactivestreams_reactive-streams-1.0.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.929+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.reactivestreams_reactive-streams-1.0.3.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.reactivestreams_reactive-streams-1.0.3.jar
+[2025-05-17T15:46:13.936+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.937+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar
+[2025-05-17T15:46:13.942+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.944+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.slf4j_slf4j-api-2.0.7.jar
+[2025-05-17T15:46:13.948+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.949+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar
+[2025-05-17T15:46:13.953+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.955+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-query-builder-4.13.0.jar
+[2025-05-17T15:46:13.959+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.960+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-05-17T15:46:13.967+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.datastax.oss_native-protocol-1.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.968+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.datastax.oss_native-protocol-1.5.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_native-protocol-1.5.0.jar
+[2025-05-17T15:46:13.972+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.974+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/commons-logging_commons-logging-1.1.3.jar
+[2025-05-17T15:46:13.978+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.thoughtworks.paranamer_paranamer-2.8.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.979+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.thoughtworks.paranamer_paranamer-2.8.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.thoughtworks.paranamer_paranamer-2.8.jar
+[2025-05-17T15:46:13.987+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.2.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.992+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.2.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.google.code.findbugs_jsr305-3.0.2.jar
+[2025-05-17T15:46:13.993+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Executor: Fetching file:///root/.ivy2/jars/org.scala-lang_scala-reflect-2.12.11.jar with timestamp 1747496771694
+[2025-05-17T15:46:13.997+0000] {subprocess.py:93} INFO - 25/05/17 15:46:13 INFO Utils: /root/.ivy2/jars/org.scala-lang_scala-reflect-2.12.11.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang_scala-reflect-2.12.11.jar
+[2025-05-17T15:46:14.003+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.008+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar
+[2025-05-17T15:46:14.013+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching file:///root/.ivy2/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.014+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /root/.ivy2/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.spotbugs_spotbugs-annotations-3.1.12.jar
+[2025-05-17T15:46:14.018+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching file:///root/.ivy2/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.019+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /root/.ivy2/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.hdrhistogram_HdrHistogram-2.1.12.jar
+[2025-05-17T15:46:14.023+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching file:///root/.ivy2/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.024+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /root/.ivy2/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar
+[2025-05-17T15:46:14.027+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching file:///root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.029+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /root/.ivy2/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar
+[2025-05-17T15:46:14.034+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.035+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.lz4_lz4-java-1.8.0.jar
+[2025-05-17T15:46:14.039+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.046+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-05-17T15:46:14.055+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.151+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO TransportClientFactory: Successfully created connection to 613f75a3f4b1/172.18.0.7:45225 after 70 ms (0 ms spent in bootstraps)
+[2025-05-17T15:46:14.168+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8986376782608308889.tmp
+[2025-05-17T15:46:14.250+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8986376782608308889.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar
+[2025-05-17T15:46:14.260+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector_2.12-3.5.0.jar to class loader default
+[2025-05-17T15:46:14.262+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.263+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12095944187778893433.tmp
+[2025-05-17T15:46:14.550+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12095944187778893433.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-05-17T15:46:14.558+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-api-3.3.4.jar to class loader default
+[2025-05-17T15:46:14.561+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.reactivestreams_reactive-streams-1.0.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.566+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.reactivestreams_reactive-streams-1.0.3.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp11089481157580579261.tmp
+[2025-05-17T15:46:14.567+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp11089481157580579261.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.reactivestreams_reactive-streams-1.0.3.jar
+[2025-05-17T15:46:14.572+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.reactivestreams_reactive-streams-1.0.3.jar to class loader default
+[2025-05-17T15:46:14.573+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.typesafe_config-1.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.574+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.typesafe_config-1.4.1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp14170929798343686079.tmp
+[2025-05-17T15:46:14.578+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp14170929798343686079.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.typesafe_config-1.4.1.jar
+[2025-05-17T15:46:14.584+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.typesafe_config-1.4.1.jar to class loader default
+[2025-05-17T15:46:14.585+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.587+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp3047254399192851824.tmp
+[2025-05-17T15:46:14.589+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp3047254399192851824.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.slf4j_slf4j-api-2.0.7.jar
+[2025-05-17T15:46:14.595+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.slf4j_slf4j-api-2.0.7.jar to class loader default
+[2025-05-17T15:46:14.596+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.597+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/io.dropwizard.metrics_metrics-core-4.1.18.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8845932978061424334.tmp
+[2025-05-17T15:46:14.601+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8845932978061424334.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/io.dropwizard.metrics_metrics-core-4.1.18.jar
+[2025-05-17T15:46:14.606+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/io.dropwizard.metrics_metrics-core-4.1.18.jar to class loader default
+[2025-05-17T15:46:14.607+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.608+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp1497413770258299453.tmp
+[2025-05-17T15:46:14.615+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp1497413770258299453.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar
+[2025-05-17T15:46:14.619+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.spark_spark-cassandra-connector-driver_2.12-3.5.0.jar to class loader default
+[2025-05-17T15:46:14.621+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.621+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.github.spotbugs_spotbugs-annotations-3.1.12.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp4946514071393920458.tmp
+[2025-05-17T15:46:14.623+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp4946514071393920458.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.spotbugs_spotbugs-annotations-3.1.12.jar
+[2025-05-17T15:46:14.627+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.spotbugs_spotbugs-annotations-3.1.12.jar to class loader default
+[2025-05-17T15:46:14.627+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.628+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8753386415868672191.tmp
+[2025-05-17T15:46:14.630+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8753386415868672191.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar
+[2025-05-17T15:46:14.634+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.github.stephenc.jcip_jcip-annotations-1.0-1.jar to class loader default
+[2025-05-17T15:46:14.635+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.apache.commons_commons-lang3-3.10.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.636+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.apache.commons_commons-lang3-3.10.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8588571983700401790.tmp
+[2025-05-17T15:46:14.640+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8588571983700401790.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-lang3-3.10.jar
+[2025-05-17T15:46:14.643+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-lang3-3.10.jar to class loader default
+[2025-05-17T15:46:14.644+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.645+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp9584007113078286914.tmp
+[2025-05-17T15:46:14.648+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp9584007113078286914.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-05-17T15:46:14.652+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.commons_commons-pool2-2.11.1.jar to class loader default
+[2025-05-17T15:46:14.653+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.thoughtworks.paranamer_paranamer-2.8.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.654+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.thoughtworks.paranamer_paranamer-2.8.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp16827220095768394243.tmp
+[2025-05-17T15:46:14.656+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp16827220095768394243.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.thoughtworks.paranamer_paranamer-2.8.jar
+[2025-05-17T15:46:14.659+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.thoughtworks.paranamer_paranamer-2.8.jar to class loader default
+[2025-05-17T15:46:14.660+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.662+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12130972175259026935.tmp
+[2025-05-17T15:46:14.663+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12130972175259026935.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar
+[2025-05-17T15:46:14.667+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.0.jar to class loader default
+[2025-05-17T15:46:14.670+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.671+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp4044146953756155501.tmp
+[2025-05-17T15:46:14.676+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp4044146953756155501.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar
+[2025-05-17T15:46:14.681+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.0.jar to class loader default
+[2025-05-17T15:46:14.683+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.684+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp7806990784440932449.tmp
+[2025-05-17T15:46:14.713+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp7806990784440932449.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-05-17T15:46:14.720+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.kafka_kafka-clients-3.4.1.jar to class loader default
+[2025-05-17T15:46:14.721+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.google.code.findbugs_jsr305-3.0.2.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.722+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.google.code.findbugs_jsr305-3.0.2.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp5451789947616771228.tmp
+[2025-05-17T15:46:14.724+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp5451789947616771228.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.google.code.findbugs_jsr305-3.0.2.jar
+[2025-05-17T15:46:14.728+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.google.code.findbugs_jsr305-3.0.2.jar to class loader default
+[2025-05-17T15:46:14.729+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747496771694
+[2025-05-17T15:46:14.730+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12476843001378578901.tmp
+[2025-05-17T15:46:14.996+0000] {subprocess.py:93} INFO - 25/05/17 15:46:14 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12476843001378578901.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-05-17T15:46:15.008+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to class loader default
+[2025-05-17T15:46:15.010+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.010+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp17639768668358610891.tmp
+[2025-05-17T15:46:15.013+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp17639768668358610891.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar
+[2025-05-17T15:46:15.017+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-mapper-runtime-4.13.0.jar to class loader default
+[2025-05-17T15:46:15.020+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.022+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-query-builder-4.13.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp16690339725964656483.tmp
+[2025-05-17T15:46:15.024+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp16690339725964656483.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-query-builder-4.13.0.jar
+[2025-05-17T15:46:15.028+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-query-builder-4.13.0.jar to class loader default
+[2025-05-17T15:46:15.029+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_native-protocol-1.5.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.029+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_native-protocol-1.5.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp13617515129838314909.tmp
+[2025-05-17T15:46:15.033+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp13617515129838314909.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_native-protocol-1.5.0.jar
+[2025-05-17T15:46:15.037+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_native-protocol-1.5.0.jar to class loader default
+[2025-05-17T15:46:15.038+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.040+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp16458555943372606994.tmp
+[2025-05-17T15:46:15.051+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp16458555943372606994.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-05-17T15:46:15.056+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.xerial.snappy_snappy-java-1.1.10.3.jar to class loader default
+[2025-05-17T15:46:15.057+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.scala-lang_scala-reflect-2.12.11.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.058+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.scala-lang_scala-reflect-2.12.11.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8603805220792610910.tmp
+[2025-05-17T15:46:15.075+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp8603805220792610910.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang_scala-reflect-2.12.11.jar
+[2025-05-17T15:46:15.078+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang_scala-reflect-2.12.11.jar to class loader default
+[2025-05-17T15:46:15.079+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.081+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp2012086164757268622.tmp
+[2025-05-17T15:46:15.086+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp2012086164757268622.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.lz4_lz4-java-1.8.0.jar
+[2025-05-17T15:46:15.090+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.lz4_lz4-java-1.8.0.jar to class loader default
+[2025-05-17T15:46:15.091+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.092+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12021327820531111200.tmp
+[2025-05-17T15:46:15.095+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp12021327820531111200.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar
+[2025-05-17T15:46:15.099+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.scala-lang.modules_scala-collection-compat_2.12-2.11.0.jar to class loader default
+[2025-05-17T15:46:15.100+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.101+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp4299253110026297619.tmp
+[2025-05-17T15:46:15.105+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp4299253110026297619.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/commons-logging_commons-logging-1.1.3.jar
+[2025-05-17T15:46:15.108+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/commons-logging_commons-logging-1.1.3.jar to class loader default
+[2025-05-17T15:46:15.110+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.111+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-core-shaded-4.13.0.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp15057252442519267901.tmp
+[2025-05-17T15:46:15.148+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp15057252442519267901.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-core-shaded-4.13.0.jar
+[2025-05-17T15:46:15.154+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-core-shaded-4.13.0.jar to class loader default
+[2025-05-17T15:46:15.155+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.156+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp13875473306063875108.tmp
+[2025-05-17T15:46:15.169+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp13875473306063875108.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar
+[2025-05-17T15:46:15.196+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/com.datastax.oss_java-driver-shaded-guava-25.1-jre-graal-sub-1.jar to class loader default
+[2025-05-17T15:46:15.200+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Fetching spark://613f75a3f4b1:45225/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar with timestamp 1747496771694
+[2025-05-17T15:46:15.207+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Fetching spark://613f75a3f4b1:45225/jars/org.hdrhistogram_HdrHistogram-2.1.12.jar to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp14936462187515967364.tmp
+[2025-05-17T15:46:15.209+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/fetchFileTemp14936462187515967364.tmp has been previously copied to /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.hdrhistogram_HdrHistogram-2.1.12.jar
+[2025-05-17T15:46:15.217+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Executor: Adding file:/tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/userFiles-def06939-7475-49d3-9412-a908807ea6af/org.hdrhistogram_HdrHistogram-2.1.12.jar to class loader default
+[2025-05-17T15:46:15.226+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39327.
+[2025-05-17T15:46:15.227+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO NettyBlockTransferService: Server created on 613f75a3f4b1:39327
+[2025-05-17T15:46:15.233+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-05-17T15:46:15.244+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 613f75a3f4b1, 39327, None)
+[2025-05-17T15:46:15.249+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO BlockManagerMasterEndpoint: Registering block manager 613f75a3f4b1:39327 with 434.4 MiB RAM, BlockManagerId(driver, 613f75a3f4b1, 39327, None)
+[2025-05-17T15:46:15.253+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 613f75a3f4b1, 39327, None)
+[2025-05-17T15:46:15.255+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 613f75a3f4b1, 39327, None)
+[2025-05-17T15:46:15.970+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-05-17T15:46:15.975+0000] {subprocess.py:93} INFO - 25/05/17 15:46:15 INFO SharedState: Warehouse path is 'file:/opt/spark-apps/spark-warehouse'.
+[2025-05-17T15:46:19.806+0000] {subprocess.py:93} INFO - 25/05/17 15:46:19 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+[2025-05-17T15:46:19.896+0000] {subprocess.py:93} INFO - 25/05/17 15:46:19 INFO ResolveWriteToStream: Checkpoint root /tmp/spark-checkpoint/impact_analysis resolved to file:/tmp/spark-checkpoint/impact_analysis.
+[2025-05-17T15:46:19.897+0000] {subprocess.py:93} INFO - 25/05/17 15:46:19 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2025-05-17T15:46:20.009+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO CheckpointFileManager: Writing atomically to file:/tmp/spark-checkpoint/impact_analysis/metadata using temp file file:/tmp/spark-checkpoint/impact_analysis/.metadata.4113689f-b2be-4451-8181-26e963cb3d48.tmp
+[2025-05-17T15:46:20.116+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO CheckpointFileManager: Renamed temp file file:/tmp/spark-checkpoint/impact_analysis/.metadata.4113689f-b2be-4451-8181-26e963cb3d48.tmp to file:/tmp/spark-checkpoint/impact_analysis/metadata
+[2025-05-17T15:46:20.159+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO MicroBatchExecution: Starting [id = e97754e0-7c94-4154-9cea-f26879247eef, runId = a2b807ce-460c-45b2-bfb4-4d64df44db32]. Use file:/tmp/spark-checkpoint/impact_analysis to store the query checkpoint.
+[2025-05-17T15:46:20.182+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO MicroBatchExecution: Reading table [org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaTable@64651059] from DataSourceV2 named 'kafka' [org.apache.spark.sql.kafka010.KafkaSourceProvider@7da4efe4]
+[2025-05-17T15:46:20.228+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 WARN MicroBatchExecution: The read limit MaxRows: 100 for KafkaV2[Subscribe[gold-news]] is ignored when Trigger.Once is used.
+[2025-05-17T15:46:20.293+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO OffsetSeqLog: BatchIds found from listing:
+[2025-05-17T15:46:20.311+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO OffsetSeqLog: BatchIds found from listing:
+[2025-05-17T15:46:20.312+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO MicroBatchExecution: Starting new streaming query.
+[2025-05-17T15:46:20.318+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO MicroBatchExecution: Stream started from {}
+[2025-05-17T15:46:20.827+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 INFO AdminClientConfig: AdminClientConfig values:
+[2025-05-17T15:46:20.828+0000] {subprocess.py:93} INFO - 	auto.include.jmx.reporter = true
+[2025-05-17T15:46:20.829+0000] {subprocess.py:93} INFO - 	bootstrap.servers = [kafka:9092]
+[2025-05-17T15:46:20.830+0000] {subprocess.py:93} INFO - 	client.dns.lookup = use_all_dns_ips
+[2025-05-17T15:46:20.830+0000] {subprocess.py:93} INFO - 	client.id =
+[2025-05-17T15:46:20.831+0000] {subprocess.py:93} INFO - 	connections.max.idle.ms = 300000
+[2025-05-17T15:46:20.831+0000] {subprocess.py:93} INFO - 	default.api.timeout.ms = 60000
+[2025-05-17T15:46:20.832+0000] {subprocess.py:93} INFO - 	metadata.max.age.ms = 300000
+[2025-05-17T15:46:20.832+0000] {subprocess.py:93} INFO - 	metric.reporters = []
+[2025-05-17T15:46:20.833+0000] {subprocess.py:93} INFO - 	metrics.num.samples = 2
+[2025-05-17T15:46:20.833+0000] {subprocess.py:93} INFO - 	metrics.recording.level = INFO
+[2025-05-17T15:46:20.833+0000] {subprocess.py:93} INFO - 	metrics.sample.window.ms = 30000
+[2025-05-17T15:46:20.834+0000] {subprocess.py:93} INFO - 	receive.buffer.bytes = 65536
+[2025-05-17T15:46:20.834+0000] {subprocess.py:93} INFO - 	reconnect.backoff.max.ms = 1000
+[2025-05-17T15:46:20.835+0000] {subprocess.py:93} INFO - 	reconnect.backoff.ms = 50
+[2025-05-17T15:46:20.835+0000] {subprocess.py:93} INFO - 	request.timeout.ms = 30000
+[2025-05-17T15:46:20.836+0000] {subprocess.py:93} INFO - 	retries = 2147483647
+[2025-05-17T15:46:20.836+0000] {subprocess.py:93} INFO - 	retry.backoff.ms = 100
+[2025-05-17T15:46:20.837+0000] {subprocess.py:93} INFO - 	sasl.client.callback.handler.class = null
+[2025-05-17T15:46:20.838+0000] {subprocess.py:93} INFO - 	sasl.jaas.config = null
+[2025-05-17T15:46:20.838+0000] {subprocess.py:93} INFO - 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2025-05-17T15:46:20.839+0000] {subprocess.py:93} INFO - 	sasl.kerberos.min.time.before.relogin = 60000
+[2025-05-17T15:46:20.840+0000] {subprocess.py:93} INFO - 	sasl.kerberos.service.name = null
+[2025-05-17T15:46:20.840+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.jitter = 0.05
+[2025-05-17T15:46:20.841+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2025-05-17T15:46:20.841+0000] {subprocess.py:93} INFO - 	sasl.login.callback.handler.class = null
+[2025-05-17T15:46:20.842+0000] {subprocess.py:93} INFO - 	sasl.login.class = null
+[2025-05-17T15:46:20.842+0000] {subprocess.py:93} INFO - 	sasl.login.connect.timeout.ms = null
+[2025-05-17T15:46:20.843+0000] {subprocess.py:93} INFO - 	sasl.login.read.timeout.ms = null
+[2025-05-17T15:46:20.844+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.buffer.seconds = 300
+[2025-05-17T15:46:20.844+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.min.period.seconds = 60
+[2025-05-17T15:46:20.845+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.factor = 0.8
+[2025-05-17T15:46:20.845+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.jitter = 0.05
+[2025-05-17T15:46:20.845+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.max.ms = 10000
+[2025-05-17T15:46:20.846+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.ms = 100
+[2025-05-17T15:46:20.846+0000] {subprocess.py:93} INFO - 	sasl.mechanism = GSSAPI
+[2025-05-17T15:46:20.847+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.clock.skew.seconds = 30
+[2025-05-17T15:46:20.847+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.audience = null
+[2025-05-17T15:46:20.848+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.issuer = null
+[2025-05-17T15:46:20.849+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+[2025-05-17T15:46:20.849+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+[2025-05-17T15:46:20.850+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+[2025-05-17T15:46:20.850+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.url = null
+[2025-05-17T15:46:20.851+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.scope.claim.name = scope
+[2025-05-17T15:46:20.851+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.sub.claim.name = sub
+[2025-05-17T15:46:20.852+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.token.endpoint.url = null
+[2025-05-17T15:46:20.852+0000] {subprocess.py:93} INFO - 	security.protocol = PLAINTEXT
+[2025-05-17T15:46:20.853+0000] {subprocess.py:93} INFO - 	security.providers = null
+[2025-05-17T15:46:20.853+0000] {subprocess.py:93} INFO - 	send.buffer.bytes = 131072
+[2025-05-17T15:46:20.854+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.max.ms = 30000
+[2025-05-17T15:46:20.854+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.ms = 10000
+[2025-05-17T15:46:20.854+0000] {subprocess.py:93} INFO - 	ssl.cipher.suites = null
+[2025-05-17T15:46:20.855+0000] {subprocess.py:93} INFO - 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+[2025-05-17T15:46:20.855+0000] {subprocess.py:93} INFO - 	ssl.endpoint.identification.algorithm = https
+[2025-05-17T15:46:20.856+0000] {subprocess.py:93} INFO - 	ssl.engine.factory.class = null
+[2025-05-17T15:46:20.857+0000] {subprocess.py:93} INFO - 	ssl.key.password = null
+[2025-05-17T15:46:20.857+0000] {subprocess.py:93} INFO - 	ssl.keymanager.algorithm = SunX509
+[2025-05-17T15:46:20.857+0000] {subprocess.py:93} INFO - 	ssl.keystore.certificate.chain = null
+[2025-05-17T15:46:20.858+0000] {subprocess.py:93} INFO - 	ssl.keystore.key = null
+[2025-05-17T15:46:20.858+0000] {subprocess.py:93} INFO - 	ssl.keystore.location = null
+[2025-05-17T15:46:20.859+0000] {subprocess.py:93} INFO - 	ssl.keystore.password = null
+[2025-05-17T15:46:20.859+0000] {subprocess.py:93} INFO - 	ssl.keystore.type = JKS
+[2025-05-17T15:46:20.860+0000] {subprocess.py:93} INFO - 	ssl.protocol = TLSv1.3
+[2025-05-17T15:46:20.861+0000] {subprocess.py:93} INFO - 	ssl.provider = null
+[2025-05-17T15:46:20.861+0000] {subprocess.py:93} INFO - 	ssl.secure.random.implementation = null
+[2025-05-17T15:46:20.862+0000] {subprocess.py:93} INFO - 	ssl.trustmanager.algorithm = PKIX
+[2025-05-17T15:46:20.862+0000] {subprocess.py:93} INFO - 	ssl.truststore.certificates = null
+[2025-05-17T15:46:20.863+0000] {subprocess.py:93} INFO - 	ssl.truststore.location = null
+[2025-05-17T15:46:20.863+0000] {subprocess.py:93} INFO - 	ssl.truststore.password = null
+[2025-05-17T15:46:20.864+0000] {subprocess.py:93} INFO - 	ssl.truststore.type = JKS
+[2025-05-17T15:46:20.865+0000] {subprocess.py:93} INFO - 
+[2025-05-17T15:46:21.001+0000] {subprocess.py:93} INFO - 25/05/17 15:46:20 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2025-05-17T15:46:21.007+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO AppInfoParser: Kafka version: 3.4.1
+[2025-05-17T15:46:21.008+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO AppInfoParser: Kafka commitId: 8a516edc2755df89
+[2025-05-17T15:46:21.009+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO AppInfoParser: Kafka startTimeMs: 1747496780997
+[2025-05-17T15:46:21.576+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO CheckpointFileManager: Writing atomically to file:/tmp/spark-checkpoint/impact_analysis/sources/0/0 using temp file file:/tmp/spark-checkpoint/impact_analysis/sources/0/.0.90cce423-a68e-4b06-b227-87918947f35a.tmp
+[2025-05-17T15:46:21.597+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO CheckpointFileManager: Renamed temp file file:/tmp/spark-checkpoint/impact_analysis/sources/0/.0.90cce423-a68e-4b06-b227-87918947f35a.tmp to file:/tmp/spark-checkpoint/impact_analysis/sources/0/0
+[2025-05-17T15:46:21.599+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO KafkaMicroBatchStream: Initial offsets: {"gold-news":{"0":0}}
+[2025-05-17T15:46:21.638+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO CheckpointFileManager: Writing atomically to file:/tmp/spark-checkpoint/impact_analysis/offsets/0 using temp file file:/tmp/spark-checkpoint/impact_analysis/offsets/.0.e11b66bb-1ddb-4d33-80e6-7af2b5549a1a.tmp
+[2025-05-17T15:46:21.681+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO CheckpointFileManager: Renamed temp file file:/tmp/spark-checkpoint/impact_analysis/offsets/.0.e11b66bb-1ddb-4d33-80e6-7af2b5549a1a.tmp to file:/tmp/spark-checkpoint/impact_analysis/offsets/0
+[2025-05-17T15:46:21.683+0000] {subprocess.py:93} INFO - 25/05/17 15:46:21 INFO MicroBatchExecution: Committed offsets for batch 0. Metadata OffsetSeqMetadata(0,1747496781626,Map(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200))
+[2025-05-17T15:46:22.288+0000] {subprocess.py:93} INFO - 25/05/17 15:46:22 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-17T15:46:22.372+0000] {subprocess.py:93} INFO - 25/05/17 15:46:22 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-17T15:46:22.465+0000] {subprocess.py:93} INFO - 25/05/17 15:46:22 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-17T15:46:22.468+0000] {subprocess.py:93} INFO - 25/05/17 15:46:22 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-17T15:46:22.961+0000] {subprocess.py:93} INFO - 25/05/17 15:46:22 INFO CodeGenerator: Code generated in 298.975029 ms
+[2025-05-17T15:46:23.154+0000] {subprocess.py:93} INFO - Python version: 3.8.10 (default, Nov 22 2023, 10:22:35)
+[2025-05-17T15:46:23.155+0000] {subprocess.py:93} INFO - [GCC 9.4.0]
+[2025-05-17T15:46:23.156+0000] {subprocess.py:93} INFO - Python executable: /usr/bin/python3.8
+[2025-05-17T15:46:23.156+0000] {subprocess.py:93} INFO - Processing batch 0
+[2025-05-17T15:46:23.198+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO CodeGenerator: Code generated in 8.702426 ms
+[2025-05-17T15:46:23.223+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO SparkContext: Starting job: start at <unknown>:0
+[2025-05-17T15:46:23.243+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO DAGScheduler: Got job 0 (start at <unknown>:0) with 1 output partitions
+[2025-05-17T15:46:23.244+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO DAGScheduler: Final stage: ResultStage 0 (start at <unknown>:0)
+[2025-05-17T15:46:23.244+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-17T15:46:23.249+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO DAGScheduler: Missing parents: List()
+[2025-05-17T15:46:23.254+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[6] at start at <unknown>:0), which has no missing parents
+[2025-05-17T15:46:23.482+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 40.6 KiB, free 434.4 MiB)
+[2025-05-17T15:46:23.526+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 15.7 KiB, free 434.3 MiB)
+[2025-05-17T15:46:23.531+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 613f75a3f4b1:39327 (size: 15.7 KiB, free: 434.4 MiB)
+[2025-05-17T15:46:23.538+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+[2025-05-17T15:46:23.558+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[6] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+[2025-05-17T15:46:23.560+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2025-05-17T15:46:23.613+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (613f75a3f4b1, executor driver, partition 0, PROCESS_LOCAL, 13811 bytes)
+[2025-05-17T15:46:23.632+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+[2025-05-17T15:46:23.840+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO CodeGenerator: Code generated in 68.35949 ms
+[2025-05-17T15:46:23.867+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO CodeGenerator: Code generated in 24.602245 ms
+[2025-05-17T15:46:23.884+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO CodeGenerator: Code generated in 11.882948 ms
+[2025-05-17T15:46:23.890+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=gold-news-0 fromOffset=0 untilOffset=30, for query queryId=e97754e0-7c94-4154-9cea-f26879247eef batchId=0 taskId=0 partitionId=0
+[2025-05-17T15:46:23.998+0000] {subprocess.py:93} INFO - 25/05/17 15:46:23 INFO CodeGenerator: Code generated in 40.403059 ms
+[2025-05-17T15:46:24.066+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO CodeGenerator: Code generated in 41.741697 ms
+[2025-05-17T15:46:24.122+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO ConsumerConfig: ConsumerConfig values:
+[2025-05-17T15:46:24.123+0000] {subprocess.py:93} INFO - 	allow.auto.create.topics = true
+[2025-05-17T15:46:24.124+0000] {subprocess.py:93} INFO - 	auto.commit.interval.ms = 5000
+[2025-05-17T15:46:24.124+0000] {subprocess.py:93} INFO - 	auto.include.jmx.reporter = true
+[2025-05-17T15:46:24.125+0000] {subprocess.py:93} INFO - 	auto.offset.reset = none
+[2025-05-17T15:46:24.126+0000] {subprocess.py:93} INFO - 	bootstrap.servers = [kafka:9092]
+[2025-05-17T15:46:24.126+0000] {subprocess.py:93} INFO - 	check.crcs = true
+[2025-05-17T15:46:24.127+0000] {subprocess.py:93} INFO - 	client.dns.lookup = use_all_dns_ips
+[2025-05-17T15:46:24.127+0000] {subprocess.py:93} INFO - 	client.id = consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1
+[2025-05-17T15:46:24.128+0000] {subprocess.py:93} INFO - 	client.rack =
+[2025-05-17T15:46:24.129+0000] {subprocess.py:93} INFO - 	connections.max.idle.ms = 540000
+[2025-05-17T15:46:24.129+0000] {subprocess.py:93} INFO - 	default.api.timeout.ms = 60000
+[2025-05-17T15:46:24.130+0000] {subprocess.py:93} INFO - 	enable.auto.commit = false
+[2025-05-17T15:46:24.130+0000] {subprocess.py:93} INFO - 	exclude.internal.topics = true
+[2025-05-17T15:46:24.131+0000] {subprocess.py:93} INFO - 	fetch.max.bytes = 52428800
+[2025-05-17T15:46:24.131+0000] {subprocess.py:93} INFO - 	fetch.max.wait.ms = 500
+[2025-05-17T15:46:24.132+0000] {subprocess.py:93} INFO - 	fetch.min.bytes = 1
+[2025-05-17T15:46:24.133+0000] {subprocess.py:93} INFO - 	group.id = spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor
+[2025-05-17T15:46:24.133+0000] {subprocess.py:93} INFO - 	group.instance.id = null
+[2025-05-17T15:46:24.134+0000] {subprocess.py:93} INFO - 	heartbeat.interval.ms = 3000
+[2025-05-17T15:46:24.135+0000] {subprocess.py:93} INFO - 	interceptor.classes = []
+[2025-05-17T15:46:24.135+0000] {subprocess.py:93} INFO - 	internal.leave.group.on.close = true
+[2025-05-17T15:46:24.136+0000] {subprocess.py:93} INFO - 	internal.throw.on.fetch.stable.offset.unsupported = false
+[2025-05-17T15:46:24.137+0000] {subprocess.py:93} INFO - 	isolation.level = read_uncommitted
+[2025-05-17T15:46:24.137+0000] {subprocess.py:93} INFO - 	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+[2025-05-17T15:46:24.138+0000] {subprocess.py:93} INFO - 	max.partition.fetch.bytes = 1048576
+[2025-05-17T15:46:24.142+0000] {subprocess.py:93} INFO - 	max.poll.interval.ms = 300000
+[2025-05-17T15:46:24.143+0000] {subprocess.py:93} INFO - 	max.poll.records = 500
+[2025-05-17T15:46:24.144+0000] {subprocess.py:93} INFO - 	metadata.max.age.ms = 300000
+[2025-05-17T15:46:24.145+0000] {subprocess.py:93} INFO - 	metric.reporters = []
+[2025-05-17T15:46:24.146+0000] {subprocess.py:93} INFO - 	metrics.num.samples = 2
+[2025-05-17T15:46:24.146+0000] {subprocess.py:93} INFO - 	metrics.recording.level = INFO
+[2025-05-17T15:46:24.147+0000] {subprocess.py:93} INFO - 	metrics.sample.window.ms = 30000
+[2025-05-17T15:46:24.147+0000] {subprocess.py:93} INFO - 	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+[2025-05-17T15:46:24.148+0000] {subprocess.py:93} INFO - 	receive.buffer.bytes = 65536
+[2025-05-17T15:46:24.149+0000] {subprocess.py:93} INFO - 	reconnect.backoff.max.ms = 1000
+[2025-05-17T15:46:24.149+0000] {subprocess.py:93} INFO - 	reconnect.backoff.ms = 50
+[2025-05-17T15:46:24.150+0000] {subprocess.py:93} INFO - 	request.timeout.ms = 30000
+[2025-05-17T15:46:24.150+0000] {subprocess.py:93} INFO - 	retry.backoff.ms = 100
+[2025-05-17T15:46:24.151+0000] {subprocess.py:93} INFO - 	sasl.client.callback.handler.class = null
+[2025-05-17T15:46:24.151+0000] {subprocess.py:93} INFO - 	sasl.jaas.config = null
+[2025-05-17T15:46:24.152+0000] {subprocess.py:93} INFO - 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2025-05-17T15:46:24.152+0000] {subprocess.py:93} INFO - 	sasl.kerberos.min.time.before.relogin = 60000
+[2025-05-17T15:46:24.153+0000] {subprocess.py:93} INFO - 	sasl.kerberos.service.name = null
+[2025-05-17T15:46:24.153+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.jitter = 0.05
+[2025-05-17T15:46:24.154+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2025-05-17T15:46:24.155+0000] {subprocess.py:93} INFO - 	sasl.login.callback.handler.class = null
+[2025-05-17T15:46:24.155+0000] {subprocess.py:93} INFO - 	sasl.login.class = null
+[2025-05-17T15:46:24.156+0000] {subprocess.py:93} INFO - 	sasl.login.connect.timeout.ms = null
+[2025-05-17T15:46:24.157+0000] {subprocess.py:93} INFO - 	sasl.login.read.timeout.ms = null
+[2025-05-17T15:46:24.158+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.buffer.seconds = 300
+[2025-05-17T15:46:24.158+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.min.period.seconds = 60
+[2025-05-17T15:46:24.159+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.factor = 0.8
+[2025-05-17T15:46:24.160+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.jitter = 0.05
+[2025-05-17T15:46:24.160+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.max.ms = 10000
+[2025-05-17T15:46:24.161+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.ms = 100
+[2025-05-17T15:46:24.162+0000] {subprocess.py:93} INFO - 	sasl.mechanism = GSSAPI
+[2025-05-17T15:46:24.162+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.clock.skew.seconds = 30
+[2025-05-17T15:46:24.163+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.audience = null
+[2025-05-17T15:46:24.164+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.issuer = null
+[2025-05-17T15:46:24.164+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+[2025-05-17T15:46:24.165+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+[2025-05-17T15:46:24.166+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+[2025-05-17T15:46:24.166+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.url = null
+[2025-05-17T15:46:24.167+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.scope.claim.name = scope
+[2025-05-17T15:46:24.167+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.sub.claim.name = sub
+[2025-05-17T15:46:24.167+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.token.endpoint.url = null
+[2025-05-17T15:46:24.168+0000] {subprocess.py:93} INFO - 	security.protocol = PLAINTEXT
+[2025-05-17T15:46:24.168+0000] {subprocess.py:93} INFO - 	security.providers = null
+[2025-05-17T15:46:24.169+0000] {subprocess.py:93} INFO - 	send.buffer.bytes = 131072
+[2025-05-17T15:46:24.169+0000] {subprocess.py:93} INFO - 	session.timeout.ms = 45000
+[2025-05-17T15:46:24.169+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.max.ms = 30000
+[2025-05-17T15:46:24.170+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.ms = 10000
+[2025-05-17T15:46:24.170+0000] {subprocess.py:93} INFO - 	ssl.cipher.suites = null
+[2025-05-17T15:46:24.171+0000] {subprocess.py:93} INFO - 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+[2025-05-17T15:46:24.171+0000] {subprocess.py:93} INFO - 	ssl.endpoint.identification.algorithm = https
+[2025-05-17T15:46:24.171+0000] {subprocess.py:93} INFO - 	ssl.engine.factory.class = null
+[2025-05-17T15:46:24.172+0000] {subprocess.py:93} INFO - 	ssl.key.password = null
+[2025-05-17T15:46:24.172+0000] {subprocess.py:93} INFO - 	ssl.keymanager.algorithm = SunX509
+[2025-05-17T15:46:24.173+0000] {subprocess.py:93} INFO - 	ssl.keystore.certificate.chain = null
+[2025-05-17T15:46:24.174+0000] {subprocess.py:93} INFO - 	ssl.keystore.key = null
+[2025-05-17T15:46:24.174+0000] {subprocess.py:93} INFO - 	ssl.keystore.location = null
+[2025-05-17T15:46:24.175+0000] {subprocess.py:93} INFO - 	ssl.keystore.password = null
+[2025-05-17T15:46:24.175+0000] {subprocess.py:93} INFO - 	ssl.keystore.type = JKS
+[2025-05-17T15:46:24.176+0000] {subprocess.py:93} INFO - 	ssl.protocol = TLSv1.3
+[2025-05-17T15:46:24.177+0000] {subprocess.py:93} INFO - 	ssl.provider = null
+[2025-05-17T15:46:24.177+0000] {subprocess.py:93} INFO - 	ssl.secure.random.implementation = null
+[2025-05-17T15:46:24.178+0000] {subprocess.py:93} INFO - 	ssl.trustmanager.algorithm = PKIX
+[2025-05-17T15:46:24.178+0000] {subprocess.py:93} INFO - 	ssl.truststore.certificates = null
+[2025-05-17T15:46:24.179+0000] {subprocess.py:93} INFO - 	ssl.truststore.location = null
+[2025-05-17T15:46:24.179+0000] {subprocess.py:93} INFO - 	ssl.truststore.password = null
+[2025-05-17T15:46:24.180+0000] {subprocess.py:93} INFO - 	ssl.truststore.type = JKS
+[2025-05-17T15:46:24.181+0000] {subprocess.py:93} INFO - 	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+[2025-05-17T15:46:24.181+0000] {subprocess.py:93} INFO - 
+[2025-05-17T15:46:24.227+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO AppInfoParser: Kafka version: 3.4.1
+[2025-05-17T15:46:24.228+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO AppInfoParser: Kafka commitId: 8a516edc2755df89
+[2025-05-17T15:46:24.229+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO AppInfoParser: Kafka startTimeMs: 1747496784225
+[2025-05-17T15:46:24.233+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Assigned to partition(s): gold-news-0
+[2025-05-17T15:46:24.249+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Seeking to offset 0 for partition gold-news-0
+[2025-05-17T15:46:24.268+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Resetting the last seen epoch of partition gold-news-0 to 0 since the associated topicId changed from null to 3EijWC59S8-aDDcVsPac4g
+[2025-05-17T15:46:24.270+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Cluster ID: rx9NNGuRTFKD3QEkqcx0GQ
+[2025-05-17T15:46:24.486+0000] {subprocess.py:93} INFO - 25/05/17 15:46:24 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Seeking to earliest offset of partition gold-news-0
+[2025-05-17T15:46:25.032+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Resetting offset for partition gold-news-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-17T15:46:25.033+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Seeking to latest offset of partition gold-news-0
+[2025-05-17T15:46:25.035+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Resetting offset for partition gold-news-0 to position FetchPosition{offset=30, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-17T15:46:25.214+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO KafkaDataConsumer: From Kafka topicPartition=gold-news-0 groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor read 1 records through 1 polls (polled  out 30 records), taking 787794591 nanos, during time span of 971771689 nanos.
+[2025-05-17T15:46:25.252+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 1914 bytes result sent to driver
+[2025-05-17T15:46:25.270+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 1670 ms on 613f75a3f4b1 (executor driver) (1/1)
+[2025-05-17T15:46:25.274+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2025-05-17T15:46:25.282+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: ResultStage 0 (start at <unknown>:0) finished in 2.011 s
+[2025-05-17T15:46:25.292+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-17T15:46:25.293+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2025-05-17T15:46:25.303+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Job 0 finished: start at <unknown>:0, took 2.072690 s
+[2025-05-17T15:46:25.345+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO BlockManagerInfo: Removed broadcast_0_piece0 on 613f75a3f4b1:39327 in memory (size: 15.7 KiB, free: 434.4 MiB)
+[2025-05-17T15:46:25.384+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO CodeGenerator: Code generated in 13.302443 ms
+[2025-05-17T15:46:25.405+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SparkContext: Starting job: call at /opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py:617
+[2025-05-17T15:46:25.408+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Got job 1 (call at /opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py:617) with 1 output partitions
+[2025-05-17T15:46:25.409+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Final stage: ResultStage 1 (call at /opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py:617)
+[2025-05-17T15:46:25.410+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-17T15:46:25.411+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Missing parents: List()
+[2025-05-17T15:46:25.413+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[8] at call at /opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py:617), which has no missing parents
+[2025-05-17T15:46:25.419+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 42.3 KiB, free 434.4 MiB)
+[2025-05-17T15:46:25.423+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 16.1 KiB, free 434.3 MiB)
+[2025-05-17T15:46:25.425+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 613f75a3f4b1:39327 (size: 16.1 KiB, free: 434.4 MiB)
+[2025-05-17T15:46:25.426+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+[2025-05-17T15:46:25.427+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[8] at call at /opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py:617) (first 15 tasks are for partitions Vector(0))
+[2025-05-17T15:46:25.427+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+[2025-05-17T15:46:25.430+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (613f75a3f4b1, executor driver, partition 0, PROCESS_LOCAL, 13811 bytes)
+[2025-05-17T15:46:25.432+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+[2025-05-17T15:46:25.469+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO CodeGenerator: Code generated in 13.001344 ms
+[2025-05-17T15:46:25.470+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=gold-news-0 fromOffset=0 untilOffset=30, for query queryId=e97754e0-7c94-4154-9cea-f26879247eef batchId=0 taskId=1 partitionId=0
+[2025-05-17T15:46:25.484+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Seeking to offset 0 for partition gold-news-0
+[2025-05-17T15:46:25.490+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Seeking to earliest offset of partition gold-news-0
+[2025-05-17T15:46:25.997+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Resetting offset for partition gold-news-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-17T15:46:25.998+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Seeking to latest offset of partition gold-news-0
+[2025-05-17T15:46:26.001+0000] {subprocess.py:93} INFO - 25/05/17 15:46:25 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Resetting offset for partition gold-news-0 to position FetchPosition{offset=30, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-17T15:46:26.027+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO KafkaDataConsumer: From Kafka topicPartition=gold-news-0 groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor read 30 records through 1 polls (polled  out 30 records), taking 516468088 nanos, during time span of 542785418 nanos.
+[2025-05-17T15:46:26.033+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 6904 bytes result sent to driver
+[2025-05-17T15:46:26.038+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 609 ms on 613f75a3f4b1 (executor driver) (1/1)
+[2025-05-17T15:46:26.041+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+[2025-05-17T15:46:26.042+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO DAGScheduler: ResultStage 1 (call at /opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py:617) finished in 0.623 s
+[2025-05-17T15:46:26.043+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-17T15:46:26.044+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+[2025-05-17T15:46:26.045+0000] {subprocess.py:93} INFO - 25/05/17 15:46:26 INFO DAGScheduler: Job 1 finished: call at /opt/spark/python/lib/py4j-0.10.9.7-src.zip/py4j/clientserver.py:617, took 0.638862 s
+[2025-05-17T15:46:27.802+0000] {subprocess.py:93} INFO - 25/05/17 15:46:27 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 613f75a3f4b1:39327 in memory (size: 16.1 KiB, free: 434.4 MiB)
+[2025-05-17T15:46:29.976+0000] {subprocess.py:93} INFO - 25/05/17 15:46:29 INFO DefaultMavenCoordinates: DataStax Java driver for Apache Cassandra(R) (com.datastax.oss:java-driver-core-shaded) version 4.13.0
+[2025-05-17T15:46:30.307+0000] {subprocess.py:93} INFO - 25/05/17 15:46:30 INFO Native: Unable to load JNR native implementation. This could be normal if JNR is excluded from the classpath
+[2025-05-17T15:46:30.308+0000] {subprocess.py:93} INFO - java.lang.NoClassDefFoundError: jnr/posix/POSIXHandler
+[2025-05-17T15:46:30.308+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.os.Native$LibcLoader.load(Native.java:42)
+[2025-05-17T15:46:30.309+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.os.Native.<clinit>(Native.java:59)
+[2025-05-17T15:46:30.310+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.time.Clock.getInstance(Clock.java:41)
+[2025-05-17T15:46:30.310+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.time.MonotonicTimestampGenerator.buildClock(MonotonicTimestampGenerator.java:109)
+[2025-05-17T15:46:30.311+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.time.MonotonicTimestampGenerator.<init>(MonotonicTimestampGenerator.java:43)
+[2025-05-17T15:46:30.311+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.time.AtomicTimestampGenerator.<init>(AtomicTimestampGenerator.java:52)
+[2025-05-17T15:46:30.312+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2025-05-17T15:46:30.312+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+[2025-05-17T15:46:30.313+0000] {subprocess.py:93} INFO - 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+[2025-05-17T15:46:30.313+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.reflect.Constructor.newInstance(Unknown Source)
+[2025-05-17T15:46:30.313+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.util.Reflection.resolveClass(Reflection.java:329)
+[2025-05-17T15:46:30.314+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.util.Reflection.buildFromConfig(Reflection.java:235)
+[2025-05-17T15:46:30.315+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.util.Reflection.buildFromConfig(Reflection.java:110)
+[2025-05-17T15:46:30.315+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.context.DefaultDriverContext.buildTimestampGenerator(DefaultDriverContext.java:377)
+[2025-05-17T15:46:30.316+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.util.concurrent.LazyReference.get(LazyReference.java:55)
+[2025-05-17T15:46:30.316+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.context.DefaultDriverContext.getTimestampGenerator(DefaultDriverContext.java:773)
+[2025-05-17T15:46:30.317+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.session.DefaultSession$SingleThreaded.init(DefaultSession.java:349)
+[2025-05-17T15:46:30.317+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.session.DefaultSession$SingleThreaded.access$1100(DefaultSession.java:300)
+[2025-05-17T15:46:30.318+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.internal.core.session.DefaultSession.lambda$init$0(DefaultSession.java:146)
+[2025-05-17T15:46:30.319+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.shaded.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)
+[2025-05-17T15:46:30.319+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.shaded.netty.util.concurrent.PromiseTask.run(PromiseTask.java:106)
+[2025-05-17T15:46:30.320+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.shaded.netty.channel.DefaultEventLoop.run(DefaultEventLoop.java:54)
+[2025-05-17T15:46:30.320+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.shaded.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+[2025-05-17T15:46:30.320+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.shaded.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+[2025-05-17T15:46:30.321+0000] {subprocess.py:93} INFO - 	at com.datastax.oss.driver.shaded.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+[2025-05-17T15:46:30.321+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.Thread.run(Unknown Source)
+[2025-05-17T15:46:30.321+0000] {subprocess.py:93} INFO - Caused by: java.lang.ClassNotFoundException: jnr.posix.POSIXHandler
+[2025-05-17T15:46:30.322+0000] {subprocess.py:93} INFO - 	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+[2025-05-17T15:46:30.322+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+[2025-05-17T15:46:30.323+0000] {subprocess.py:93} INFO - 	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+[2025-05-17T15:46:30.323+0000] {subprocess.py:93} INFO - 	... 26 more
+[2025-05-17T15:46:30.324+0000] {subprocess.py:93} INFO - 25/05/17 15:46:30 INFO Clock: Could not access native clock (see debug logs for details), falling back to Java system clock
+[2025-05-17T15:46:31.571+0000] {subprocess.py:93} INFO - 25/05/17 15:46:31 INFO CassandraConnector: Connected to Cassandra cluster.
+[2025-05-17T15:46:31.825+0000] {subprocess.py:93} INFO - 25/05/17 15:46:31 INFO CodeGenerator: Code generated in 21.585 ms
+[2025-05-17T15:46:31.860+0000] {subprocess.py:93} INFO - 25/05/17 15:46:31 INFO AppendDataExec: Start processing data source write support: CassandraBulkWrite(org.apache.spark.sql.SparkSession@1f3a1259,com.datastax.spark.connector.cql.CassandraConnector@270e485f,TableDef(gold_news,raw_news,ArrayBuffer(ColumnDef(id,PartitionKeyColumn,VarCharType)),ArrayBuffer(),Stream(ColumnDef(description,RegularColumn,VarCharType), ColumnDef(ingestion_time,RegularColumn,VarCharType), ColumnDef(published_at,RegularColumn,VarCharType), ColumnDef(source,RegularColumn,VarCharType), ColumnDef(title,RegularColumn,VarCharType), ColumnDef(url,RegularColumn,VarCharType)),Stream(),false,false,Map()),WriteConf(BytesInBatch(1024),1000,Partition,ONE,false,false,5,None,TTLOption(DefaultValue),TimestampOption(DefaultValue),true,None),StructType(StructField(id,StringType,false),StructField(title,StringType,true),StructField(source,StringType,true),StructField(published_at,StringType,true),StructField(description,StringType,true),StructField(url,StringType,true),StructField(ingestion_time,StringType,true)),org.apache.spark.SparkConf@60674bc3). The input RDD has 8 partitions.
+[2025-05-17T15:46:31.987+0000] {subprocess.py:93} INFO - 25/05/17 15:46:31 INFO SparkContext: Starting job: save at <unknown>:0
+[2025-05-17T15:46:32.004+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO DAGScheduler: Got job 2 (save at <unknown>:0) with 8 output partitions
+[2025-05-17T15:46:32.005+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO DAGScheduler: Final stage: ResultStage 2 (save at <unknown>:0)
+[2025-05-17T15:46:32.005+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-17T15:46:32.008+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO DAGScheduler: Missing parents: List()
+[2025-05-17T15:46:32.010+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[14] at save at <unknown>:0), which has no missing parents
+[2025-05-17T15:46:32.027+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 21.0 KiB, free 434.4 MiB)
+[2025-05-17T15:46:32.040+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 10.5 KiB, free 434.4 MiB)
+[2025-05-17T15:46:32.042+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 613f75a3f4b1:39327 (size: 10.5 KiB, free: 434.4 MiB)
+[2025-05-17T15:46:32.045+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1585
+[2025-05-17T15:46:32.047+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO DAGScheduler: Submitting 8 missing tasks from ResultStage 2 (MapPartitionsRDD[14] at save at <unknown>:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7))
+[2025-05-17T15:46:32.048+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSchedulerImpl: Adding task set 2.0 with 8 tasks resource profile 0
+[2025-05-17T15:46:32.055+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (613f75a3f4b1, executor driver, partition 0, PROCESS_LOCAL, 14345 bytes)
+[2025-05-17T15:46:32.058+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 3) (613f75a3f4b1, executor driver, partition 1, PROCESS_LOCAL, 14323 bytes)
+[2025-05-17T15:46:32.063+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 2.0 in stage 2.0 (TID 4) (613f75a3f4b1, executor driver, partition 2, PROCESS_LOCAL, 14573 bytes)
+[2025-05-17T15:46:32.071+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 3.0 in stage 2.0 (TID 5) (613f75a3f4b1, executor driver, partition 3, PROCESS_LOCAL, 15672 bytes)
+[2025-05-17T15:46:32.077+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 4.0 in stage 2.0 (TID 6) (613f75a3f4b1, executor driver, partition 4, PROCESS_LOCAL, 14328 bytes)
+[2025-05-17T15:46:32.080+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 5.0 in stage 2.0 (TID 7) (613f75a3f4b1, executor driver, partition 5, PROCESS_LOCAL, 14390 bytes)
+[2025-05-17T15:46:32.089+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 6.0 in stage 2.0 (TID 8) (613f75a3f4b1, executor driver, partition 6, PROCESS_LOCAL, 14311 bytes)
+[2025-05-17T15:46:32.092+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO TaskSetManager: Starting task 7.0 in stage 2.0 (TID 9) (613f75a3f4b1, executor driver, partition 7, PROCESS_LOCAL, 15979 bytes)
+[2025-05-17T15:46:32.095+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+[2025-05-17T15:46:32.118+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 1.0 in stage 2.0 (TID 3)
+[2025-05-17T15:46:32.119+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 7.0 in stage 2.0 (TID 9)
+[2025-05-17T15:46:32.120+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 5.0 in stage 2.0 (TID 7)
+[2025-05-17T15:46:32.140+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 4.0 in stage 2.0 (TID 6)
+[2025-05-17T15:46:32.151+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 2.0 in stage 2.0 (TID 4)
+[2025-05-17T15:46:32.153+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 6.0 in stage 2.0 (TID 8)
+[2025-05-17T15:46:32.154+0000] {subprocess.py:93} INFO - 25/05/17 15:46:32 INFO Executor: Running task 3.0 in stage 2.0 (TID 5)
+[2025-05-17T15:46:33.090+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO CodeGenerator: Code generated in 30.658464 ms
+[2025-05-17T15:46:33.702+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 826, boot = 768, init = 55, finish = 3
+[2025-05-17T15:46:33.703+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 800, boot = 724, init = 75, finish = 1
+[2025-05-17T15:46:33.703+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 887, boot = 802, init = 84, finish = 1
+[2025-05-17T15:46:33.704+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 849, boot = 789, init = 59, finish = 1
+[2025-05-17T15:46:33.705+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 909, boot = 857, init = 51, finish = 1
+[2025-05-17T15:46:33.706+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 931, boot = 880, init = 49, finish = 2
+[2025-05-17T15:46:33.706+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 798, boot = 741, init = 57, finish = 0
+[2025-05-17T15:46:33.707+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonRunner: Times: total = 808, boot = 754, init = 54, finish = 0
+[2025-05-17T15:46:33.715+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 4 (task 6, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.716+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 0 (task 2, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.717+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 7 (task 9, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.718+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 6 (task 8, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.718+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 5 (task 7, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.719+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 2 (task 4, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.719+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 3 (task 5, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.720+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Commit authorized for partition 1 (task 3, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.895+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 5 (task 7, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.896+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 4 (task 6, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.896+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 6 (task 8, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.897+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 1 (task 3, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.898+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 0 (task 2, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.917+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 2 (task 4, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.918+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 7 (task 9, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.923+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 4.0 in stage 2.0 (TID 6). 1896 bytes result sent to driver
+[2025-05-17T15:46:33.924+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 6.0 in stage 2.0 (TID 8). 1896 bytes result sent to driver
+[2025-05-17T15:46:33.925+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 1.0 in stage 2.0 (TID 3). 1939 bytes result sent to driver
+[2025-05-17T15:46:33.926+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 2.0 in stage 2.0 (TID 4). 1939 bytes result sent to driver
+[2025-05-17T15:46:33.927+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 5.0 in stage 2.0 (TID 7). 1939 bytes result sent to driver
+[2025-05-17T15:46:33.929+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 7.0 in stage 2.0 (TID 9). 1896 bytes result sent to driver
+[2025-05-17T15:46:33.934+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DataWritingSparkTask: Committed partition 3 (task 5, attempt 0, stage 2.0)
+[2025-05-17T15:46:33.938+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 1939 bytes result sent to driver
+[2025-05-17T15:46:33.939+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO Executor: Finished task 3.0 in stage 2.0 (TID 5). 1896 bytes result sent to driver
+[2025-05-17T15:46:33.951+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 4.0 in stage 2.0 (TID 6) in 1879 ms on 613f75a3f4b1 (executor driver) (1/8)
+[2025-05-17T15:46:33.953+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 6.0 in stage 2.0 (TID 8) in 1874 ms on 613f75a3f4b1 (executor driver) (2/8)
+[2025-05-17T15:46:33.956+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO PythonAccumulatorV2: Connected to AccumulatorServer at host: 127.0.0.1 port: 40313
+[2025-05-17T15:46:33.961+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 3) in 1903 ms on 613f75a3f4b1 (executor driver) (3/8)
+[2025-05-17T15:46:33.965+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 2.0 in stage 2.0 (TID 4) in 1901 ms on 613f75a3f4b1 (executor driver) (4/8)
+[2025-05-17T15:46:33.966+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 7.0 in stage 2.0 (TID 9) in 1875 ms on 613f75a3f4b1 (executor driver) (5/8)
+[2025-05-17T15:46:33.970+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 3.0 in stage 2.0 (TID 5) in 1897 ms on 613f75a3f4b1 (executor driver) (6/8)
+[2025-05-17T15:46:33.971+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 1917 ms on 613f75a3f4b1 (executor driver) (7/8)
+[2025-05-17T15:46:33.972+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSetManager: Finished task 5.0 in stage 2.0 (TID 7) in 1893 ms on 613f75a3f4b1 (executor driver) (8/8)
+[2025-05-17T15:46:33.973+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool
+[2025-05-17T15:46:33.978+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DAGScheduler: ResultStage 2 (save at <unknown>:0) finished in 1.965 s
+[2025-05-17T15:46:33.980+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-17T15:46:33.981+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+[2025-05-17T15:46:33.983+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO DAGScheduler: Job 2 finished: save at <unknown>:0, took 1.994559 s
+[2025-05-17T15:46:33.987+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO AppendDataExec: Data source write support CassandraBulkWrite(org.apache.spark.sql.SparkSession@1f3a1259,com.datastax.spark.connector.cql.CassandraConnector@270e485f,TableDef(gold_news,raw_news,ArrayBuffer(ColumnDef(id,PartitionKeyColumn,VarCharType)),ArrayBuffer(),Stream(ColumnDef(description,RegularColumn,VarCharType), ColumnDef(ingestion_time,RegularColumn,VarCharType), ColumnDef(published_at,RegularColumn,VarCharType), ColumnDef(source,RegularColumn,VarCharType), ColumnDef(title,RegularColumn,VarCharType), ColumnDef(url,RegularColumn,VarCharType)),Stream(),false,false,Map()),WriteConf(BytesInBatch(1024),1000,Partition,ONE,false,false,5,None,TTLOption(DefaultValue),TimestampOption(DefaultValue),true,None),StructType(StructField(id,StringType,false),StructField(title,StringType,true),StructField(source,StringType,true),StructField(published_at,StringType,true),StructField(description,StringType,true),StructField(url,StringType,true),StructField(ingestion_time,StringType,true)),org.apache.spark.SparkConf@60674bc3) is committing.
+[2025-05-17T15:46:33.990+0000] {subprocess.py:93} INFO - 25/05/17 15:46:33 INFO AppendDataExec: Data source write support CassandraBulkWrite(org.apache.spark.sql.SparkSession@1f3a1259,com.datastax.spark.connector.cql.CassandraConnector@270e485f,TableDef(gold_news,raw_news,ArrayBuffer(ColumnDef(id,PartitionKeyColumn,VarCharType)),ArrayBuffer(),Stream(ColumnDef(description,RegularColumn,VarCharType), ColumnDef(ingestion_time,RegularColumn,VarCharType), ColumnDef(published_at,RegularColumn,VarCharType), ColumnDef(source,RegularColumn,VarCharType), ColumnDef(title,RegularColumn,VarCharType), ColumnDef(url,RegularColumn,VarCharType)),Stream(),false,false,Map()),WriteConf(BytesInBatch(1024),1000,Partition,ONE,false,false,5,None,TTLOption(DefaultValue),TimestampOption(DefaultValue),true,None),StructType(StructField(id,StringType,false),StructField(title,StringType,true),StructField(source,StringType,true),StructField(published_at,StringType,true),StructField(description,StringType,true),StructField(url,StringType,true),StructField(ingestion_time,StringType,true)),org.apache.spark.SparkConf@60674bc3) committed.
+[2025-05-17T15:46:33.995+0000] {subprocess.py:93} INFO - Batch 0 : 30 news brutes écrites dans gold_news.raw_news
+[2025-05-17T15:46:33.996+0000] {subprocess.py:93} INFO - Batch 0 : 30 descriptions valides pour analyse
+[2025-05-17T15:46:36.818+0000] {subprocess.py:93} INFO - Analyse Gemini pour batch 0 : {
+[2025-05-17T15:46:36.819+0000] {subprocess.py:93} INFO -   "impact": 1,
+[2025-05-17T15:46:36.819+0000] {subprocess.py:93} INFO -   "confidence": 0.8,
+[2025-05-17T15:46:36.820+0000] {subprocess.py:93} INFO -   "explanation": "Plusieurs articles mentionnent une baisse du prix de l'or due \u00e0 la r\u00e9duction des tensions commerciales entre les \u00c9tats-Unis et la Chine, ce qui diminue la demande pour un actif refuge comme l'or.  D'autres articles mentionnent des hausses potentielles, mais les informations sur les baisses semblent plus concr\u00e8tes et bas\u00e9es sur des donn\u00e9es de march\u00e9s."
+[2025-05-17T15:46:36.820+0000] {subprocess.py:93} INFO - }
+[2025-05-17T15:46:36.947+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO CodeGenerator: Code generated in 14.588737 ms
+[2025-05-17T15:46:36.955+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO AppendDataExec: Start processing data source write support: CassandraBulkWrite(org.apache.spark.sql.SparkSession@1f3a1259,com.datastax.spark.connector.cql.CassandraConnector@2cf2d194,TableDef(gold_news,impact_analysis,ArrayBuffer(ColumnDef(window_timestamp,PartitionKeyColumn,VarCharType)),ArrayBuffer(),Stream(ColumnDef(confidence,RegularColumn,DoubleType), ColumnDef(explanation,RegularColumn,VarCharType), ColumnDef(impact,RegularColumn,IntType)),Stream(),false,false,Map()),WriteConf(BytesInBatch(1024),1000,Partition,ONE,false,false,5,None,TTLOption(DefaultValue),TimestampOption(DefaultValue),true,None),StructType(StructField(confidence,DoubleType,true),StructField(explanation,StringType,true),StructField(impact,LongType,true),StructField(window_timestamp,StringType,true)),org.apache.spark.SparkConf@2e43380e). The input RDD has 8 partitions.
+[2025-05-17T15:46:36.959+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO SparkContext: Starting job: save at <unknown>:0
+[2025-05-17T15:46:36.961+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO DAGScheduler: Got job 3 (save at <unknown>:0) with 8 output partitions
+[2025-05-17T15:46:36.962+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO DAGScheduler: Final stage: ResultStage 3 (save at <unknown>:0)
+[2025-05-17T15:46:36.963+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-17T15:46:36.965+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO DAGScheduler: Missing parents: List()
+[2025-05-17T15:46:36.966+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[20] at save at <unknown>:0), which has no missing parents
+[2025-05-17T15:46:36.971+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 20.4 KiB, free 434.3 MiB)
+[2025-05-17T15:46:36.988+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 10.5 KiB, free 434.3 MiB)
+[2025-05-17T15:46:36.989+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 613f75a3f4b1:39327 (size: 10.5 KiB, free: 434.4 MiB)
+[2025-05-17T15:46:36.992+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1585
+[2025-05-17T15:46:36.993+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 613f75a3f4b1:39327 in memory (size: 10.5 KiB, free: 434.4 MiB)
+[2025-05-17T15:46:36.994+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO DAGScheduler: Submitting 8 missing tasks from ResultStage 3 (MapPartitionsRDD[20] at save at <unknown>:0) (first 15 tasks are for partitions Vector(0, 1, 2, 3, 4, 5, 6, 7))
+[2025-05-17T15:46:36.994+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO TaskSchedulerImpl: Adding task set 3.0 with 8 tasks resource profile 0
+[2025-05-17T15:46:36.996+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 10) (613f75a3f4b1, executor driver, partition 0, PROCESS_LOCAL, 12854 bytes)
+[2025-05-17T15:46:36.997+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO TaskSetManager: Starting task 1.0 in stage 3.0 (TID 11) (613f75a3f4b1, executor driver, partition 1, PROCESS_LOCAL, 12854 bytes)
+[2025-05-17T15:46:36.999+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO TaskSetManager: Starting task 2.0 in stage 3.0 (TID 12) (613f75a3f4b1, executor driver, partition 2, PROCESS_LOCAL, 12854 bytes)
+[2025-05-17T15:46:36.999+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO TaskSetManager: Starting task 3.0 in stage 3.0 (TID 13) (613f75a3f4b1, executor driver, partition 3, PROCESS_LOCAL, 12854 bytes)
+[2025-05-17T15:46:37.000+0000] {subprocess.py:93} INFO - 25/05/17 15:46:36 INFO TaskSetManager: Starting task 4.0 in stage 3.0 (TID 14) (613f75a3f4b1, executor driver, partition 4, PROCESS_LOCAL, 12854 bytes)
+[2025-05-17T15:46:37.002+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Starting task 5.0 in stage 3.0 (TID 15) (613f75a3f4b1, executor driver, partition 5, PROCESS_LOCAL, 12854 bytes)
+[2025-05-17T15:46:37.003+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Starting task 6.0 in stage 3.0 (TID 16) (613f75a3f4b1, executor driver, partition 6, PROCESS_LOCAL, 12854 bytes)
+[2025-05-17T15:46:37.005+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Starting task 7.0 in stage 3.0 (TID 17) (613f75a3f4b1, executor driver, partition 7, PROCESS_LOCAL, 13280 bytes)
+[2025-05-17T15:46:37.006+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 3.0 in stage 3.0 (TID 13)
+[2025-05-17T15:46:37.007+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 0.0 in stage 3.0 (TID 10)
+[2025-05-17T15:46:37.008+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 1.0 in stage 3.0 (TID 11)
+[2025-05-17T15:46:37.008+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 6.0 in stage 3.0 (TID 16)
+[2025-05-17T15:46:37.009+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 5.0 in stage 3.0 (TID 15)
+[2025-05-17T15:46:37.010+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 2.0 in stage 3.0 (TID 12)
+[2025-05-17T15:46:37.010+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 4.0 in stage 3.0 (TID 14)
+[2025-05-17T15:46:37.011+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Running task 7.0 in stage 3.0 (TID 17)
+[2025-05-17T15:46:37.054+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO CodeGenerator: Code generated in 12.589784 ms
+[2025-05-17T15:46:37.101+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 62, boot = -3758, init = 3820, finish = 0
+[2025-05-17T15:46:37.103+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 4 (task 14, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.105+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 64, boot = -3796, init = 3860, finish = 0
+[2025-05-17T15:46:37.106+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 3 (task 13, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.107+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 53, boot = -3865, init = 3918, finish = 0
+[2025-05-17T15:46:37.108+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 3 (task 13, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.111+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 6 (task 16, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.113+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 3.0 in stage 3.0 (TID 13). 1853 bytes result sent to driver
+[2025-05-17T15:46:37.115+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 4 (task 14, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.117+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 44, boot = -3839, init = 3883, finish = 0
+[2025-05-17T15:46:37.118+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 3.0 in stage 3.0 (TID 13) in 118 ms on 613f75a3f4b1 (executor driver) (1/8)
+[2025-05-17T15:46:37.118+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 6 (task 16, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.119+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 0 (task 10, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.119+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 0 (task 10, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.120+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 4.0 in stage 3.0 (TID 14). 1853 bytes result sent to driver
+[2025-05-17T15:46:37.121+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 54, boot = -3883, init = 3937, finish = 0
+[2025-05-17T15:46:37.139+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 4.0 in stage 3.0 (TID 14) in 138 ms on 613f75a3f4b1 (executor driver) (2/8)
+[2025-05-17T15:46:37.140+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 1 (task 11, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.142+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 6.0 in stage 3.0 (TID 16). 1896 bytes result sent to driver
+[2025-05-17T15:46:37.144+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 0.0 in stage 3.0 (TID 10). 1853 bytes result sent to driver
+[2025-05-17T15:46:37.145+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 1 (task 11, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.149+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 1.0 in stage 3.0 (TID 11). 1853 bytes result sent to driver
+[2025-05-17T15:46:37.150+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 61, boot = -3851, init = 3912, finish = 0
+[2025-05-17T15:46:37.151+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 10) in 153 ms on 613f75a3f4b1 (executor driver) (3/8)
+[2025-05-17T15:46:37.152+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 1.0 in stage 3.0 (TID 11) in 152 ms on 613f75a3f4b1 (executor driver) (4/8)
+[2025-05-17T15:46:37.153+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 5 (task 15, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.154+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 52, boot = -3836, init = 3888, finish = 0
+[2025-05-17T15:46:37.154+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 2 (task 12, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.155+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 5 (task 15, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.155+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 6.0 in stage 3.0 (TID 16) in 150 ms on 613f75a3f4b1 (executor driver) (5/8)
+[2025-05-17T15:46:37.155+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 2 (task 12, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.158+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 2.0 in stage 3.0 (TID 12). 1896 bytes result sent to driver
+[2025-05-17T15:46:37.159+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 5.0 in stage 3.0 (TID 15). 1853 bytes result sent to driver
+[2025-05-17T15:46:37.161+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 5.0 in stage 3.0 (TID 15) in 161 ms on 613f75a3f4b1 (executor driver) (6/8)
+[2025-05-17T15:46:37.162+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO PythonRunner: Times: total = 64, boot = -3767, init = 3831, finish = 0
+[2025-05-17T15:46:37.163+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 2.0 in stage 3.0 (TID 12) in 164 ms on 613f75a3f4b1 (executor driver) (7/8)
+[2025-05-17T15:46:37.164+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Commit authorized for partition 7 (task 17, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.172+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DataWritingSparkTask: Committed partition 7 (task 17, attempt 0, stage 3.0)
+[2025-05-17T15:46:37.176+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Executor: Finished task 7.0 in stage 3.0 (TID 17). 1853 bytes result sent to driver
+[2025-05-17T15:46:37.178+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSetManager: Finished task 7.0 in stage 3.0 (TID 17) in 174 ms on 613f75a3f4b1 (executor driver) (8/8)
+[2025-05-17T15:46:37.178+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool
+[2025-05-17T15:46:37.181+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DAGScheduler: ResultStage 3 (save at <unknown>:0) finished in 0.212 s
+[2025-05-17T15:46:37.183+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-17T15:46:37.183+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+[2025-05-17T15:46:37.184+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO DAGScheduler: Job 3 finished: save at <unknown>:0, took 0.223023 s
+[2025-05-17T15:46:37.184+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO AppendDataExec: Data source write support CassandraBulkWrite(org.apache.spark.sql.SparkSession@1f3a1259,com.datastax.spark.connector.cql.CassandraConnector@2cf2d194,TableDef(gold_news,impact_analysis,ArrayBuffer(ColumnDef(window_timestamp,PartitionKeyColumn,VarCharType)),ArrayBuffer(),Stream(ColumnDef(confidence,RegularColumn,DoubleType), ColumnDef(explanation,RegularColumn,VarCharType), ColumnDef(impact,RegularColumn,IntType)),Stream(),false,false,Map()),WriteConf(BytesInBatch(1024),1000,Partition,ONE,false,false,5,None,TTLOption(DefaultValue),TimestampOption(DefaultValue),true,None),StructType(StructField(confidence,DoubleType,true),StructField(explanation,StringType,true),StructField(impact,LongType,true),StructField(window_timestamp,StringType,true)),org.apache.spark.SparkConf@2e43380e) is committing.
+[2025-05-17T15:46:37.186+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO AppendDataExec: Data source write support CassandraBulkWrite(org.apache.spark.sql.SparkSession@1f3a1259,com.datastax.spark.connector.cql.CassandraConnector@2cf2d194,TableDef(gold_news,impact_analysis,ArrayBuffer(ColumnDef(window_timestamp,PartitionKeyColumn,VarCharType)),ArrayBuffer(),Stream(ColumnDef(confidence,RegularColumn,DoubleType), ColumnDef(explanation,RegularColumn,VarCharType), ColumnDef(impact,RegularColumn,IntType)),Stream(),false,false,Map()),WriteConf(BytesInBatch(1024),1000,Partition,ONE,false,false,5,None,TTLOption(DefaultValue),TimestampOption(DefaultValue),true,None),StructType(StructField(confidence,DoubleType,true),StructField(explanation,StringType,true),StructField(impact,LongType,true),StructField(window_timestamp,StringType,true)),org.apache.spark.SparkConf@2e43380e) committed.
+[2025-05-17T15:46:37.188+0000] {subprocess.py:93} INFO - Batch 0 : Résultat d'impact écrit dans gold_news.impact_analysis
+[2025-05-17T15:46:37.188+0000] {subprocess.py:93} INFO - Batch 0 processing completed
+[2025-05-17T15:46:37.208+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO CheckpointFileManager: Writing atomically to file:/tmp/spark-checkpoint/impact_analysis/commits/0 using temp file file:/tmp/spark-checkpoint/impact_analysis/commits/.0.27002168-35cb-4ee3-a95d-b343d20f76b3.tmp
+[2025-05-17T15:46:37.242+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO CheckpointFileManager: Renamed temp file file:/tmp/spark-checkpoint/impact_analysis/commits/.0.27002168-35cb-4ee3-a95d-b343d20f76b3.tmp to file:/tmp/spark-checkpoint/impact_analysis/commits/0
+[2025-05-17T15:46:37.306+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO MicroBatchExecution: Streaming query made progress: {
+[2025-05-17T15:46:37.307+0000] {subprocess.py:93} INFO -   "id" : "e97754e0-7c94-4154-9cea-f26879247eef",
+[2025-05-17T15:46:37.308+0000] {subprocess.py:93} INFO -   "runId" : "a2b807ce-460c-45b2-bfb4-4d64df44db32",
+[2025-05-17T15:46:37.309+0000] {subprocess.py:93} INFO -   "name" : null,
+[2025-05-17T15:46:37.310+0000] {subprocess.py:93} INFO -   "timestamp" : "2025-05-17T15:46:20.231Z",
+[2025-05-17T15:46:37.310+0000] {subprocess.py:93} INFO -   "batchId" : 0,
+[2025-05-17T15:46:37.311+0000] {subprocess.py:93} INFO -   "numInputRows" : 31,
+[2025-05-17T15:46:37.311+0000] {subprocess.py:93} INFO -   "inputRowsPerSecond" : 0.0,
+[2025-05-17T15:46:37.312+0000] {subprocess.py:93} INFO -   "processedRowsPerSecond" : 1.8224573780129334,
+[2025-05-17T15:46:37.312+0000] {subprocess.py:93} INFO -   "durationMs" : {
+[2025-05-17T15:46:37.313+0000] {subprocess.py:93} INFO -     "addBatch" : 14778,
+[2025-05-17T15:46:37.313+0000] {subprocess.py:93} INFO -     "commitOffsets" : 45,
+[2025-05-17T15:46:37.314+0000] {subprocess.py:93} INFO -     "getBatch" : 32,
+[2025-05-17T15:46:37.314+0000] {subprocess.py:93} INFO -     "latestOffset" : 1304,
+[2025-05-17T15:46:37.315+0000] {subprocess.py:93} INFO -     "queryPlanning" : 683,
+[2025-05-17T15:46:37.316+0000] {subprocess.py:93} INFO -     "triggerExecution" : 17008,
+[2025-05-17T15:46:37.317+0000] {subprocess.py:93} INFO -     "walCommit" : 53
+[2025-05-17T15:46:37.318+0000] {subprocess.py:93} INFO -   },
+[2025-05-17T15:46:37.322+0000] {subprocess.py:93} INFO -   "stateOperators" : [ ],
+[2025-05-17T15:46:37.323+0000] {subprocess.py:93} INFO -   "sources" : [ {
+[2025-05-17T15:46:37.324+0000] {subprocess.py:93} INFO -     "description" : "KafkaV2[Subscribe[gold-news]]",
+[2025-05-17T15:46:37.325+0000] {subprocess.py:93} INFO -     "startOffset" : null,
+[2025-05-17T15:46:37.326+0000] {subprocess.py:93} INFO -     "endOffset" : {
+[2025-05-17T15:46:37.326+0000] {subprocess.py:93} INFO -       "gold-news" : {
+[2025-05-17T15:46:37.327+0000] {subprocess.py:93} INFO -         "0" : 30
+[2025-05-17T15:46:37.327+0000] {subprocess.py:93} INFO -       }
+[2025-05-17T15:46:37.328+0000] {subprocess.py:93} INFO -     },
+[2025-05-17T15:46:37.329+0000] {subprocess.py:93} INFO -     "latestOffset" : {
+[2025-05-17T15:46:37.329+0000] {subprocess.py:93} INFO -       "gold-news" : {
+[2025-05-17T15:46:37.330+0000] {subprocess.py:93} INFO -         "0" : 30
+[2025-05-17T15:46:37.331+0000] {subprocess.py:93} INFO -       }
+[2025-05-17T15:46:37.331+0000] {subprocess.py:93} INFO -     },
+[2025-05-17T15:46:37.331+0000] {subprocess.py:93} INFO -     "numInputRows" : 31,
+[2025-05-17T15:46:37.332+0000] {subprocess.py:93} INFO -     "inputRowsPerSecond" : 0.0,
+[2025-05-17T15:46:37.332+0000] {subprocess.py:93} INFO -     "processedRowsPerSecond" : 1.8224573780129334,
+[2025-05-17T15:46:37.333+0000] {subprocess.py:93} INFO -     "metrics" : {
+[2025-05-17T15:46:37.334+0000] {subprocess.py:93} INFO -       "avgOffsetsBehindLatest" : "0.0",
+[2025-05-17T15:46:37.334+0000] {subprocess.py:93} INFO -       "maxOffsetsBehindLatest" : "0",
+[2025-05-17T15:46:37.335+0000] {subprocess.py:93} INFO -       "minOffsetsBehindLatest" : "0"
+[2025-05-17T15:46:37.335+0000] {subprocess.py:93} INFO -     }
+[2025-05-17T15:46:37.336+0000] {subprocess.py:93} INFO -   } ],
+[2025-05-17T15:46:37.337+0000] {subprocess.py:93} INFO -   "sink" : {
+[2025-05-17T15:46:37.337+0000] {subprocess.py:93} INFO -     "description" : "ForeachBatchSink",
+[2025-05-17T15:46:37.338+0000] {subprocess.py:93} INFO -     "numOutputRows" : -1
+[2025-05-17T15:46:37.339+0000] {subprocess.py:93} INFO -   }
+[2025-05-17T15:46:37.339+0000] {subprocess.py:93} INFO - }
+[2025-05-17T15:46:37.340+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO AppInfoParser: App info kafka.admin.client for adminclient-1 unregistered
+[2025-05-17T15:46:37.341+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Metrics: Metrics scheduler closed
+[2025-05-17T15:46:37.341+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Metrics: Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[2025-05-17T15:46:37.341+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO Metrics: Metrics reporters closed
+[2025-05-17T15:46:37.342+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO MicroBatchExecution: Async log purge executor pool for query [id = e97754e0-7c94-4154-9cea-f26879247eef, runId = a2b807ce-460c-45b2-bfb4-4d64df44db32] has been shutdown
+[2025-05-17T15:46:37.352+0000] {subprocess.py:93} INFO - Streaming query completed successfully
+[2025-05-17T15:46:37.354+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2025-05-17T15:46:37.373+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO SparkUI: Stopped Spark web UI at http://613f75a3f4b1:4040
+[2025-05-17T15:46:37.409+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2025-05-17T15:46:37.433+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO MemoryStore: MemoryStore cleared
+[2025-05-17T15:46:37.434+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO BlockManager: BlockManager stopped
+[2025-05-17T15:46:37.439+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2025-05-17T15:46:37.445+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2025-05-17T15:46:37.466+0000] {subprocess.py:93} INFO - 25/05/17 15:46:37 INFO SparkContext: Successfully stopped SparkContext
+[2025-05-17T15:46:38.191+0000] {subprocess.py:93} INFO - Spark session stopped
+[2025-05-17T15:46:38.319+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO ConsumerCoordinator: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Resetting generation and member id due to: consumer pro-actively leaving the group
+[2025-05-17T15:46:38.321+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO ConsumerCoordinator: [Consumer clientId=consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1, groupId=spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor] Request joining group due to: consumer pro-actively leaving the group
+[2025-05-17T15:46:38.324+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO Metrics: Metrics scheduler closed
+[2025-05-17T15:46:38.326+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO Metrics: Closing reporter org.apache.kafka.common.metrics.JmxReporter
+[2025-05-17T15:46:38.328+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO Metrics: Metrics reporters closed
+[2025-05-17T15:46:38.337+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO AppInfoParser: App info kafka.consumer for consumer-spark-kafka-source-174f2305-3596-424f-9efa-b46666eb374c--977810735-executor-1 unregistered
+[2025-05-17T15:46:38.342+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO ShutdownHookManager: Shutdown hook called
+[2025-05-17T15:46:38.344+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO ShutdownHookManager: Deleting directory /tmp/spark-d7680f30-29a7-4b48-9edd-60323fb0a99f
+[2025-05-17T15:46:38.357+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO ShutdownHookManager: Deleting directory /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08/pyspark-ce2b250b-af17-4f24-8a38-b2d1916f9376
+[2025-05-17T15:46:38.364+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO ShutdownHookManager: Deleting directory /tmp/spark-dec5e01f-801f-403b-9911-a167d0f35f08
+[2025-05-17T15:46:38.411+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO CassandraConnector: Disconnected from Cassandra cluster.
+[2025-05-17T15:46:38.412+0000] {subprocess.py:93} INFO - 25/05/17 15:46:38 INFO SerialShutdownHooks: Successfully executed shutdown hook: Clearing session cache for C* connector
+[2025-05-17T15:46:38.537+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-05-17T15:46:38.566+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_news_pipeline, task_id=run_consumer, execution_date=20250517T154545, start_date=20250517T154552, end_date=20250517T154638
+[2025-05-17T15:46:38.595+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-17T15:46:38.613+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
