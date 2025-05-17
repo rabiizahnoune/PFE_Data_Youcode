@@ -19,11 +19,17 @@ hdfs_paths = [
 ]
 
 for hdfs_dir in hdfs_paths:
+    # Crée le dossier seulement s'il n'existe pas (équivalent à "if not exist")
+    subprocess.run([
+        "docker", "exec", "-u", "root", "namenode",
+        "hdfs", "dfs", "-mkdir", "-p", hdfs_dir
+    ], check=True)
+
+    # Applique les permissions
     subprocess.run([
         "docker", "exec", "-u", "root", "namenode",
         "hdfs", "dfs", "-chmod", "-R", "777", hdfs_dir
     ], check=True)
-
 def extract_gold_data():
     # 1. Prix de l’or (yfinance, 4H)
     start_date = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")

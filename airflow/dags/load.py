@@ -106,8 +106,8 @@ from snowflake.sqlalchemy import URL
 # Configurations codées en dur
 HDFS_CLIENT = InsecureClient("http://namenode:9870", user="hadoop")
 SNOWFLAKE_CONN = {
-    "account": "RRWRUAS-VI48008",
-    "user": "RABIIZAHNOUNE05",
+    "account": "LEKYCXI-ZO52842",
+    "user": "ZAHNOUNE",
     "password": "CdFbMNyjc87vueV",
     "database": "GOLD_ANALYSIS",
     "schema": "MARCHE",

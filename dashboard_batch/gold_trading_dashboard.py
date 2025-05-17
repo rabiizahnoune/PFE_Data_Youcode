@@ -29,8 +29,8 @@ st.markdown("""
 @st.cache_resource
 def create_db_connection():
     return create_engine(URL(
-        account="RRWRUAS-VI48008",
-        user="RABIIZAHNOUNE05",
+        account="LEKYCXI-ZO52842",
+        user="ZAHNOUNE",
         password="CdFbMNyjc87vueV",
         database="GOLD_ANALYSIS",
         schema="MARCHE",

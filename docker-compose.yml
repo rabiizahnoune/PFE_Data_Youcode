@@ -254,6 +254,17 @@ services:
     networks:
       - airflow_network
 
+  streamlit:
+    build:
+      context: ./dashboard_batch
+      dockerfile: Dockerfile
+
+    ports:
+      - "8050:8050"
+    networks:
+      - airflow_network
+
+
 
 
  
