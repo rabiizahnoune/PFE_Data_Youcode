@@ -214,23 +214,22 @@ services:
  
 
   
-  # MLflow Server
-  # mlflow-server:
-  #   build: 
-  #     context: ./docker
-  #     dockerfile: ai_trainer.dockerfile
-  #   container_name: mlflow-server
-  #   ports:
-  #     - "5000:5000"
-  #   volumes:
-  #     - mlflow_data:/mlflow
-  #     - ./mlflow:/mlflow_scripts
-  #     - ./ai_scripts:/ai_scripts
-  #   command: >
-  #     bash -c "pip install mlflow && mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri /mlflow/mlruns --default-artifact-root /mlflow/artifacts"
-    
-  #   networks:
-  #     - airflow_network
+  mlflow-container:
+    build:
+      context: ./
+      dockerfile: ML/Dockerfile
+    container_name: mlflow-container
+    volumes:
+      - ./ML:/app
+    ports:
+      - "5000:5000"
+    networks:
+      - airflow_network
+
+    tty: true
+    stdin_open: true
+    environment:
+      - GIT_PYTHON_REFRESH=quiet
   
 
   cassandra:
