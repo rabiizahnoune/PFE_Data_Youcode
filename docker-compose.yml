@@ -208,6 +208,7 @@ services:
     volumes:
       - spark-checkpoint:/opt/spark/checkpoint
       - ./stream/spark:/scripts
+      - ./keys/rsa_private_key_pk8.b64:/opt/keys/rsa_private_key_pk8.b64:ro
     networks:
       - airflow_network
  

@@ -4,3 +4,10 @@ cassandra-driver==3.28.0
 finnhub-python>=2.4.10
 rel==0.4.9
 websocket-client==1.5.1
+snowflake-connector-python
+hdfs
+pandas
+pyarrow
+scikit-learn
+mlflow
+psycopg2-binary

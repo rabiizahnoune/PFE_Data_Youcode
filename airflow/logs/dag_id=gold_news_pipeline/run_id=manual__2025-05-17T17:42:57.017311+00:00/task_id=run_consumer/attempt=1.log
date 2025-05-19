@@ -986,3 +986,5 @@
 [2025-05-17T17:44:14.991+0000] {subprocess.py:93} INFO - 25/05/17 17:44:14 INFO SerialShutdownHooks: Successfully executed shutdown hook: Clearing session cache for C* connector
 [2025-05-17T17:44:15.071+0000] {subprocess.py:97} INFO - Command exited with return code 0
 [2025-05-17T17:44:15.096+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_news_pipeline, task_id=run_consumer, execution_date=20250517T174257, start_date=20250517T174305, end_date=20250517T174415
+[2025-05-17T18:46:55.035+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-17T18:46:55.187+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
