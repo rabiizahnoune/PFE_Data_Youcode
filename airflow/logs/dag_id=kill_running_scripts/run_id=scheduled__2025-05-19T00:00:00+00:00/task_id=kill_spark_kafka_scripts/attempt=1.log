@@ -1,0 +1,20 @@
+[2025-05-20T15:59:00.875+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kill_running_scripts.kill_spark_kafka_scripts scheduled__2025-05-19T00:00:00+00:00 [queued]>
+[2025-05-20T15:59:00.892+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kill_running_scripts.kill_spark_kafka_scripts scheduled__2025-05-19T00:00:00+00:00 [queued]>
+[2025-05-20T15:59:00.893+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-05-20T15:59:00.926+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): kill_spark_kafka_scripts> on 2025-05-19 00:00:00+00:00
+[2025-05-20T15:59:00.941+0000] {standard_task_runner.py:57} INFO - Started process 220 to run task
+[2025-05-20T15:59:00.950+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'kill_running_scripts', 'kill_spark_kafka_scripts', 'scheduled__2025-05-19T00:00:00+00:00', '--job-id', '53', '--raw', '--subdir', 'DAGS_FOLDER/stoper_streaming.py', '--cfg-path', '/tmp/tmpgdpbnd3y']
+[2025-05-20T15:59:00.964+0000] {standard_task_runner.py:85} INFO - Job 53: Subtask kill_spark_kafka_scripts
+[2025-05-20T15:59:01.146+0000] {task_command.py:415} INFO - Running <TaskInstance: kill_running_scripts.kill_spark_kafka_scripts scheduled__2025-05-19T00:00:00+00:00 [running]> on host 6bb1f84c11d3
+[2025-05-20T15:59:01.435+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kill_running_scripts' AIRFLOW_CTX_TASK_ID='kill_spark_kafka_scripts' AIRFLOW_CTX_EXECUTION_DATE='2025-05-19T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-05-19T00:00:00+00:00'
+[2025-05-20T15:59:01.440+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-20T15:59:01.444+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n            echo "🔍 Killing script in Kafka container..."\n            docker exec gold_price_project-kafka-1 pkill -f gold_price.py || echo "Aucun script gold_price.py trouvé."\n\n            echo "🔍 Killing script in Spark container..."\n            docker exec gold_price_project-spark-1 pkill -f gold_price_streaming.py || echo "Aucun script gold_price_streaming.py trouvé."\n\n            echo "✅ Scripts killed in both containers (if they were running)."\n        ']
+[2025-05-20T15:59:01.469+0000] {subprocess.py:86} INFO - Output:
+[2025-05-20T15:59:01.475+0000] {subprocess.py:93} INFO - 🔍 Killing script in Kafka container...
+[2025-05-20T15:59:01.734+0000] {subprocess.py:93} INFO - 🔍 Killing script in Spark container...
+[2025-05-20T15:59:01.853+0000] {subprocess.py:93} INFO - Aucun script gold_price_streaming.py trouvé.
+[2025-05-20T15:59:01.854+0000] {subprocess.py:93} INFO - ✅ Scripts killed in both containers (if they were running).
+[2025-05-20T15:59:01.855+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-05-20T15:59:01.957+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=kill_running_scripts, task_id=kill_spark_kafka_scripts, execution_date=20250519T000000, start_date=20250520T155900, end_date=20250520T155901
+[2025-05-20T15:59:02.074+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T15:59:02.111+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

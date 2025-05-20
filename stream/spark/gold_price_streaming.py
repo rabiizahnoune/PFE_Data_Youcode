@@ -26,6 +26,7 @@ kafka_df = spark \
     .option("kafka.bootstrap.servers", "kafka:9092") \
     .option("subscribe", "gold-price") \
     .option("startingOffsets", "earliest") \
+    .option("failOnDataLoss", "false") \
     .load()
 
 # Parser les données JSON

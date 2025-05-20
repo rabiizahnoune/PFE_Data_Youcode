@@ -1,0 +1,26 @@
+[2025-05-20T13:46:29.342+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: start_kafka_spark.run_kafka_script manual__2025-05-20T13:46:18.165134+00:00 [queued]>
+[2025-05-20T13:46:29.381+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: start_kafka_spark.run_kafka_script manual__2025-05-20T13:46:18.165134+00:00 [queued]>
+[2025-05-20T13:46:29.385+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-05-20T13:46:29.436+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): run_kafka_script> on 2025-05-20 13:46:18.165134+00:00
+[2025-05-20T13:46:29.448+0000] {standard_task_runner.py:57} INFO - Started process 1152 to run task
+[2025-05-20T13:46:29.453+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'start_kafka_spark', 'run_kafka_script', 'manual__2025-05-20T13:46:18.165134+00:00', '--job-id', '21', '--raw', '--subdir', 'DAGS_FOLDER/streaming_lance.py', '--cfg-path', '/tmp/tmp6gqxww94']
+[2025-05-20T13:46:29.468+0000] {standard_task_runner.py:85} INFO - Job 21: Subtask run_kafka_script
+[2025-05-20T13:46:29.751+0000] {task_command.py:415} INFO - Running <TaskInstance: start_kafka_spark.run_kafka_script manual__2025-05-20T13:46:18.165134+00:00 [running]> on host 341131c8572d
+[2025-05-20T13:46:29.992+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='start_kafka_spark' AIRFLOW_CTX_TASK_ID='run_kafka_script' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T13:46:18.165134+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T13:46:18.165134+00:00'
+[2025-05-20T13:46:29.996+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-20T13:46:30.003+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n            docker exec gold_price_project-kafka-1 python3 /scripts/gold_price.py &\n        ']
+[2025-05-20T13:46:30.028+0000] {subprocess.py:86} INFO - Output:
+[2025-05-20T13:46:30.652+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-05-20T13:46:30.653+0000] {subprocess.py:93} INFO -   File "/scripts/gold_price.py", line 37, in <module>
+[2025-05-20T13:46:30.656+0000] {subprocess.py:93} INFO -     producer = KafkaProducer(
+[2025-05-20T13:46:30.658+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.9/site-packages/kafka/producer/kafka.py", line 381, in __init__
+[2025-05-20T13:46:30.659+0000] {subprocess.py:93} INFO -     client = KafkaClient(metrics=self._metrics, metric_group_prefix='producer',
+[2025-05-20T13:46:30.660+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.9/site-packages/kafka/client_async.py", line 244, in __init__
+[2025-05-20T13:46:30.660+0000] {subprocess.py:93} INFO -     self.config['api_version'] = self.check_version(timeout=check_timeout)
+[2025-05-20T13:46:30.662+0000] {subprocess.py:93} INFO -   File "/usr/local/lib/python3.9/site-packages/kafka/client_async.py", line 900, in check_version
+[2025-05-20T13:46:30.663+0000] {subprocess.py:93} INFO -     raise Errors.NoBrokersAvailable()
+[2025-05-20T13:46:30.663+0000] {subprocess.py:93} INFO - kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+[2025-05-20T13:46:30.714+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-05-20T13:46:30.762+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=start_kafka_spark, task_id=run_kafka_script, execution_date=20250520T134618, start_date=20250520T134629, end_date=20250520T134630
+[2025-05-20T13:46:30.824+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T13:46:30.881+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

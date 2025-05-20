@@ -1,0 +1,1028 @@
+[2025-05-20T15:05:24.955+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: start_kafka_spark.run_spark_script manual__2025-05-20T14:34:53.018792+00:00 [queued]>
+[2025-05-20T15:05:24.996+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: start_kafka_spark.run_spark_script manual__2025-05-20T14:34:53.018792+00:00 [queued]>
+[2025-05-20T15:05:24.997+0000] {taskinstance.py:1359} INFO - Starting attempt 2 of 2
+[2025-05-20T15:05:25.025+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): run_spark_script> on 2025-05-20 14:34:53.018792+00:00
+[2025-05-20T15:05:25.032+0000] {standard_task_runner.py:57} INFO - Started process 1466 to run task
+[2025-05-20T15:05:25.037+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'start_kafka_spark', 'run_spark_script', 'manual__2025-05-20T14:34:53.018792+00:00', '--job-id', '36', '--raw', '--subdir', 'DAGS_FOLDER/streaming_lance.py', '--cfg-path', '/tmp/tmpjx_m2ze5']
+[2025-05-20T15:05:25.041+0000] {standard_task_runner.py:85} INFO - Job 36: Subtask run_spark_script
+[2025-05-20T15:05:25.141+0000] {task_command.py:415} INFO - Running <TaskInstance: start_kafka_spark.run_spark_script manual__2025-05-20T14:34:53.018792+00:00 [running]> on host 6bb1f84c11d3
+[2025-05-20T15:05:25.285+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='start_kafka_spark' AIRFLOW_CTX_TASK_ID='run_spark_script' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T14:34:53.018792+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T14:34:53.018792+00:00'
+[2025-05-20T15:05:25.288+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-20T15:05:25.290+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\n        docker exec gold_price_project-spark-1 spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.5.1 /scripts/gold_price_streaming.py\n    ']
+[2025-05-20T15:05:25.308+0000] {subprocess.py:86} INFO - Output:
+[2025-05-20T15:05:30.812+0000] {subprocess.py:93} INFO - :: loading settings :: url = jar:file:/opt/spark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+[2025-05-20T15:05:30.979+0000] {subprocess.py:93} INFO - Ivy Default Cache set to: /root/.ivy2/cache
+[2025-05-20T15:05:30.980+0000] {subprocess.py:93} INFO - The jars for the packages stored in: /root/.ivy2/jars
+[2025-05-20T15:05:30.993+0000] {subprocess.py:93} INFO - org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+[2025-05-20T15:05:30.995+0000] {subprocess.py:93} INFO - :: resolving dependencies :: org.apache.spark#spark-submit-parent-f8b1d4af-64de-4d42-ba16-00d548b9f650;1.0
+[2025-05-20T15:05:30.997+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-05-20T15:05:31.370+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.1 in central
+[2025-05-20T15:05:31.555+0000] {subprocess.py:93} INFO - 	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.1 in central
+[2025-05-20T15:05:31.614+0000] {subprocess.py:93} INFO - 	found org.apache.kafka#kafka-clients;3.4.1 in central
+[2025-05-20T15:05:31.664+0000] {subprocess.py:93} INFO - 	found org.lz4#lz4-java;1.8.0 in central
+[2025-05-20T15:05:31.712+0000] {subprocess.py:93} INFO - 	found org.xerial.snappy#snappy-java;1.1.10.3 in central
+[2025-05-20T15:05:31.767+0000] {subprocess.py:93} INFO - 	found org.slf4j#slf4j-api;2.0.7 in central
+[2025-05-20T15:05:31.844+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+[2025-05-20T15:05:31.916+0000] {subprocess.py:93} INFO - 	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+[2025-05-20T15:05:31.977+0000] {subprocess.py:93} INFO - 	found commons-logging#commons-logging;1.1.3 in central
+[2025-05-20T15:05:32.008+0000] {subprocess.py:93} INFO - 	found com.google.code.findbugs#jsr305;3.0.0 in central
+[2025-05-20T15:05:32.032+0000] {subprocess.py:93} INFO - 	found org.apache.commons#commons-pool2;2.11.1 in central
+[2025-05-20T15:05:32.089+0000] {subprocess.py:93} INFO - :: resolution report :: resolve 1060ms :: artifacts dl 31ms
+[2025-05-20T15:05:32.093+0000] {subprocess.py:93} INFO - 	:: modules in use:
+[2025-05-20T15:05:32.095+0000] {subprocess.py:93} INFO - 	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+[2025-05-20T15:05:32.098+0000] {subprocess.py:93} INFO - 	commons-logging#commons-logging;1.1.3 from central in [default]
+[2025-05-20T15:05:32.099+0000] {subprocess.py:93} INFO - 	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+[2025-05-20T15:05:32.101+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+[2025-05-20T15:05:32.105+0000] {subprocess.py:93} INFO - 	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+[2025-05-20T15:05:32.110+0000] {subprocess.py:93} INFO - 	org.apache.kafka#kafka-clients;3.4.1 from central in [default]
+[2025-05-20T15:05:32.113+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-sql-kafka-0-10_2.12;3.5.1 from central in [default]
+[2025-05-20T15:05:32.115+0000] {subprocess.py:93} INFO - 	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.5.1 from central in [default]
+[2025-05-20T15:05:32.116+0000] {subprocess.py:93} INFO - 	org.lz4#lz4-java;1.8.0 from central in [default]
+[2025-05-20T15:05:32.117+0000] {subprocess.py:93} INFO - 	org.slf4j#slf4j-api;2.0.7 from central in [default]
+[2025-05-20T15:05:32.121+0000] {subprocess.py:93} INFO - 	org.xerial.snappy#snappy-java;1.1.10.3 from central in [default]
+[2025-05-20T15:05:32.122+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-20T15:05:32.123+0000] {subprocess.py:93} INFO - 	|                  |            modules            ||   artifacts   |
+[2025-05-20T15:05:32.124+0000] {subprocess.py:93} INFO - 	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+[2025-05-20T15:05:32.125+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-20T15:05:32.125+0000] {subprocess.py:93} INFO - 	|      default     |   11  |   0   |   0   |   0   ||   11  |   0   |
+[2025-05-20T15:05:32.126+0000] {subprocess.py:93} INFO - 	---------------------------------------------------------------------
+[2025-05-20T15:05:32.127+0000] {subprocess.py:93} INFO - :: retrieving :: org.apache.spark#spark-submit-parent-f8b1d4af-64de-4d42-ba16-00d548b9f650
+[2025-05-20T15:05:32.127+0000] {subprocess.py:93} INFO - 	confs: [default]
+[2025-05-20T15:05:32.128+0000] {subprocess.py:93} INFO - 	0 artifacts copied, 11 already retrieved (0kB/23ms)
+[2025-05-20T15:05:32.540+0000] {subprocess.py:93} INFO - 25/05/20 15:05:32 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2025-05-20T15:05:34.336+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SparkContext: Running Spark version 3.5.1
+[2025-05-20T15:05:34.337+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SparkContext: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-05-20T15:05:34.338+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SparkContext: Java version 11.0.22
+[2025-05-20T15:05:34.385+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO ResourceUtils: ==============================================================
+[2025-05-20T15:05:34.386+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2025-05-20T15:05:34.387+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO ResourceUtils: ==============================================================
+[2025-05-20T15:05:34.389+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SparkContext: Submitted application: GoldPriceStreaming
+[2025-05-20T15:05:34.439+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 1, script: , vendor: , memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2025-05-20T15:05:34.466+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO ResourceProfile: Limiting resource is cpu
+[2025-05-20T15:05:34.467+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2025-05-20T15:05:34.585+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SecurityManager: Changing view acls to: root
+[2025-05-20T15:05:34.586+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SecurityManager: Changing modify acls to: root
+[2025-05-20T15:05:34.586+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SecurityManager: Changing view acls groups to:
+[2025-05-20T15:05:34.588+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SecurityManager: Changing modify acls groups to:
+[2025-05-20T15:05:34.591+0000] {subprocess.py:93} INFO - 25/05/20 15:05:34 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: root; groups with view permissions: EMPTY; users with modify permissions: root; groups with modify permissions: EMPTY
+[2025-05-20T15:05:35.118+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Successfully started service 'sparkDriver' on port 42725.
+[2025-05-20T15:05:35.169+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkEnv: Registering MapOutputTracker
+[2025-05-20T15:05:35.228+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkEnv: Registering BlockManagerMaster
+[2025-05-20T15:05:35.259+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2025-05-20T15:05:35.260+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2025-05-20T15:05:35.268+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2025-05-20T15:05:35.309+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-1dd4c0f2-5612-4b05-b00b-83e4de12de7a
+[2025-05-20T15:05:35.336+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2025-05-20T15:05:35.367+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkEnv: Registering OutputCommitCoordinator
+[2025-05-20T15:05:35.534+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2025-05-20T15:05:35.674+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2025-05-20T15:05:35.780+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar at spark://f1dad95963cc:42725/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.784+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar at spark://f1dad95963cc:42725/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.785+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at spark://f1dad95963cc:42725/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.787+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at spark://f1dad95963cc:42725/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.791+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at spark://f1dad95963cc:42725/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.793+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at spark://f1dad95963cc:42725/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.799+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at spark://f1dad95963cc:42725/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.802+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at spark://f1dad95963cc:42725/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.802+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at spark://f1dad95963cc:42725/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.803+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at spark://f1dad95963cc:42725/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.804+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added JAR file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at spark://f1dad95963cc:42725/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.804+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar at file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.805+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Copying /root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar
+[2025-05-20T15:05:35.850+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar at file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.851+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Copying /root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar
+[2025-05-20T15:05:35.858+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar at file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.860+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Copying /root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-05-20T15:05:35.897+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added file file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar at file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.902+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Copying /root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-05-20T15:05:35.930+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar at file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:35.931+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Copying /root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-05-20T15:05:36.000+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar at file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.001+0000] {subprocess.py:93} INFO - 25/05/20 15:05:35 INFO Utils: Copying /root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-05-20T15:05:36.103+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO SparkContext: Added file file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar at file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.105+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Copying /root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.lz4_lz4-java-1.8.0.jar
+[2025-05-20T15:05:36.113+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO SparkContext: Added file file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar at file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.114+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Copying /root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-05-20T15:05:36.130+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO SparkContext: Added file file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar at file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.131+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Copying /root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.slf4j_slf4j-api-2.0.7.jar
+[2025-05-20T15:05:36.147+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO SparkContext: Added file file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar at file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.148+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Copying /root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-05-20T15:05:36.229+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO SparkContext: Added file file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar at file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.234+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Copying /root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/commons-logging_commons-logging-1.1.3.jar
+[2025-05-20T15:05:36.413+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Starting executor ID driver on host f1dad95963cc
+[2025-05-20T15:05:36.414+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: OS info Linux, 5.15.167.4-microsoft-standard-WSL2, amd64
+[2025-05-20T15:05:36.415+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Java version 11.0.22
+[2025-05-20T15:05:36.428+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+[2025-05-20T15:05:36.430+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@223342d5 for default.
+[2025-05-20T15:05:36.450+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.526+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-05-20T15:05:36.532+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.534+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/com.google.code.findbugs_jsr305-3.0.0.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-05-20T15:05:36.541+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.575+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-05-20T15:05:36.580+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.583+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-05-20T15:05:36.590+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.591+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.slf4j_slf4j-api-2.0.7.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.slf4j_slf4j-api-2.0.7.jar
+[2025-05-20T15:05:36.597+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.598+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.apache.commons_commons-pool2-2.11.1.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-05-20T15:05:36.604+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.605+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar
+[2025-05-20T15:05:36.611+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.612+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/commons-logging_commons-logging-1.1.3.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/commons-logging_commons-logging-1.1.3.jar
+[2025-05-20T15:05:36.618+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.619+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.lz4_lz4-java-1.8.0.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.lz4_lz4-java-1.8.0.jar
+[2025-05-20T15:05:36.625+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.630+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.apache.kafka_kafka-clients-3.4.1.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-05-20T15:05:36.637+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching file:///root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.638+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /root/.ivy2/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar
+[2025-05-20T15:05:36.648+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.720+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO TransportClientFactory: Successfully created connection to f1dad95963cc/172.18.0.10:42725 after 55 ms (0 ms spent in bootstraps)
+[2025-05-20T15:05:36.741+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp5209490132521843391.tmp
+[2025-05-20T15:05:36.784+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp5209490132521843391.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar
+[2025-05-20T15:05:36.795+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-token-provider-kafka-0-10_2.12-3.5.1.jar to class loader default
+[2025-05-20T15:05:36.797+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.apache.commons_commons-pool2-2.11.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.798+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.apache.commons_commons-pool2-2.11.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp18030912354557682370.tmp
+[2025-05-20T15:05:36.801+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp18030912354557682370.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.commons_commons-pool2-2.11.1.jar
+[2025-05-20T15:05:36.806+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.commons_commons-pool2-2.11.1.jar to class loader default
+[2025-05-20T15:05:36.807+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.lz4_lz4-java-1.8.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.809+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.lz4_lz4-java-1.8.0.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp1610592068311274250.tmp
+[2025-05-20T15:05:36.818+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp1610592068311274250.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.lz4_lz4-java-1.8.0.jar
+[2025-05-20T15:05:36.826+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.lz4_lz4-java-1.8.0.jar to class loader default
+[2025-05-20T15:05:36.827+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/commons-logging_commons-logging-1.1.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.830+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/commons-logging_commons-logging-1.1.3.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp8926182194774390463.tmp
+[2025-05-20T15:05:36.833+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp8926182194774390463.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/commons-logging_commons-logging-1.1.3.jar
+[2025-05-20T15:05:36.838+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/commons-logging_commons-logging-1.1.3.jar to class loader default
+[2025-05-20T15:05:36.839+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.840+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.xerial.snappy_snappy-java-1.1.10.3.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp6595097504588631059.tmp
+[2025-05-20T15:05:36.868+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp6595097504588631059.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.xerial.snappy_snappy-java-1.1.10.3.jar
+[2025-05-20T15:05:36.875+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.xerial.snappy_snappy-java-1.1.10.3.jar to class loader default
+[2025-05-20T15:05:36.877+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/com.google.code.findbugs_jsr305-3.0.0.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.879+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/com.google.code.findbugs_jsr305-3.0.0.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp8341409671818004032.tmp
+[2025-05-20T15:05:36.880+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp8341409671818004032.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/com.google.code.findbugs_jsr305-3.0.0.jar
+[2025-05-20T15:05:36.886+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/com.google.code.findbugs_jsr305-3.0.0.jar to class loader default
+[2025-05-20T15:05:36.887+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.apache.kafka_kafka-clients-3.4.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.893+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.apache.kafka_kafka-clients-3.4.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp6311670464200182830.tmp
+[2025-05-20T15:05:36.933+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp6311670464200182830.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.kafka_kafka-clients-3.4.1.jar
+[2025-05-20T15:05:36.941+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.kafka_kafka-clients-3.4.1.jar to class loader default
+[2025-05-20T15:05:36.942+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:36.943+0000] {subprocess.py:93} INFO - 25/05/20 15:05:36 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.apache.hadoop_hadoop-client-api-3.3.4.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp14064467789688938408.tmp
+[2025-05-20T15:05:37.047+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp14064467789688938408.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-api-3.3.4.jar
+[2025-05-20T15:05:37.053+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-api-3.3.4.jar to class loader default
+[2025-05-20T15:05:37.054+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.slf4j_slf4j-api-2.0.7.jar with timestamp 1747753534321
+[2025-05-20T15:05:37.055+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.slf4j_slf4j-api-2.0.7.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp7393937848980936197.tmp
+[2025-05-20T15:05:37.057+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp7393937848980936197.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.slf4j_slf4j-api-2.0.7.jar
+[2025-05-20T15:05:37.061+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.slf4j_slf4j-api-2.0.7.jar to class loader default
+[2025-05-20T15:05:37.062+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar with timestamp 1747753534321
+[2025-05-20T15:05:37.062+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp8391284570815636266.tmp
+[2025-05-20T15:05:37.065+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp8391284570815636266.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar
+[2025-05-20T15:05:37.069+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.spark_spark-sql-kafka-0-10_2.12-3.5.1.jar to class loader default
+[2025-05-20T15:05:37.070+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Executor: Fetching spark://f1dad95963cc:42725/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar with timestamp 1747753534321
+[2025-05-20T15:05:37.073+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: Fetching spark://f1dad95963cc:42725/jars/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp13835584262744565277.tmp
+[2025-05-20T15:05:37.195+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/fetchFileTemp13835584262744565277.tmp has been previously copied to /tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar
+[2025-05-20T15:05:37.211+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Executor: Adding file:/tmp/spark-2bfe9dbd-6407-4758-b605-fa55c7ddcb9e/userFiles-1260c4e8-e716-43a5-8dc7-1bd7ca5b4442/org.apache.hadoop_hadoop-client-runtime-3.3.4.jar to class loader default
+[2025-05-20T15:05:37.233+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43297.
+[2025-05-20T15:05:37.234+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO NettyBlockTransferService: Server created on f1dad95963cc:43297
+[2025-05-20T15:05:37.237+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2025-05-20T15:05:37.246+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, f1dad95963cc, 43297, None)
+[2025-05-20T15:05:37.251+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO BlockManagerMasterEndpoint: Registering block manager f1dad95963cc:43297 with 434.4 MiB RAM, BlockManagerId(driver, f1dad95963cc, 43297, None)
+[2025-05-20T15:05:37.255+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, f1dad95963cc, 43297, None)
+[2025-05-20T15:05:37.257+0000] {subprocess.py:93} INFO - 25/05/20 15:05:37 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, f1dad95963cc, 43297, None)
+[2025-05-20T15:05:38.039+0000] {subprocess.py:93} INFO - 25/05/20 15:05:38 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2025-05-20T15:05:38.045+0000] {subprocess.py:93} INFO - 25/05/20 15:05:38 INFO SharedState: Warehouse path is 'file:/opt/spark-apps/spark-warehouse'.
+[2025-05-20T15:05:42.436+0000] {subprocess.py:93} INFO - 25/05/20 15:05:42 INFO StateStoreCoordinatorRef: Registered StateStoreCoordinator endpoint
+[2025-05-20T15:05:42.555+0000] {subprocess.py:93} INFO - 25/05/20 15:05:42 INFO ResolveWriteToStream: Checkpoint root hdfs://namenode:9000/gold_price/checkpoints resolved to hdfs://namenode:9000/gold_price/checkpoints.
+[2025-05-20T15:05:42.556+0000] {subprocess.py:93} INFO - 25/05/20 15:05:42 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[2025-05-20T15:05:43.306+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO MicroBatchExecution: Starting [id = 471d967c-db99-4f07-a177-5ee18893ca60, runId = a7734dce-732d-49a4-8ad4-6e5bf0122fe3]. Use hdfs://namenode:9000/gold_price/checkpoints to store the query checkpoint.
+[2025-05-20T15:05:43.341+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO MicroBatchExecution: Reading table [org.apache.spark.sql.kafka010.KafkaSourceProvider$KafkaTable@ba7b778] from DataSourceV2 named 'kafka' [org.apache.spark.sql.kafka010.KafkaSourceProvider@4bb9a55d]
+[2025-05-20T15:05:43.427+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO OffsetSeqLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71
+[2025-05-20T15:05:43.447+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO OffsetSeqLog: Getting latest batch 71
+[2025-05-20T15:05:43.511+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO OffsetSeqLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71
+[2025-05-20T15:05:43.512+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO OffsetSeqLog: Getting latest batch 71
+[2025-05-20T15:05:43.550+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO CommitLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70
+[2025-05-20T15:05:43.551+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO CommitLog: Getting latest batch 70
+[2025-05-20T15:05:43.569+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO MicroBatchExecution: Resuming at batch 71 with committed offsets {KafkaV2[Subscribe[gold-price]]: {"gold-price":{"0":71}}} and available offsets {KafkaV2[Subscribe[gold-price]]: {"gold-price":{"0":41}}}
+[2025-05-20T15:05:43.570+0000] {subprocess.py:93} INFO - 25/05/20 15:05:43 INFO MicroBatchExecution: Stream started from {KafkaV2[Subscribe[gold-price]]: {"gold-price":{"0":71}}}
+[2025-05-20T15:05:44.331+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:05:44.336+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 WARN KafkaMicroBatchStream: Partition gold-price-0's offset was changed from 71 to 41, some data may have been missed.
+[2025-05-20T15:05:44.337+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2025-05-20T15:05:44.337+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2025-05-20T15:05:44.338+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2025-05-20T15:05:44.338+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2025-05-20T15:05:44.339+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:05:44.425+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:05:44.426+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 WARN KafkaMicroBatchStream: Partition gold-price-0's offset was changed from 71 to 41, some data may have been missed.
+[2025-05-20T15:05:44.426+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2025-05-20T15:05:44.427+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2025-05-20T15:05:44.427+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2025-05-20T15:05:44.428+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2025-05-20T15:05:44.428+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:05:44.513+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:05:44.514+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 WARN KafkaMicroBatchStream: Partition gold-price-0's offset was changed from 71 to 41, some data may have been missed.
+[2025-05-20T15:05:44.515+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2025-05-20T15:05:44.516+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2025-05-20T15:05:44.516+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2025-05-20T15:05:44.517+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2025-05-20T15:05:44.517+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:05:44.518+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:05:44.518+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 WARN KafkaMicroBatchStream: Partition gold-price-0's offset was changed from 71 to 41, some data may have been missed.
+[2025-05-20T15:05:44.519+0000] {subprocess.py:93} INFO - Some data may have been lost because they are not available in Kafka any more; either the
+[2025-05-20T15:05:44.520+0000] {subprocess.py:93} INFO -  data was aged out by Kafka or the topic may have been deleted before all the data in the
+[2025-05-20T15:05:44.520+0000] {subprocess.py:93} INFO -  topic was processed. If you want your streaming query to fail on such cases, set the source
+[2025-05-20T15:05:44.521+0000] {subprocess.py:93} INFO -  option "failOnDataLoss" to "true".
+[2025-05-20T15:05:44.521+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:05:44.573+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 INFO FileStreamSinkLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70
+[2025-05-20T15:05:44.657+0000] {subprocess.py:93} INFO - 25/05/20 15:05:44 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2025-05-20T15:05:45.630+0000] {subprocess.py:93} INFO - 25/05/20 15:05:45 INFO CodeGenerator: Code generated in 468.246765 ms
+[2025-05-20T15:05:45.978+0000] {subprocess.py:93} INFO - 25/05/20 15:05:45 INFO SparkContext: Starting job: start at <unknown>:0
+[2025-05-20T15:05:46.025+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Got job 0 (start at <unknown>:0) with 1 output partitions
+[2025-05-20T15:05:46.026+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Final stage: ResultStage 0 (start at <unknown>:0)
+[2025-05-20T15:05:46.028+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-20T15:05:46.029+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Missing parents: List()
+[2025-05-20T15:05:46.038+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Submitting ResultStage 0 (ParallelCollectionRDD[5] at start at <unknown>:0), which has no missing parents
+[2025-05-20T15:05:46.304+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 215.4 KiB, free 434.2 MiB)
+[2025-05-20T15:05:46.420+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 76.4 KiB, free 434.1 MiB)
+[2025-05-20T15:05:46.422+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on f1dad95963cc:43297 (size: 76.4 KiB, free: 434.3 MiB)
+[2025-05-20T15:05:46.432+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1585
+[2025-05-20T15:05:46.464+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (ParallelCollectionRDD[5] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+[2025-05-20T15:05:46.466+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+[2025-05-20T15:05:46.552+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (f1dad95963cc, executor driver, partition 0, PROCESS_LOCAL, 9685 bytes)
+[2025-05-20T15:05:46.578+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+[2025-05-20T15:05:46.798+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO CodeGenerator: Code generated in 52.687263 ms
+[2025-05-20T15:05:46.877+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 2192 bytes result sent to driver
+[2025-05-20T15:05:46.899+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 384 ms on f1dad95963cc (executor driver) (1/1)
+[2025-05-20T15:05:46.904+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool
+[2025-05-20T15:05:46.922+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: ResultStage 0 (start at <unknown>:0) finished in 0.846 s
+[2025-05-20T15:05:46.935+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-20T15:05:46.936+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO TaskSchedulerImpl: Killing all running tasks in stage 0: Stage finished
+[2025-05-20T15:05:46.942+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO DAGScheduler: Job 0 finished: start at <unknown>:0, took 0.963990 s
+[2025-05-20T15:05:46.947+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO FileFormatWriter: Start to commit write Job 0f3fa9cb-682b-49a2-a95b-4d8c92436818.
+[2025-05-20T15:05:46.975+0000] {subprocess.py:93} INFO - 25/05/20 15:05:46 INFO FileStreamSinkLog: Set the compact interval to 10 [defaultCompactInterval: 10]
+[2025-05-20T15:05:47.021+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/71 using temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.71.6c3acef5-a11f-44f3-8867-fbe9ed5a5813.tmp
+[2025-05-20T15:05:47.116+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.71.6c3acef5-a11f-44f3-8867-fbe9ed5a5813.tmp to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/71
+[2025-05-20T15:05:47.118+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO ManifestFileCommitProtocol: Committed batch 71
+[2025-05-20T15:05:47.119+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO FileFormatWriter: Write Job 0f3fa9cb-682b-49a2-a95b-4d8c92436818 committed. Elapsed time: 170 ms.
+[2025-05-20T15:05:47.127+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO FileFormatWriter: Finished processing stats for write job 0f3fa9cb-682b-49a2-a95b-4d8c92436818.
+[2025-05-20T15:05:47.152+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/commits/71 using temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.71.05111199-f8df-48de-bbaa-442ec6078177.tmp
+[2025-05-20T15:05:47.183+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.71.05111199-f8df-48de-bbaa-442ec6078177.tmp to hdfs://namenode:9000/gold_price/checkpoints/commits/71
+[2025-05-20T15:05:47.225+0000] {subprocess.py:93} INFO - 25/05/20 15:05:47 INFO MicroBatchExecution: Streaming query made progress: {
+[2025-05-20T15:05:47.226+0000] {subprocess.py:93} INFO -   "id" : "471d967c-db99-4f07-a177-5ee18893ca60",
+[2025-05-20T15:05:47.227+0000] {subprocess.py:93} INFO -   "runId" : "a7734dce-732d-49a4-8ad4-6e5bf0122fe3",
+[2025-05-20T15:05:47.227+0000] {subprocess.py:93} INFO -   "name" : null,
+[2025-05-20T15:05:47.228+0000] {subprocess.py:93} INFO -   "timestamp" : "2025-05-20T15:05:43.391Z",
+[2025-05-20T15:05:47.229+0000] {subprocess.py:93} INFO -   "batchId" : 71,
+[2025-05-20T15:05:47.229+0000] {subprocess.py:93} INFO -   "numInputRows" : 0,
+[2025-05-20T15:05:47.230+0000] {subprocess.py:93} INFO -   "inputRowsPerSecond" : 0.0,
+[2025-05-20T15:05:47.231+0000] {subprocess.py:93} INFO -   "processedRowsPerSecond" : 0.0,
+[2025-05-20T15:05:47.231+0000] {subprocess.py:93} INFO -   "durationMs" : {
+[2025-05-20T15:05:47.232+0000] {subprocess.py:93} INFO -     "addBatch" : 2670,
+[2025-05-20T15:05:47.233+0000] {subprocess.py:93} INFO -     "commitOffsets" : 40,
+[2025-05-20T15:05:47.234+0000] {subprocess.py:93} INFO -     "getBatch" : 28,
+[2025-05-20T15:05:47.234+0000] {subprocess.py:93} INFO -     "queryPlanning" : 856,
+[2025-05-20T15:05:47.236+0000] {subprocess.py:93} INFO -     "triggerExecution" : 3790
+[2025-05-20T15:05:47.237+0000] {subprocess.py:93} INFO -   },
+[2025-05-20T15:05:47.237+0000] {subprocess.py:93} INFO -   "stateOperators" : [ ],
+[2025-05-20T15:05:47.238+0000] {subprocess.py:93} INFO -   "sources" : [ {
+[2025-05-20T15:05:47.238+0000] {subprocess.py:93} INFO -     "description" : "KafkaV2[Subscribe[gold-price]]",
+[2025-05-20T15:05:47.239+0000] {subprocess.py:93} INFO -     "startOffset" : {
+[2025-05-20T15:05:47.239+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:05:47.240+0000] {subprocess.py:93} INFO -         "0" : 71
+[2025-05-20T15:05:47.240+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:05:47.241+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:05:47.241+0000] {subprocess.py:93} INFO -     "endOffset" : {
+[2025-05-20T15:05:47.242+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:05:47.243+0000] {subprocess.py:93} INFO -         "0" : 41
+[2025-05-20T15:05:47.244+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:05:47.245+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:05:47.245+0000] {subprocess.py:93} INFO -     "latestOffset" : null,
+[2025-05-20T15:05:47.246+0000] {subprocess.py:93} INFO -     "numInputRows" : 0,
+[2025-05-20T15:05:47.247+0000] {subprocess.py:93} INFO -     "inputRowsPerSecond" : 0.0,
+[2025-05-20T15:05:47.248+0000] {subprocess.py:93} INFO -     "processedRowsPerSecond" : 0.0
+[2025-05-20T15:05:47.249+0000] {subprocess.py:93} INFO -   } ],
+[2025-05-20T15:05:47.250+0000] {subprocess.py:93} INFO -   "sink" : {
+[2025-05-20T15:05:47.250+0000] {subprocess.py:93} INFO -     "description" : "FileSink[hdfs://namenode:9000/gold_price/aggregates]",
+[2025-05-20T15:05:47.251+0000] {subprocess.py:93} INFO -     "numOutputRows" : -1
+[2025-05-20T15:05:47.251+0000] {subprocess.py:93} INFO -   }
+[2025-05-20T15:05:47.252+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:06:00.044+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO AdminClientConfig: AdminClientConfig values:
+[2025-05-20T15:06:00.045+0000] {subprocess.py:93} INFO - 	auto.include.jmx.reporter = true
+[2025-05-20T15:06:00.046+0000] {subprocess.py:93} INFO - 	bootstrap.servers = [kafka:9092]
+[2025-05-20T15:06:00.047+0000] {subprocess.py:93} INFO - 	client.dns.lookup = use_all_dns_ips
+[2025-05-20T15:06:00.047+0000] {subprocess.py:93} INFO - 	client.id =
+[2025-05-20T15:06:00.048+0000] {subprocess.py:93} INFO - 	connections.max.idle.ms = 300000
+[2025-05-20T15:06:00.048+0000] {subprocess.py:93} INFO - 	default.api.timeout.ms = 60000
+[2025-05-20T15:06:00.049+0000] {subprocess.py:93} INFO - 	metadata.max.age.ms = 300000
+[2025-05-20T15:06:00.049+0000] {subprocess.py:93} INFO - 	metric.reporters = []
+[2025-05-20T15:06:00.049+0000] {subprocess.py:93} INFO - 	metrics.num.samples = 2
+[2025-05-20T15:06:00.050+0000] {subprocess.py:93} INFO - 	metrics.recording.level = INFO
+[2025-05-20T15:06:00.050+0000] {subprocess.py:93} INFO - 	metrics.sample.window.ms = 30000
+[2025-05-20T15:06:00.051+0000] {subprocess.py:93} INFO - 	receive.buffer.bytes = 65536
+[2025-05-20T15:06:00.051+0000] {subprocess.py:93} INFO - 	reconnect.backoff.max.ms = 1000
+[2025-05-20T15:06:00.051+0000] {subprocess.py:93} INFO - 	reconnect.backoff.ms = 50
+[2025-05-20T15:06:00.052+0000] {subprocess.py:93} INFO - 	request.timeout.ms = 30000
+[2025-05-20T15:06:00.053+0000] {subprocess.py:93} INFO - 	retries = 2147483647
+[2025-05-20T15:06:00.053+0000] {subprocess.py:93} INFO - 	retry.backoff.ms = 100
+[2025-05-20T15:06:00.054+0000] {subprocess.py:93} INFO - 	sasl.client.callback.handler.class = null
+[2025-05-20T15:06:00.054+0000] {subprocess.py:93} INFO - 	sasl.jaas.config = null
+[2025-05-20T15:06:00.055+0000] {subprocess.py:93} INFO - 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2025-05-20T15:06:00.056+0000] {subprocess.py:93} INFO - 	sasl.kerberos.min.time.before.relogin = 60000
+[2025-05-20T15:06:00.056+0000] {subprocess.py:93} INFO - 	sasl.kerberos.service.name = null
+[2025-05-20T15:06:00.056+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.jitter = 0.05
+[2025-05-20T15:06:00.057+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2025-05-20T15:06:00.057+0000] {subprocess.py:93} INFO - 	sasl.login.callback.handler.class = null
+[2025-05-20T15:06:00.057+0000] {subprocess.py:93} INFO - 	sasl.login.class = null
+[2025-05-20T15:06:00.058+0000] {subprocess.py:93} INFO - 	sasl.login.connect.timeout.ms = null
+[2025-05-20T15:06:00.058+0000] {subprocess.py:93} INFO - 	sasl.login.read.timeout.ms = null
+[2025-05-20T15:06:00.059+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.buffer.seconds = 300
+[2025-05-20T15:06:00.059+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.min.period.seconds = 60
+[2025-05-20T15:06:00.060+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.factor = 0.8
+[2025-05-20T15:06:00.061+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.jitter = 0.05
+[2025-05-20T15:06:00.061+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.max.ms = 10000
+[2025-05-20T15:06:00.062+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.ms = 100
+[2025-05-20T15:06:00.063+0000] {subprocess.py:93} INFO - 	sasl.mechanism = GSSAPI
+[2025-05-20T15:06:00.064+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.clock.skew.seconds = 30
+[2025-05-20T15:06:00.064+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.audience = null
+[2025-05-20T15:06:00.065+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.issuer = null
+[2025-05-20T15:06:00.065+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+[2025-05-20T15:06:00.066+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+[2025-05-20T15:06:00.066+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+[2025-05-20T15:06:00.067+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.url = null
+[2025-05-20T15:06:00.067+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.scope.claim.name = scope
+[2025-05-20T15:06:00.068+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.sub.claim.name = sub
+[2025-05-20T15:06:00.068+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.token.endpoint.url = null
+[2025-05-20T15:06:00.069+0000] {subprocess.py:93} INFO - 	security.protocol = PLAINTEXT
+[2025-05-20T15:06:00.069+0000] {subprocess.py:93} INFO - 	security.providers = null
+[2025-05-20T15:06:00.070+0000] {subprocess.py:93} INFO - 	send.buffer.bytes = 131072
+[2025-05-20T15:06:00.070+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.max.ms = 30000
+[2025-05-20T15:06:00.070+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.ms = 10000
+[2025-05-20T15:06:00.071+0000] {subprocess.py:93} INFO - 	ssl.cipher.suites = null
+[2025-05-20T15:06:00.072+0000] {subprocess.py:93} INFO - 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+[2025-05-20T15:06:00.072+0000] {subprocess.py:93} INFO - 	ssl.endpoint.identification.algorithm = https
+[2025-05-20T15:06:00.073+0000] {subprocess.py:93} INFO - 	ssl.engine.factory.class = null
+[2025-05-20T15:06:00.073+0000] {subprocess.py:93} INFO - 	ssl.key.password = null
+[2025-05-20T15:06:00.073+0000] {subprocess.py:93} INFO - 	ssl.keymanager.algorithm = SunX509
+[2025-05-20T15:06:00.074+0000] {subprocess.py:93} INFO - 	ssl.keystore.certificate.chain = null
+[2025-05-20T15:06:00.074+0000] {subprocess.py:93} INFO - 	ssl.keystore.key = null
+[2025-05-20T15:06:00.075+0000] {subprocess.py:93} INFO - 	ssl.keystore.location = null
+[2025-05-20T15:06:00.075+0000] {subprocess.py:93} INFO - 	ssl.keystore.password = null
+[2025-05-20T15:06:00.075+0000] {subprocess.py:93} INFO - 	ssl.keystore.type = JKS
+[2025-05-20T15:06:00.076+0000] {subprocess.py:93} INFO - 	ssl.protocol = TLSv1.3
+[2025-05-20T15:06:00.077+0000] {subprocess.py:93} INFO - 	ssl.provider = null
+[2025-05-20T15:06:00.077+0000] {subprocess.py:93} INFO - 	ssl.secure.random.implementation = null
+[2025-05-20T15:06:00.078+0000] {subprocess.py:93} INFO - 	ssl.trustmanager.algorithm = PKIX
+[2025-05-20T15:06:00.079+0000] {subprocess.py:93} INFO - 	ssl.truststore.certificates = null
+[2025-05-20T15:06:00.080+0000] {subprocess.py:93} INFO - 	ssl.truststore.location = null
+[2025-05-20T15:06:00.080+0000] {subprocess.py:93} INFO - 	ssl.truststore.password = null
+[2025-05-20T15:06:00.081+0000] {subprocess.py:93} INFO - 	ssl.truststore.type = JKS
+[2025-05-20T15:06:00.081+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:06:00.159+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+[2025-05-20T15:06:00.162+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO AppInfoParser: Kafka version: 3.4.1
+[2025-05-20T15:06:00.163+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO AppInfoParser: Kafka commitId: 8a516edc2755df89
+[2025-05-20T15:06:00.164+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO AppInfoParser: Kafka startTimeMs: 1747753560157
+[2025-05-20T15:06:00.615+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO BlockManagerInfo: Removed broadcast_0_piece0 on f1dad95963cc:43297 in memory (size: 76.4 KiB, free: 434.4 MiB)
+[2025-05-20T15:06:00.745+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/offsets/72 using temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.72.06e978fa-b6e2-42b1-87fc-5d665500183e.tmp
+[2025-05-20T15:06:00.781+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.72.06e978fa-b6e2-42b1-87fc-5d665500183e.tmp to hdfs://namenode:9000/gold_price/checkpoints/offsets/72
+[2025-05-20T15:06:00.784+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO MicroBatchExecution: Committed offsets for batch 72. Metadata OffsetSeqMetadata(0,1747753560727,Map(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200))
+[2025-05-20T15:06:00.855+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:06:00.860+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:06:00.901+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:06:00.906+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:06:00.919+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO FileStreamSinkLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 71
+[2025-05-20T15:06:00.923+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2025-05-20T15:06:00.969+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO SparkContext: Starting job: start at <unknown>:0
+[2025-05-20T15:06:00.974+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO DAGScheduler: Got job 1 (start at <unknown>:0) with 1 output partitions
+[2025-05-20T15:06:00.974+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO DAGScheduler: Final stage: ResultStage 1 (start at <unknown>:0)
+[2025-05-20T15:06:00.975+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-20T15:06:00.977+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO DAGScheduler: Missing parents: List()
+[2025-05-20T15:06:00.979+0000] {subprocess.py:93} INFO - 25/05/20 15:06:00 INFO DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[10] at start at <unknown>:0), which has no missing parents
+[2025-05-20T15:06:01.098+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 242.9 KiB, free 434.2 MiB)
+[2025-05-20T15:06:01.117+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 87.2 KiB, free 434.1 MiB)
+[2025-05-20T15:06:01.120+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on f1dad95963cc:43297 (size: 87.2 KiB, free: 434.3 MiB)
+[2025-05-20T15:06:01.122+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1585
+[2025-05-20T15:06:01.123+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[10] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+[2025-05-20T15:06:01.125+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO TaskSchedulerImpl: Adding task set 1.0 with 1 tasks resource profile 0
+[2025-05-20T15:06:01.127+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (f1dad95963cc, executor driver, partition 0, PROCESS_LOCAL, 10603 bytes)
+[2025-05-20T15:06:01.129+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+[2025-05-20T15:06:01.269+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO CodeGenerator: Code generated in 24.481439 ms
+[2025-05-20T15:06:01.300+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO CodeGenerator: Code generated in 27.204176 ms
+[2025-05-20T15:06:01.338+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO CodeGenerator: Code generated in 18.33684 ms
+[2025-05-20T15:06:01.363+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO CodeGenerator: Code generated in 8.491321 ms
+[2025-05-20T15:06:01.384+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=gold-price-0 fromOffset=41 untilOffset=47, for query queryId=471d967c-db99-4f07-a177-5ee18893ca60 batchId=72 taskId=1 partitionId=0
+[2025-05-20T15:06:01.456+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO CodeGenerator: Code generated in 20.292798 ms
+[2025-05-20T15:06:01.491+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO CodeGenerator: Code generated in 22.282188 ms
+[2025-05-20T15:06:01.530+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO ConsumerConfig: ConsumerConfig values:
+[2025-05-20T15:06:01.535+0000] {subprocess.py:93} INFO - 	allow.auto.create.topics = true
+[2025-05-20T15:06:01.537+0000] {subprocess.py:93} INFO - 	auto.commit.interval.ms = 5000
+[2025-05-20T15:06:01.539+0000] {subprocess.py:93} INFO - 	auto.include.jmx.reporter = true
+[2025-05-20T15:06:01.541+0000] {subprocess.py:93} INFO - 	auto.offset.reset = none
+[2025-05-20T15:06:01.542+0000] {subprocess.py:93} INFO - 	bootstrap.servers = [kafka:9092]
+[2025-05-20T15:06:01.542+0000] {subprocess.py:93} INFO - 	check.crcs = true
+[2025-05-20T15:06:01.543+0000] {subprocess.py:93} INFO - 	client.dns.lookup = use_all_dns_ips
+[2025-05-20T15:06:01.544+0000] {subprocess.py:93} INFO - 	client.id = consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1
+[2025-05-20T15:06:01.546+0000] {subprocess.py:93} INFO - 	client.rack =
+[2025-05-20T15:06:01.550+0000] {subprocess.py:93} INFO - 	connections.max.idle.ms = 540000
+[2025-05-20T15:06:01.551+0000] {subprocess.py:93} INFO - 	default.api.timeout.ms = 60000
+[2025-05-20T15:06:01.556+0000] {subprocess.py:93} INFO - 	enable.auto.commit = false
+[2025-05-20T15:06:01.559+0000] {subprocess.py:93} INFO - 	exclude.internal.topics = true
+[2025-05-20T15:06:01.560+0000] {subprocess.py:93} INFO - 	fetch.max.bytes = 52428800
+[2025-05-20T15:06:01.561+0000] {subprocess.py:93} INFO - 	fetch.max.wait.ms = 500
+[2025-05-20T15:06:01.562+0000] {subprocess.py:93} INFO - 	fetch.min.bytes = 1
+[2025-05-20T15:06:01.571+0000] {subprocess.py:93} INFO - 	group.id = spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor
+[2025-05-20T15:06:01.574+0000] {subprocess.py:93} INFO - 	group.instance.id = null
+[2025-05-20T15:06:01.576+0000] {subprocess.py:93} INFO - 	heartbeat.interval.ms = 3000
+[2025-05-20T15:06:01.577+0000] {subprocess.py:93} INFO - 	interceptor.classes = []
+[2025-05-20T15:06:01.579+0000] {subprocess.py:93} INFO - 	internal.leave.group.on.close = true
+[2025-05-20T15:06:01.580+0000] {subprocess.py:93} INFO - 	internal.throw.on.fetch.stable.offset.unsupported = false
+[2025-05-20T15:06:01.581+0000] {subprocess.py:93} INFO - 	isolation.level = read_uncommitted
+[2025-05-20T15:06:01.582+0000] {subprocess.py:93} INFO - 	key.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+[2025-05-20T15:06:01.583+0000] {subprocess.py:93} INFO - 	max.partition.fetch.bytes = 1048576
+[2025-05-20T15:06:01.584+0000] {subprocess.py:93} INFO - 	max.poll.interval.ms = 300000
+[2025-05-20T15:06:01.586+0000] {subprocess.py:93} INFO - 	max.poll.records = 500
+[2025-05-20T15:06:01.589+0000] {subprocess.py:93} INFO - 	metadata.max.age.ms = 300000
+[2025-05-20T15:06:01.606+0000] {subprocess.py:93} INFO - 	metric.reporters = []
+[2025-05-20T15:06:01.609+0000] {subprocess.py:93} INFO - 	metrics.num.samples = 2
+[2025-05-20T15:06:01.622+0000] {subprocess.py:93} INFO - 	metrics.recording.level = INFO
+[2025-05-20T15:06:01.625+0000] {subprocess.py:93} INFO - 	metrics.sample.window.ms = 30000
+[2025-05-20T15:06:01.626+0000] {subprocess.py:93} INFO - 	partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor, class org.apache.kafka.clients.consumer.CooperativeStickyAssignor]
+[2025-05-20T15:06:01.628+0000] {subprocess.py:93} INFO - 	receive.buffer.bytes = 65536
+[2025-05-20T15:06:01.630+0000] {subprocess.py:93} INFO - 	reconnect.backoff.max.ms = 1000
+[2025-05-20T15:06:01.642+0000] {subprocess.py:93} INFO - 	reconnect.backoff.ms = 50
+[2025-05-20T15:06:01.655+0000] {subprocess.py:93} INFO - 	request.timeout.ms = 30000
+[2025-05-20T15:06:01.661+0000] {subprocess.py:93} INFO - 	retry.backoff.ms = 100
+[2025-05-20T15:06:01.664+0000] {subprocess.py:93} INFO - 	sasl.client.callback.handler.class = null
+[2025-05-20T15:06:01.665+0000] {subprocess.py:93} INFO - 	sasl.jaas.config = null
+[2025-05-20T15:06:01.676+0000] {subprocess.py:93} INFO - 	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+[2025-05-20T15:06:01.679+0000] {subprocess.py:93} INFO - 	sasl.kerberos.min.time.before.relogin = 60000
+[2025-05-20T15:06:01.681+0000] {subprocess.py:93} INFO - 	sasl.kerberos.service.name = null
+[2025-05-20T15:06:01.682+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.jitter = 0.05
+[2025-05-20T15:06:01.684+0000] {subprocess.py:93} INFO - 	sasl.kerberos.ticket.renew.window.factor = 0.8
+[2025-05-20T15:06:01.685+0000] {subprocess.py:93} INFO - 	sasl.login.callback.handler.class = null
+[2025-05-20T15:06:01.686+0000] {subprocess.py:93} INFO - 	sasl.login.class = null
+[2025-05-20T15:06:01.689+0000] {subprocess.py:93} INFO - 	sasl.login.connect.timeout.ms = null
+[2025-05-20T15:06:01.703+0000] {subprocess.py:93} INFO - 	sasl.login.read.timeout.ms = null
+[2025-05-20T15:06:01.707+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.buffer.seconds = 300
+[2025-05-20T15:06:01.708+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.min.period.seconds = 60
+[2025-05-20T15:06:01.708+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.factor = 0.8
+[2025-05-20T15:06:01.709+0000] {subprocess.py:93} INFO - 	sasl.login.refresh.window.jitter = 0.05
+[2025-05-20T15:06:01.710+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.max.ms = 10000
+[2025-05-20T15:06:01.711+0000] {subprocess.py:93} INFO - 	sasl.login.retry.backoff.ms = 100
+[2025-05-20T15:06:01.716+0000] {subprocess.py:93} INFO - 	sasl.mechanism = GSSAPI
+[2025-05-20T15:06:01.722+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.clock.skew.seconds = 30
+[2025-05-20T15:06:01.723+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.audience = null
+[2025-05-20T15:06:01.725+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.expected.issuer = null
+[2025-05-20T15:06:01.726+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+[2025-05-20T15:06:01.727+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+[2025-05-20T15:06:01.735+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+[2025-05-20T15:06:01.736+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.jwks.endpoint.url = null
+[2025-05-20T15:06:01.737+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.scope.claim.name = scope
+[2025-05-20T15:06:01.738+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.sub.claim.name = sub
+[2025-05-20T15:06:01.739+0000] {subprocess.py:93} INFO - 	sasl.oauthbearer.token.endpoint.url = null
+[2025-05-20T15:06:01.740+0000] {subprocess.py:93} INFO - 	security.protocol = PLAINTEXT
+[2025-05-20T15:06:01.740+0000] {subprocess.py:93} INFO - 	security.providers = null
+[2025-05-20T15:06:01.741+0000] {subprocess.py:93} INFO - 	send.buffer.bytes = 131072
+[2025-05-20T15:06:01.742+0000] {subprocess.py:93} INFO - 	session.timeout.ms = 45000
+[2025-05-20T15:06:01.743+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.max.ms = 30000
+[2025-05-20T15:06:01.743+0000] {subprocess.py:93} INFO - 	socket.connection.setup.timeout.ms = 10000
+[2025-05-20T15:06:01.744+0000] {subprocess.py:93} INFO - 	ssl.cipher.suites = null
+[2025-05-20T15:06:01.749+0000] {subprocess.py:93} INFO - 	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+[2025-05-20T15:06:01.753+0000] {subprocess.py:93} INFO - 	ssl.endpoint.identification.algorithm = https
+[2025-05-20T15:06:01.754+0000] {subprocess.py:93} INFO - 	ssl.engine.factory.class = null
+[2025-05-20T15:06:01.755+0000] {subprocess.py:93} INFO - 	ssl.key.password = null
+[2025-05-20T15:06:01.755+0000] {subprocess.py:93} INFO - 	ssl.keymanager.algorithm = SunX509
+[2025-05-20T15:06:01.756+0000] {subprocess.py:93} INFO - 	ssl.keystore.certificate.chain = null
+[2025-05-20T15:06:01.757+0000] {subprocess.py:93} INFO - 	ssl.keystore.key = null
+[2025-05-20T15:06:01.757+0000] {subprocess.py:93} INFO - 	ssl.keystore.location = null
+[2025-05-20T15:06:01.761+0000] {subprocess.py:93} INFO - 	ssl.keystore.password = null
+[2025-05-20T15:06:01.764+0000] {subprocess.py:93} INFO - 	ssl.keystore.type = JKS
+[2025-05-20T15:06:01.765+0000] {subprocess.py:93} INFO - 	ssl.protocol = TLSv1.3
+[2025-05-20T15:06:01.768+0000] {subprocess.py:93} INFO - 	ssl.provider = null
+[2025-05-20T15:06:01.769+0000] {subprocess.py:93} INFO - 	ssl.secure.random.implementation = null
+[2025-05-20T15:06:01.769+0000] {subprocess.py:93} INFO - 	ssl.trustmanager.algorithm = PKIX
+[2025-05-20T15:06:01.770+0000] {subprocess.py:93} INFO - 	ssl.truststore.certificates = null
+[2025-05-20T15:06:01.771+0000] {subprocess.py:93} INFO - 	ssl.truststore.location = null
+[2025-05-20T15:06:01.774+0000] {subprocess.py:93} INFO - 	ssl.truststore.password = null
+[2025-05-20T15:06:01.775+0000] {subprocess.py:93} INFO - 	ssl.truststore.type = JKS
+[2025-05-20T15:06:01.776+0000] {subprocess.py:93} INFO - 	value.deserializer = class org.apache.kafka.common.serialization.ByteArrayDeserializer
+[2025-05-20T15:06:01.776+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:06:01.834+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO AppInfoParser: Kafka version: 3.4.1
+[2025-05-20T15:06:01.836+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO AppInfoParser: Kafka commitId: 8a516edc2755df89
+[2025-05-20T15:06:01.837+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO AppInfoParser: Kafka startTimeMs: 1747753561787
+[2025-05-20T15:06:01.841+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Assigned to partition(s): gold-price-0
+[2025-05-20T15:06:01.925+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to offset 41 for partition gold-price-0
+[2025-05-20T15:06:01.941+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting the last seen epoch of partition gold-price-0 to 0 since the associated topicId changed from null to DmCZSMwWSBCjSoOFstsI4w
+[2025-05-20T15:06:01.945+0000] {subprocess.py:93} INFO - 25/05/20 15:06:01 INFO Metadata: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Cluster ID: HByJ2mt6RcGP9u-v3QmQAg
+[2025-05-20T15:06:02.085+0000] {subprocess.py:93} INFO - 25/05/20 15:06:02 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to earliest offset of partition gold-price-0
+[2025-05-20T15:06:02.613+0000] {subprocess.py:93} INFO - 25/05/20 15:06:02 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:06:02.615+0000] {subprocess.py:93} INFO - 25/05/20 15:06:02 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to latest offset of partition gold-price-0
+[2025-05-20T15:06:02.618+0000] {subprocess.py:93} INFO - 25/05/20 15:06:02 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=47, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:06:02.898+0000] {subprocess.py:93} INFO - 25/05/20 15:06:02 INFO CodeGenerator: Code generated in 17.59548 ms
+[2025-05-20T15:06:03.019+0000] {subprocess.py:93} INFO - 25/05/20 15:06:03 INFO CodeGenerator: Code generated in 44.021208 ms
+[2025-05-20T15:06:03.041+0000] {subprocess.py:93} INFO - 25/05/20 15:06:03 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:06:03.053+0000] {subprocess.py:93} INFO - 25/05/20 15:06:03 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:06:03.097+0000] {subprocess.py:93} INFO - 25/05/20 15:06:03 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2025-05-20T15:06:03.141+0000] {subprocess.py:93} INFO - 25/05/20 15:06:03 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2025-05-20T15:06:03.142+0000] {subprocess.py:93} INFO - {
+[2025-05-20T15:06:03.143+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2025-05-20T15:06:03.143+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2025-05-20T15:06:03.144+0000] {subprocess.py:93} INFO -     "name" : "Datetime",
+[2025-05-20T15:06:03.144+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2025-05-20T15:06:03.145+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:06:03.145+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:06:03.146+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:06:03.146+0000] {subprocess.py:93} INFO -     "name" : "Price",
+[2025-05-20T15:06:03.147+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:06:03.148+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:06:03.148+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:06:03.149+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:06:03.149+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2025-05-20T15:06:03.150+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:06:03.150+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:06:03.151+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:06:03.152+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:06:03.153+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2025-05-20T15:06:03.154+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:06:03.155+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:06:03.156+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:06:03.156+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:06:03.157+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2025-05-20T15:06:03.157+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:06:03.158+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:06:03.158+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:06:03.159+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:06:03.159+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2025-05-20T15:06:03.160+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:06:03.160+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:06:03.161+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:06:03.161+0000] {subprocess.py:93} INFO -   } ]
+[2025-05-20T15:06:03.162+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:06:03.162+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2025-05-20T15:06:03.163+0000] {subprocess.py:93} INFO - message spark_schema {
+[2025-05-20T15:06:03.163+0000] {subprocess.py:93} INFO -   optional binary Datetime (STRING);
+[2025-05-20T15:06:03.164+0000] {subprocess.py:93} INFO -   optional double Price;
+[2025-05-20T15:06:03.164+0000] {subprocess.py:93} INFO -   optional double Close;
+[2025-05-20T15:06:03.164+0000] {subprocess.py:93} INFO -   optional double High;
+[2025-05-20T15:06:03.167+0000] {subprocess.py:93} INFO -   optional double Low;
+[2025-05-20T15:06:03.168+0000] {subprocess.py:93} INFO -   optional double Open;
+[2025-05-20T15:06:03.169+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:06:03.169+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:06:03.170+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:06:03.221+0000] {subprocess.py:93} INFO - 25/05/20 15:06:03 INFO CodecPool: Got brand-new compressor [.snappy]
+[2025-05-20T15:06:04.408+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO KafkaDataConsumer: From Kafka topicPartition=gold-price-0 groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor read 6 records through 1 polls (polled  out 6 records), taking 707800779 nanos, during time span of 2550057215 nanos.
+[2025-05-20T15:06:04.435+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 3597 bytes result sent to driver
+[2025-05-20T15:06:04.442+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 3311 ms on f1dad95963cc (executor driver) (1/1)
+[2025-05-20T15:06:04.443+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool
+[2025-05-20T15:06:04.444+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO DAGScheduler: ResultStage 1 (start at <unknown>:0) finished in 3.454 s
+[2025-05-20T15:06:04.446+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-20T15:06:04.448+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO TaskSchedulerImpl: Killing all running tasks in stage 1: Stage finished
+[2025-05-20T15:06:04.449+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO DAGScheduler: Job 1 finished: start at <unknown>:0, took 3.469679 s
+[2025-05-20T15:06:04.449+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO FileFormatWriter: Start to commit write Job 3b9d769a-5212-401e-b9a7-5fbc8225dee2.
+[2025-05-20T15:06:04.455+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/72 using temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.72.681189fa-708a-4076-ac53-d13035e5ed3b.tmp
+[2025-05-20T15:06:04.518+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.72.681189fa-708a-4076-ac53-d13035e5ed3b.tmp to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/72
+[2025-05-20T15:06:04.519+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO ManifestFileCommitProtocol: Committed batch 72
+[2025-05-20T15:06:04.521+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO FileFormatWriter: Write Job 3b9d769a-5212-401e-b9a7-5fbc8225dee2 committed. Elapsed time: 75 ms.
+[2025-05-20T15:06:04.522+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO FileFormatWriter: Finished processing stats for write job 3b9d769a-5212-401e-b9a7-5fbc8225dee2.
+[2025-05-20T15:06:04.536+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/commits/72 using temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.72.867bf407-a5ad-4669-8d7e-36183f4b9af4.tmp
+[2025-05-20T15:06:04.569+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.72.867bf407-a5ad-4669-8d7e-36183f4b9af4.tmp to hdfs://namenode:9000/gold_price/checkpoints/commits/72
+[2025-05-20T15:06:04.575+0000] {subprocess.py:93} INFO - 25/05/20 15:06:04 INFO MicroBatchExecution: Streaming query made progress: {
+[2025-05-20T15:06:04.575+0000] {subprocess.py:93} INFO -   "id" : "471d967c-db99-4f07-a177-5ee18893ca60",
+[2025-05-20T15:06:04.576+0000] {subprocess.py:93} INFO -   "runId" : "a7734dce-732d-49a4-8ad4-6e5bf0122fe3",
+[2025-05-20T15:06:04.577+0000] {subprocess.py:93} INFO -   "name" : null,
+[2025-05-20T15:06:04.577+0000] {subprocess.py:93} INFO -   "timestamp" : "2025-05-20T15:06:00.000Z",
+[2025-05-20T15:06:04.578+0000] {subprocess.py:93} INFO -   "batchId" : 72,
+[2025-05-20T15:06:04.579+0000] {subprocess.py:93} INFO -   "numInputRows" : 6,
+[2025-05-20T15:06:04.579+0000] {subprocess.py:93} INFO -   "inputRowsPerSecond" : 0.361249924739599,
+[2025-05-20T15:06:04.580+0000] {subprocess.py:93} INFO -   "processedRowsPerSecond" : 1.3134851138353767,
+[2025-05-20T15:06:04.581+0000] {subprocess.py:93} INFO -   "durationMs" : {
+[2025-05-20T15:06:04.582+0000] {subprocess.py:93} INFO -     "addBatch" : 3649,
+[2025-05-20T15:06:04.582+0000] {subprocess.py:93} INFO -     "commitOffsets" : 51,
+[2025-05-20T15:06:04.583+0000] {subprocess.py:93} INFO -     "getBatch" : 1,
+[2025-05-20T15:06:04.583+0000] {subprocess.py:93} INFO -     "latestOffset" : 723,
+[2025-05-20T15:06:04.583+0000] {subprocess.py:93} INFO -     "queryPlanning" : 64,
+[2025-05-20T15:06:04.584+0000] {subprocess.py:93} INFO -     "triggerExecution" : 4568,
+[2025-05-20T15:06:04.584+0000] {subprocess.py:93} INFO -     "walCommit" : 67
+[2025-05-20T15:06:04.584+0000] {subprocess.py:93} INFO -   },
+[2025-05-20T15:06:04.585+0000] {subprocess.py:93} INFO -   "stateOperators" : [ ],
+[2025-05-20T15:06:04.585+0000] {subprocess.py:93} INFO -   "sources" : [ {
+[2025-05-20T15:06:04.585+0000] {subprocess.py:93} INFO -     "description" : "KafkaV2[Subscribe[gold-price]]",
+[2025-05-20T15:06:04.585+0000] {subprocess.py:93} INFO -     "startOffset" : {
+[2025-05-20T15:06:04.586+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:06:04.586+0000] {subprocess.py:93} INFO -         "0" : 41
+[2025-05-20T15:06:04.586+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:06:04.586+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:06:04.587+0000] {subprocess.py:93} INFO -     "endOffset" : {
+[2025-05-20T15:06:04.587+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:06:04.587+0000] {subprocess.py:93} INFO -         "0" : 47
+[2025-05-20T15:06:04.587+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:06:04.588+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:06:04.588+0000] {subprocess.py:93} INFO -     "latestOffset" : {
+[2025-05-20T15:06:04.588+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:06:04.588+0000] {subprocess.py:93} INFO -         "0" : 47
+[2025-05-20T15:06:04.588+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:06:04.589+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:06:04.589+0000] {subprocess.py:93} INFO -     "numInputRows" : 6,
+[2025-05-20T15:06:04.589+0000] {subprocess.py:93} INFO -     "inputRowsPerSecond" : 0.361249924739599,
+[2025-05-20T15:06:04.590+0000] {subprocess.py:93} INFO -     "processedRowsPerSecond" : 1.3134851138353767,
+[2025-05-20T15:06:04.590+0000] {subprocess.py:93} INFO -     "metrics" : {
+[2025-05-20T15:06:04.590+0000] {subprocess.py:93} INFO -       "avgOffsetsBehindLatest" : "0.0",
+[2025-05-20T15:06:04.591+0000] {subprocess.py:93} INFO -       "maxOffsetsBehindLatest" : "0",
+[2025-05-20T15:06:04.591+0000] {subprocess.py:93} INFO -       "minOffsetsBehindLatest" : "0"
+[2025-05-20T15:06:04.591+0000] {subprocess.py:93} INFO -     }
+[2025-05-20T15:06:04.591+0000] {subprocess.py:93} INFO -   } ],
+[2025-05-20T15:06:04.592+0000] {subprocess.py:93} INFO -   "sink" : {
+[2025-05-20T15:06:04.592+0000] {subprocess.py:93} INFO -     "description" : "FileSink[hdfs://namenode:9000/gold_price/aggregates]",
+[2025-05-20T15:06:04.592+0000] {subprocess.py:93} INFO -     "numOutputRows" : -1
+[2025-05-20T15:06:04.592+0000] {subprocess.py:93} INFO -   }
+[2025-05-20T15:06:04.593+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:07:00.016+0000] {subprocess.py:93} INFO - 25/05/20 15:07:00 INFO MicroBatchExecution: Streaming query has been idle and waiting for new data more than 10000 ms.
+[2025-05-20T15:08:00.032+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/offsets/73 using temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.73.33cfe27b-efbd-43f3-8026-92e289b5fea9.tmp
+[2025-05-20T15:08:00.086+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.73.33cfe27b-efbd-43f3-8026-92e289b5fea9.tmp to hdfs://namenode:9000/gold_price/checkpoints/offsets/73
+[2025-05-20T15:08:00.090+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO MicroBatchExecution: Committed offsets for batch 73. Metadata OffsetSeqMetadata(0,1747753680014,Map(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200))
+[2025-05-20T15:08:00.158+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:08:00.162+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:08:00.206+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:08:00.211+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:08:00.229+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO FileStreamSinkLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 71, 72, 72
+[2025-05-20T15:08:00.233+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2025-05-20T15:08:00.331+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO SparkContext: Starting job: start at <unknown>:0
+[2025-05-20T15:08:00.338+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO DAGScheduler: Got job 2 (start at <unknown>:0) with 1 output partitions
+[2025-05-20T15:08:00.345+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO DAGScheduler: Final stage: ResultStage 2 (start at <unknown>:0)
+[2025-05-20T15:08:00.350+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-20T15:08:00.364+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO DAGScheduler: Missing parents: List()
+[2025-05-20T15:08:00.370+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[15] at start at <unknown>:0), which has no missing parents
+[2025-05-20T15:08:00.405+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 242.9 KiB, free 433.8 MiB)
+[2025-05-20T15:08:00.437+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 87.2 KiB, free 433.8 MiB)
+[2025-05-20T15:08:00.465+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on f1dad95963cc:43297 (size: 87.2 KiB, free: 434.2 MiB)
+[2025-05-20T15:08:00.468+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1585
+[2025-05-20T15:08:00.481+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[15] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+[2025-05-20T15:08:00.488+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO TaskSchedulerImpl: Adding task set 2.0 with 1 tasks resource profile 0
+[2025-05-20T15:08:00.499+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2) (f1dad95963cc, executor driver, partition 0, PROCESS_LOCAL, 10603 bytes)
+[2025-05-20T15:08:00.508+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO Executor: Running task 0.0 in stage 2.0 (TID 2)
+[2025-05-20T15:08:00.610+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO BlockManagerInfo: Removed broadcast_1_piece0 on f1dad95963cc:43297 in memory (size: 87.2 KiB, free: 434.3 MiB)
+[2025-05-20T15:08:00.648+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=gold-price-0 fromOffset=47 untilOffset=48, for query queryId=471d967c-db99-4f07-a177-5ee18893ca60 batchId=73 taskId=2 partitionId=0
+[2025-05-20T15:08:00.668+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to offset 47 for partition gold-price-0
+[2025-05-20T15:08:00.675+0000] {subprocess.py:93} INFO - 25/05/20 15:08:00 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to earliest offset of partition gold-price-0
+[2025-05-20T15:08:01.182+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:08:01.183+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to latest offset of partition gold-price-0
+[2025-05-20T15:08:01.185+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=49, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:08:01.211+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:08:01.212+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:08:01.214+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2025-05-20T15:08:01.219+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2025-05-20T15:08:01.220+0000] {subprocess.py:93} INFO - {
+[2025-05-20T15:08:01.220+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2025-05-20T15:08:01.221+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2025-05-20T15:08:01.221+0000] {subprocess.py:93} INFO -     "name" : "Datetime",
+[2025-05-20T15:08:01.222+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2025-05-20T15:08:01.222+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:08:01.222+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:08:01.223+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:08:01.223+0000] {subprocess.py:93} INFO -     "name" : "Price",
+[2025-05-20T15:08:01.223+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:08:01.224+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:08:01.224+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:08:01.225+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:08:01.225+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2025-05-20T15:08:01.226+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:08:01.226+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:08:01.226+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:08:01.227+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:08:01.227+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2025-05-20T15:08:01.228+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:08:01.229+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:08:01.229+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:08:01.230+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:08:01.230+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2025-05-20T15:08:01.231+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:08:01.231+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:08:01.239+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:08:01.240+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:08:01.241+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2025-05-20T15:08:01.241+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:08:01.242+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:08:01.242+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:08:01.242+0000] {subprocess.py:93} INFO -   } ]
+[2025-05-20T15:08:01.243+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:08:01.243+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2025-05-20T15:08:01.244+0000] {subprocess.py:93} INFO - message spark_schema {
+[2025-05-20T15:08:01.245+0000] {subprocess.py:93} INFO -   optional binary Datetime (STRING);
+[2025-05-20T15:08:01.245+0000] {subprocess.py:93} INFO -   optional double Price;
+[2025-05-20T15:08:01.246+0000] {subprocess.py:93} INFO -   optional double Close;
+[2025-05-20T15:08:01.246+0000] {subprocess.py:93} INFO -   optional double High;
+[2025-05-20T15:08:01.247+0000] {subprocess.py:93} INFO -   optional double Low;
+[2025-05-20T15:08:01.247+0000] {subprocess.py:93} INFO -   optional double Open;
+[2025-05-20T15:08:01.248+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:08:01.248+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:08:01.249+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:08:01.687+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO KafkaDataConsumer: From Kafka topicPartition=gold-price-0 groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor read 1 records through 1 polls (polled  out 2 records), taking 517270807 nanos, during time span of 1013460140 nanos.
+[2025-05-20T15:08:01.701+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO Executor: Finished task 0.0 in stage 2.0 (TID 2). 3597 bytes result sent to driver
+[2025-05-20T15:08:01.702+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 1238 ms on f1dad95963cc (executor driver) (1/1)
+[2025-05-20T15:08:01.703+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool
+[2025-05-20T15:08:01.705+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO DAGScheduler: ResultStage 2 (start at <unknown>:0) finished in 1.387 s
+[2025-05-20T15:08:01.706+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-20T15:08:01.709+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+[2025-05-20T15:08:01.711+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO DAGScheduler: Job 2 finished: start at <unknown>:0, took 1.404142 s
+[2025-05-20T15:08:01.712+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO FileFormatWriter: Start to commit write Job 1d1e9b35-3d3a-41fa-9820-7ed919732819.
+[2025-05-20T15:08:01.724+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/73 using temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.73.8e146fdc-6a43-478f-ad29-66f181518d21.tmp
+[2025-05-20T15:08:01.785+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.73.8e146fdc-6a43-478f-ad29-66f181518d21.tmp to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/73
+[2025-05-20T15:08:01.786+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO ManifestFileCommitProtocol: Committed batch 73
+[2025-05-20T15:08:01.787+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO FileFormatWriter: Write Job 1d1e9b35-3d3a-41fa-9820-7ed919732819 committed. Elapsed time: 73 ms.
+[2025-05-20T15:08:01.788+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO FileFormatWriter: Finished processing stats for write job 1d1e9b35-3d3a-41fa-9820-7ed919732819.
+[2025-05-20T15:08:01.799+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/commits/73 using temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.73.6539bae7-ea61-44f6-9f51-b218b5619474.tmp
+[2025-05-20T15:08:01.834+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.73.6539bae7-ea61-44f6-9f51-b218b5619474.tmp to hdfs://namenode:9000/gold_price/checkpoints/commits/73
+[2025-05-20T15:08:01.838+0000] {subprocess.py:93} INFO - 25/05/20 15:08:01 INFO MicroBatchExecution: Streaming query made progress: {
+[2025-05-20T15:08:01.839+0000] {subprocess.py:93} INFO -   "id" : "471d967c-db99-4f07-a177-5ee18893ca60",
+[2025-05-20T15:08:01.840+0000] {subprocess.py:93} INFO -   "runId" : "a7734dce-732d-49a4-8ad4-6e5bf0122fe3",
+[2025-05-20T15:08:01.841+0000] {subprocess.py:93} INFO -   "name" : null,
+[2025-05-20T15:08:01.841+0000] {subprocess.py:93} INFO -   "timestamp" : "2025-05-20T15:08:00.000Z",
+[2025-05-20T15:08:01.842+0000] {subprocess.py:93} INFO -   "batchId" : 73,
+[2025-05-20T15:08:01.842+0000] {subprocess.py:93} INFO -   "numInputRows" : 1,
+[2025-05-20T15:08:01.844+0000] {subprocess.py:93} INFO -   "inputRowsPerSecond" : 0.016666666666666666,
+[2025-05-20T15:08:01.844+0000] {subprocess.py:93} INFO -   "processedRowsPerSecond" : 0.5455537370430987,
+[2025-05-20T15:08:01.845+0000] {subprocess.py:93} INFO -   "durationMs" : {
+[2025-05-20T15:08:01.845+0000] {subprocess.py:93} INFO -     "addBatch" : 1610,
+[2025-05-20T15:08:01.846+0000] {subprocess.py:93} INFO -     "commitOffsets" : 48,
+[2025-05-20T15:08:01.846+0000] {subprocess.py:93} INFO -     "getBatch" : 1,
+[2025-05-20T15:08:01.847+0000] {subprocess.py:93} INFO -     "latestOffset" : 13,
+[2025-05-20T15:08:01.848+0000] {subprocess.py:93} INFO -     "queryPlanning" : 77,
+[2025-05-20T15:08:01.848+0000] {subprocess.py:93} INFO -     "triggerExecution" : 1832,
+[2025-05-20T15:08:01.849+0000] {subprocess.py:93} INFO -     "walCommit" : 71
+[2025-05-20T15:08:01.849+0000] {subprocess.py:93} INFO -   },
+[2025-05-20T15:08:01.849+0000] {subprocess.py:93} INFO -   "stateOperators" : [ ],
+[2025-05-20T15:08:01.850+0000] {subprocess.py:93} INFO -   "sources" : [ {
+[2025-05-20T15:08:01.850+0000] {subprocess.py:93} INFO -     "description" : "KafkaV2[Subscribe[gold-price]]",
+[2025-05-20T15:08:01.851+0000] {subprocess.py:93} INFO -     "startOffset" : {
+[2025-05-20T15:08:01.851+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:08:01.851+0000] {subprocess.py:93} INFO -         "0" : 47
+[2025-05-20T15:08:01.852+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:08:01.852+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:08:01.852+0000] {subprocess.py:93} INFO -     "endOffset" : {
+[2025-05-20T15:08:01.853+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:08:01.853+0000] {subprocess.py:93} INFO -         "0" : 48
+[2025-05-20T15:08:01.854+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:08:01.854+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:08:01.855+0000] {subprocess.py:93} INFO -     "latestOffset" : {
+[2025-05-20T15:08:01.855+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:08:01.855+0000] {subprocess.py:93} INFO -         "0" : 48
+[2025-05-20T15:08:01.856+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:08:01.856+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:08:01.856+0000] {subprocess.py:93} INFO -     "numInputRows" : 1,
+[2025-05-20T15:08:01.857+0000] {subprocess.py:93} INFO -     "inputRowsPerSecond" : 0.016666666666666666,
+[2025-05-20T15:08:01.857+0000] {subprocess.py:93} INFO -     "processedRowsPerSecond" : 0.5455537370430987,
+[2025-05-20T15:08:01.858+0000] {subprocess.py:93} INFO -     "metrics" : {
+[2025-05-20T15:08:01.858+0000] {subprocess.py:93} INFO -       "avgOffsetsBehindLatest" : "0.0",
+[2025-05-20T15:08:01.859+0000] {subprocess.py:93} INFO -       "maxOffsetsBehindLatest" : "0",
+[2025-05-20T15:08:01.860+0000] {subprocess.py:93} INFO -       "minOffsetsBehindLatest" : "0"
+[2025-05-20T15:08:01.861+0000] {subprocess.py:93} INFO -     }
+[2025-05-20T15:08:01.861+0000] {subprocess.py:93} INFO -   } ],
+[2025-05-20T15:08:01.862+0000] {subprocess.py:93} INFO -   "sink" : {
+[2025-05-20T15:08:01.862+0000] {subprocess.py:93} INFO -     "description" : "FileSink[hdfs://namenode:9000/gold_price/aggregates]",
+[2025-05-20T15:08:01.864+0000] {subprocess.py:93} INFO -     "numOutputRows" : -1
+[2025-05-20T15:08:01.865+0000] {subprocess.py:93} INFO -   }
+[2025-05-20T15:08:01.865+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:09:00.032+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/offsets/74 using temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.74.f0b14dac-24b4-48f6-9b40-b7d67fff0668.tmp
+[2025-05-20T15:09:00.466+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.74.f0b14dac-24b4-48f6-9b40-b7d67fff0668.tmp to hdfs://namenode:9000/gold_price/checkpoints/offsets/74
+[2025-05-20T15:09:00.468+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO MicroBatchExecution: Committed offsets for batch 74. Metadata OffsetSeqMetadata(0,1747753740016,Map(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200))
+[2025-05-20T15:09:00.508+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:09:00.511+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:09:00.550+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:09:00.554+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:09:00.577+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO FileStreamSinkLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 72, 73, 73
+[2025-05-20T15:09:00.579+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO BlockManagerInfo: Removed broadcast_2_piece0 on f1dad95963cc:43297 in memory (size: 87.2 KiB, free: 434.4 MiB)
+[2025-05-20T15:09:00.583+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2025-05-20T15:09:00.645+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO SparkContext: Starting job: start at <unknown>:0
+[2025-05-20T15:09:00.648+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO DAGScheduler: Got job 3 (start at <unknown>:0) with 1 output partitions
+[2025-05-20T15:09:00.650+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO DAGScheduler: Final stage: ResultStage 3 (start at <unknown>:0)
+[2025-05-20T15:09:00.650+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-20T15:09:00.660+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO DAGScheduler: Missing parents: List()
+[2025-05-20T15:09:00.661+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO DAGScheduler: Submitting ResultStage 3 (MapPartitionsRDD[20] at start at <unknown>:0), which has no missing parents
+[2025-05-20T15:09:00.719+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 242.9 KiB, free 434.2 MiB)
+[2025-05-20T15:09:00.734+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 87.3 KiB, free 434.1 MiB)
+[2025-05-20T15:09:00.742+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on f1dad95963cc:43297 (size: 87.3 KiB, free: 434.3 MiB)
+[2025-05-20T15:09:00.770+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1585
+[2025-05-20T15:09:00.774+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 3 (MapPartitionsRDD[20] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+[2025-05-20T15:09:00.786+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO TaskSchedulerImpl: Adding task set 3.0 with 1 tasks resource profile 0
+[2025-05-20T15:09:00.789+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO TaskSetManager: Starting task 0.0 in stage 3.0 (TID 3) (f1dad95963cc, executor driver, partition 0, PROCESS_LOCAL, 10603 bytes)
+[2025-05-20T15:09:00.791+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO Executor: Running task 0.0 in stage 3.0 (TID 3)
+[2025-05-20T15:09:00.891+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=gold-price-0 fromOffset=48 untilOffset=51, for query queryId=471d967c-db99-4f07-a177-5ee18893ca60 batchId=74 taskId=3 partitionId=0
+[2025-05-20T15:09:00.910+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to offset 49 for partition gold-price-0
+[2025-05-20T15:09:00.926+0000] {subprocess.py:93} INFO - 25/05/20 15:09:00 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to earliest offset of partition gold-price-0
+[2025-05-20T15:09:01.432+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:09:01.433+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to latest offset of partition gold-price-0
+[2025-05-20T15:09:01.434+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=51, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:09:01.449+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:09:01.450+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:09:01.452+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2025-05-20T15:09:01.455+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2025-05-20T15:09:01.456+0000] {subprocess.py:93} INFO - {
+[2025-05-20T15:09:01.457+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2025-05-20T15:09:01.458+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2025-05-20T15:09:01.459+0000] {subprocess.py:93} INFO -     "name" : "Datetime",
+[2025-05-20T15:09:01.459+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2025-05-20T15:09:01.460+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:09:01.461+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:09:01.461+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:09:01.462+0000] {subprocess.py:93} INFO -     "name" : "Price",
+[2025-05-20T15:09:01.462+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:09:01.463+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:09:01.463+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:09:01.464+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:09:01.464+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2025-05-20T15:09:01.465+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:09:01.465+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:09:01.466+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:09:01.466+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:09:01.466+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2025-05-20T15:09:01.467+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:09:01.467+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:09:01.468+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:09:01.468+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:09:01.469+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2025-05-20T15:09:01.469+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:09:01.470+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:09:01.470+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:09:01.471+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:09:01.471+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2025-05-20T15:09:01.472+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:09:01.473+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:09:01.473+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:09:01.474+0000] {subprocess.py:93} INFO -   } ]
+[2025-05-20T15:09:01.475+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:09:01.475+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2025-05-20T15:09:01.476+0000] {subprocess.py:93} INFO - message spark_schema {
+[2025-05-20T15:09:01.476+0000] {subprocess.py:93} INFO -   optional binary Datetime (STRING);
+[2025-05-20T15:09:01.477+0000] {subprocess.py:93} INFO -   optional double Price;
+[2025-05-20T15:09:01.478+0000] {subprocess.py:93} INFO -   optional double Close;
+[2025-05-20T15:09:01.478+0000] {subprocess.py:93} INFO -   optional double High;
+[2025-05-20T15:09:01.479+0000] {subprocess.py:93} INFO -   optional double Low;
+[2025-05-20T15:09:01.479+0000] {subprocess.py:93} INFO -   optional double Open;
+[2025-05-20T15:09:01.480+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:09:01.480+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:09:01.481+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:09:01.506+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO KafkaDataConsumer: From Kafka topicPartition=gold-price-0 groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor read 3 records through 1 polls (polled  out 2 records), taking 525179240 nanos, during time span of 599293514 nanos.
+[2025-05-20T15:09:01.510+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO Executor: Finished task 0.0 in stage 3.0 (TID 3). 3554 bytes result sent to driver
+[2025-05-20T15:09:01.513+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO TaskSetManager: Finished task 0.0 in stage 3.0 (TID 3) in 740 ms on f1dad95963cc (executor driver) (1/1)
+[2025-05-20T15:09:01.514+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO TaskSchedulerImpl: Removed TaskSet 3.0, whose tasks have all completed, from pool
+[2025-05-20T15:09:01.517+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO DAGScheduler: ResultStage 3 (start at <unknown>:0) finished in 0.854 s
+[2025-05-20T15:09:01.517+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO DAGScheduler: Job 3 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-20T15:09:01.518+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO TaskSchedulerImpl: Killing all running tasks in stage 3: Stage finished
+[2025-05-20T15:09:01.519+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO DAGScheduler: Job 3 finished: start at <unknown>:0, took 0.872185 s
+[2025-05-20T15:09:01.519+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO FileFormatWriter: Start to commit write Job ee7491c7-827e-49ed-9844-db3d9aa30068.
+[2025-05-20T15:09:01.526+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/74 using temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.74.d861faff-9562-4660-b2fd-21648de54414.tmp
+[2025-05-20T15:09:01.968+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.74.d861faff-9562-4660-b2fd-21648de54414.tmp to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/74
+[2025-05-20T15:09:01.969+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO ManifestFileCommitProtocol: Committed batch 74
+[2025-05-20T15:09:01.969+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO FileFormatWriter: Write Job ee7491c7-827e-49ed-9844-db3d9aa30068 committed. Elapsed time: 449 ms.
+[2025-05-20T15:09:01.970+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO FileFormatWriter: Finished processing stats for write job ee7491c7-827e-49ed-9844-db3d9aa30068.
+[2025-05-20T15:09:01.976+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/commits/74 using temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.74.4e28b7f1-abc7-4afc-92bd-6cc78e3d05d8.tmp
+[2025-05-20T15:09:02.000+0000] {subprocess.py:93} INFO - 25/05/20 15:09:01 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.74.4e28b7f1-abc7-4afc-92bd-6cc78e3d05d8.tmp to hdfs://namenode:9000/gold_price/checkpoints/commits/74
+[2025-05-20T15:09:02.003+0000] {subprocess.py:93} INFO - 25/05/20 15:09:02 INFO MicroBatchExecution: Streaming query made progress: {
+[2025-05-20T15:09:02.004+0000] {subprocess.py:93} INFO -   "id" : "471d967c-db99-4f07-a177-5ee18893ca60",
+[2025-05-20T15:09:02.005+0000] {subprocess.py:93} INFO -   "runId" : "a7734dce-732d-49a4-8ad4-6e5bf0122fe3",
+[2025-05-20T15:09:02.005+0000] {subprocess.py:93} INFO -   "name" : null,
+[2025-05-20T15:09:02.005+0000] {subprocess.py:93} INFO -   "timestamp" : "2025-05-20T15:09:00.000Z",
+[2025-05-20T15:09:02.006+0000] {subprocess.py:93} INFO -   "batchId" : 74,
+[2025-05-20T15:09:02.006+0000] {subprocess.py:93} INFO -   "numInputRows" : 3,
+[2025-05-20T15:09:02.006+0000] {subprocess.py:93} INFO -   "inputRowsPerSecond" : 0.05,
+[2025-05-20T15:09:02.006+0000] {subprocess.py:93} INFO -   "processedRowsPerSecond" : 1.5007503751875937,
+[2025-05-20T15:09:02.007+0000] {subprocess.py:93} INFO -   "durationMs" : {
+[2025-05-20T15:09:02.007+0000] {subprocess.py:93} INFO -     "addBatch" : 1446,
+[2025-05-20T15:09:02.007+0000] {subprocess.py:93} INFO -     "commitOffsets" : 31,
+[2025-05-20T15:09:02.008+0000] {subprocess.py:93} INFO -     "getBatch" : 1,
+[2025-05-20T15:09:02.008+0000] {subprocess.py:93} INFO -     "latestOffset" : 15,
+[2025-05-20T15:09:02.009+0000] {subprocess.py:93} INFO -     "queryPlanning" : 48,
+[2025-05-20T15:09:02.009+0000] {subprocess.py:93} INFO -     "triggerExecution" : 1999,
+[2025-05-20T15:09:02.009+0000] {subprocess.py:93} INFO -     "walCommit" : 450
+[2025-05-20T15:09:02.010+0000] {subprocess.py:93} INFO -   },
+[2025-05-20T15:09:02.011+0000] {subprocess.py:93} INFO -   "stateOperators" : [ ],
+[2025-05-20T15:09:02.011+0000] {subprocess.py:93} INFO -   "sources" : [ {
+[2025-05-20T15:09:02.011+0000] {subprocess.py:93} INFO -     "description" : "KafkaV2[Subscribe[gold-price]]",
+[2025-05-20T15:09:02.012+0000] {subprocess.py:93} INFO -     "startOffset" : {
+[2025-05-20T15:09:02.012+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:09:02.013+0000] {subprocess.py:93} INFO -         "0" : 48
+[2025-05-20T15:09:02.013+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:09:02.013+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:09:02.014+0000] {subprocess.py:93} INFO -     "endOffset" : {
+[2025-05-20T15:09:02.014+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:09:02.014+0000] {subprocess.py:93} INFO -         "0" : 51
+[2025-05-20T15:09:02.015+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:09:02.015+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:09:02.015+0000] {subprocess.py:93} INFO -     "latestOffset" : {
+[2025-05-20T15:09:02.016+0000] {subprocess.py:93} INFO -       "gold-price" : {
+[2025-05-20T15:09:02.016+0000] {subprocess.py:93} INFO -         "0" : 51
+[2025-05-20T15:09:02.016+0000] {subprocess.py:93} INFO -       }
+[2025-05-20T15:09:02.017+0000] {subprocess.py:93} INFO -     },
+[2025-05-20T15:09:02.017+0000] {subprocess.py:93} INFO -     "numInputRows" : 3,
+[2025-05-20T15:09:02.017+0000] {subprocess.py:93} INFO -     "inputRowsPerSecond" : 0.05,
+[2025-05-20T15:09:02.017+0000] {subprocess.py:93} INFO -     "processedRowsPerSecond" : 1.5007503751875937,
+[2025-05-20T15:09:02.018+0000] {subprocess.py:93} INFO -     "metrics" : {
+[2025-05-20T15:09:02.018+0000] {subprocess.py:93} INFO -       "avgOffsetsBehindLatest" : "0.0",
+[2025-05-20T15:09:02.018+0000] {subprocess.py:93} INFO -       "maxOffsetsBehindLatest" : "0",
+[2025-05-20T15:09:02.018+0000] {subprocess.py:93} INFO -       "minOffsetsBehindLatest" : "0"
+[2025-05-20T15:09:02.019+0000] {subprocess.py:93} INFO -     }
+[2025-05-20T15:09:02.019+0000] {subprocess.py:93} INFO -   } ],
+[2025-05-20T15:09:02.019+0000] {subprocess.py:93} INFO -   "sink" : {
+[2025-05-20T15:09:02.020+0000] {subprocess.py:93} INFO -     "description" : "FileSink[hdfs://namenode:9000/gold_price/aggregates]",
+[2025-05-20T15:09:02.020+0000] {subprocess.py:93} INFO -     "numOutputRows" : -1
+[2025-05-20T15:09:02.020+0000] {subprocess.py:93} INFO -   }
+[2025-05-20T15:09:02.021+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:10:00.034+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/offsets/75 using temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.75.3a1de294-ef49-426c-bce9-d6704873f189.tmp
+[2025-05-20T15:10:00.468+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/checkpoints/offsets/.75.3a1de294-ef49-426c-bce9-d6704873f189.tmp to hdfs://namenode:9000/gold_price/checkpoints/offsets/75
+[2025-05-20T15:10:00.470+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO MicroBatchExecution: Committed offsets for batch 75. Metadata OffsetSeqMetadata(0,1747753800015,Map(spark.sql.streaming.stateStore.providerClass -> org.apache.spark.sql.execution.streaming.state.HDFSBackedStateStoreProvider, spark.sql.streaming.join.stateFormatVersion -> 2, spark.sql.streaming.stateStore.compression.codec -> lz4, spark.sql.streaming.stateStore.rocksdb.formatVersion -> 5, spark.sql.streaming.statefulOperator.useStrictDistribution -> true, spark.sql.streaming.flatMapGroupsWithState.stateFormatVersion -> 2, spark.sql.streaming.multipleWatermarkPolicy -> min, spark.sql.streaming.aggregation.stateFormatVersion -> 2, spark.sql.shuffle.partitions -> 200))
+[2025-05-20T15:10:00.541+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:10:00.546+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:10:00.578+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:10:00.581+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO KafkaOffsetReaderAdmin: Partitions added: Map()
+[2025-05-20T15:10:00.597+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO FileStreamSinkLog: BatchIds found from listing: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 73, 74, 74
+[2025-05-20T15:10:00.601+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO ParquetUtils: Using default output committer for Parquet: org.apache.parquet.hadoop.ParquetOutputCommitter
+[2025-05-20T15:10:00.659+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO SparkContext: Starting job: start at <unknown>:0
+[2025-05-20T15:10:00.661+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO DAGScheduler: Got job 4 (start at <unknown>:0) with 1 output partitions
+[2025-05-20T15:10:00.662+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO DAGScheduler: Final stage: ResultStage 4 (start at <unknown>:0)
+[2025-05-20T15:10:00.662+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO DAGScheduler: Parents of final stage: List()
+[2025-05-20T15:10:00.665+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO DAGScheduler: Missing parents: List()
+[2025-05-20T15:10:00.667+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO DAGScheduler: Submitting ResultStage 4 (MapPartitionsRDD[25] at start at <unknown>:0), which has no missing parents
+[2025-05-20T15:10:00.698+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 242.9 KiB, free 433.8 MiB)
+[2025-05-20T15:10:00.711+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 87.2 KiB, free 433.8 MiB)
+[2025-05-20T15:10:00.712+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on f1dad95963cc:43297 (size: 87.2 KiB, free: 434.2 MiB)
+[2025-05-20T15:10:00.713+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1585
+[2025-05-20T15:10:00.715+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 4 (MapPartitionsRDD[25] at start at <unknown>:0) (first 15 tasks are for partitions Vector(0))
+[2025-05-20T15:10:00.715+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO TaskSchedulerImpl: Adding task set 4.0 with 1 tasks resource profile 0
+[2025-05-20T15:10:00.719+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO TaskSetManager: Starting task 0.0 in stage 4.0 (TID 4) (f1dad95963cc, executor driver, partition 0, PROCESS_LOCAL, 10603 bytes)
+[2025-05-20T15:10:00.720+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO Executor: Running task 0.0 in stage 4.0 (TID 4)
+[2025-05-20T15:10:00.762+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO KafkaBatchReaderFactory: Creating Kafka reader topicPartition=gold-price-0 fromOffset=51 untilOffset=53, for query queryId=471d967c-db99-4f07-a177-5ee18893ca60 batchId=75 taskId=4 partitionId=0
+[2025-05-20T15:10:00.808+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO BlockManagerInfo: Removed broadcast_3_piece0 on f1dad95963cc:43297 in memory (size: 87.3 KiB, free: 434.3 MiB)
+[2025-05-20T15:10:00.809+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO KafkaConsumer: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to offset 51 for partition gold-price-0
+[2025-05-20T15:10:00.815+0000] {subprocess.py:93} INFO - 25/05/20 15:10:00 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to earliest offset of partition gold-price-0
+[2025-05-20T15:10:01.323+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=0, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:10:01.328+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Seeking to latest offset of partition gold-price-0
+[2025-05-20T15:10:01.329+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO SubscriptionState: [Consumer clientId=consumer-spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor-1, groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor] Resetting offset for partition gold-price-0 to position FetchPosition{offset=53, offsetEpoch=Optional.empty, currentLeader=LeaderAndEpoch{leader=Optional[kafka:9092 (id: 1 rack: null)], epoch=0}}.
+[2025-05-20T15:10:01.351+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:10:01.353+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO CodecConfig: Compression: SNAPPY
+[2025-05-20T15:10:01.357+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO ParquetOutputFormat: ParquetRecordWriter [block size: 134217728b, row group padding size: 8388608b, validating: false]
+[2025-05-20T15:10:01.362+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO ParquetWriteSupport: Initialized Parquet WriteSupport with Catalyst schema:
+[2025-05-20T15:10:01.364+0000] {subprocess.py:93} INFO - {
+[2025-05-20T15:10:01.365+0000] {subprocess.py:93} INFO -   "type" : "struct",
+[2025-05-20T15:10:01.365+0000] {subprocess.py:93} INFO -   "fields" : [ {
+[2025-05-20T15:10:01.366+0000] {subprocess.py:93} INFO -     "name" : "Datetime",
+[2025-05-20T15:10:01.367+0000] {subprocess.py:93} INFO -     "type" : "string",
+[2025-05-20T15:10:01.367+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:10:01.368+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:10:01.368+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:10:01.369+0000] {subprocess.py:93} INFO -     "name" : "Price",
+[2025-05-20T15:10:01.369+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:10:01.369+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:10:01.370+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:10:01.371+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:10:01.372+0000] {subprocess.py:93} INFO -     "name" : "Close",
+[2025-05-20T15:10:01.372+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:10:01.373+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:10:01.373+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:10:01.374+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:10:01.374+0000] {subprocess.py:93} INFO -     "name" : "High",
+[2025-05-20T15:10:01.379+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:10:01.384+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:10:01.385+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:10:01.386+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:10:01.386+0000] {subprocess.py:93} INFO -     "name" : "Low",
+[2025-05-20T15:10:01.387+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:10:01.387+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:10:01.388+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:10:01.388+0000] {subprocess.py:93} INFO -   }, {
+[2025-05-20T15:10:01.389+0000] {subprocess.py:93} INFO -     "name" : "Open",
+[2025-05-20T15:10:01.389+0000] {subprocess.py:93} INFO -     "type" : "double",
+[2025-05-20T15:10:01.390+0000] {subprocess.py:93} INFO -     "nullable" : true,
+[2025-05-20T15:10:01.390+0000] {subprocess.py:93} INFO -     "metadata" : { }
+[2025-05-20T15:10:01.391+0000] {subprocess.py:93} INFO -   } ]
+[2025-05-20T15:10:01.391+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:10:01.391+0000] {subprocess.py:93} INFO - and corresponding Parquet message type:
+[2025-05-20T15:10:01.392+0000] {subprocess.py:93} INFO - message spark_schema {
+[2025-05-20T15:10:01.394+0000] {subprocess.py:93} INFO -   optional binary Datetime (STRING);
+[2025-05-20T15:10:01.394+0000] {subprocess.py:93} INFO -   optional double Price;
+[2025-05-20T15:10:01.396+0000] {subprocess.py:93} INFO -   optional double Close;
+[2025-05-20T15:10:01.399+0000] {subprocess.py:93} INFO -   optional double High;
+[2025-05-20T15:10:01.400+0000] {subprocess.py:93} INFO -   optional double Low;
+[2025-05-20T15:10:01.400+0000] {subprocess.py:93} INFO -   optional double Open;
+[2025-05-20T15:10:01.401+0000] {subprocess.py:93} INFO - }
+[2025-05-20T15:10:01.402+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:10:01.402+0000] {subprocess.py:93} INFO - 
+[2025-05-20T15:10:01.438+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO KafkaDataConsumer: From Kafka topicPartition=gold-price-0 groupId=spark-kafka-source-1316b8d1-56f4-4401-88d6-985a3aeb6c2c--1093991860-executor read 2 records through 1 polls (polled  out 2 records), taking 518638095 nanos, during time span of 631328236 nanos.
+[2025-05-20T15:10:01.444+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO Executor: Finished task 0.0 in stage 4.0 (TID 4). 3554 bytes result sent to driver
+[2025-05-20T15:10:01.459+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO TaskSetManager: Finished task 0.0 in stage 4.0 (TID 4) in 727 ms on f1dad95963cc (executor driver) (1/1)
+[2025-05-20T15:10:01.462+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO TaskSchedulerImpl: Removed TaskSet 4.0, whose tasks have all completed, from pool
+[2025-05-20T15:10:01.463+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO DAGScheduler: ResultStage 4 (start at <unknown>:0) finished in 0.777 s
+[2025-05-20T15:10:01.466+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO DAGScheduler: Job 4 is finished. Cancelling potential speculative or zombie tasks for this job
+[2025-05-20T15:10:01.467+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO TaskSchedulerImpl: Killing all running tasks in stage 4: Stage finished
+[2025-05-20T15:10:01.469+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO DAGScheduler: Job 4 finished: start at <unknown>:0, took 0.791967 s
+[2025-05-20T15:10:01.473+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO FileFormatWriter: Start to commit write Job e7dc4808-b29c-4f57-b270-cad991f74255.
+[2025-05-20T15:10:01.474+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/75 using temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.75.454b9ca3-bb03-4955-97a8-905d7ba4e71e.tmp
+[2025-05-20T15:10:01.940+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO CheckpointFileManager: Renamed temp file hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/.75.454b9ca3-bb03-4955-97a8-905d7ba4e71e.tmp to hdfs://namenode:9000/gold_price/aggregates/_spark_metadata/75
+[2025-05-20T15:10:01.941+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO ManifestFileCommitProtocol: Committed batch 75
+[2025-05-20T15:10:01.942+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO FileFormatWriter: Write Job e7dc4808-b29c-4f57-b270-cad991f74255 committed. Elapsed time: 482 ms.
+[2025-05-20T15:10:01.943+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO FileFormatWriter: Finished processing stats for write job e7dc4808-b29c-4f57-b270-cad991f74255.
+[2025-05-20T15:10:01.950+0000] {subprocess.py:93} INFO - 25/05/20 15:10:01 INFO CheckpointFileManager: Writing atomically to hdfs://namenode:9000/gold_price/checkpoints/commits/75 using temp file hdfs://namenode:9000/gold_price/checkpoints/commits/.75.98abf72f-c975-4182-929b-6bc75937557f.tmp
+[2025-05-20T15:10:02.233+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-05-20T15:10:02.236+0000] {process_utils.py:131} INFO - Sending 15 to group 1466. PIDs of all processes in the group: [1467, 1468, 1466]
+[2025-05-20T15:10:02.237+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 1466
+[2025-05-20T15:10:02.237+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-05-20T15:10:02.238+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2025-05-20T15:10:02.290+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=1467, status='terminated', started='15:05:25') (1467) terminated with exit code None
+[2025-05-20T15:10:02.291+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=1468, status='terminated', started='15:05:25') (1468) terminated with exit code None
+[2025-05-20T15:10:02.292+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=1466, status='terminated', exitcode=0, started='15:05:24') (1466) terminated with exit code 0

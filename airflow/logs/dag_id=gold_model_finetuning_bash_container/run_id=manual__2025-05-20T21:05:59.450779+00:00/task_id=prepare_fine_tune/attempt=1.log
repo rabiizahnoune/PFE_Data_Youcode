@@ -1,0 +1,21 @@
+[2025-05-20T21:06:05.045+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.prepare_fine_tune manual__2025-05-20T21:05:59.450779+00:00 [queued]>
+[2025-05-20T21:06:05.057+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.prepare_fine_tune manual__2025-05-20T21:05:59.450779+00:00 [queued]>
+[2025-05-20T21:06:05.059+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T21:06:05.074+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): prepare_fine_tune> on 2025-05-20 21:05:59.450779+00:00
+[2025-05-20T21:06:05.082+0000] {standard_task_runner.py:57} INFO - Started process 656 to run task
+[2025-05-20T21:06:05.087+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_model_finetuning_bash_container', 'prepare_fine_tune', 'manual__2025-05-20T21:05:59.450779+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/re_train.py', '--cfg-path', '/tmp/tmp0ipo71uh']
+[2025-05-20T21:06:05.093+0000] {standard_task_runner.py:85} INFO - Job 76: Subtask prepare_fine_tune
+[2025-05-20T21:06:05.161+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_model_finetuning_bash_container.prepare_fine_tune manual__2025-05-20T21:05:59.450779+00:00 [running]> on host 5c83fc39f5d9
+[2025-05-20T21:06:05.284+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_model_finetuning_bash_container' AIRFLOW_CTX_TASK_ID='prepare_fine_tune' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T21:05:59.450779+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T21:05:59.450779+00:00'
+[2025-05-20T21:06:05.288+0000] {re_train.py:22} INFO - Début de la tâche prepare_fine_tune
+[2025-05-20T21:06:05.290+0000] {re_train.py:25} INFO - Année et mois actuels : 2025, 5
+[2025-05-20T21:06:05.291+0000] {re_train.py:27} INFO - Tracking URI défini avec succès
+[2025-05-20T21:06:05.740+0000] {migration.py:213} INFO - Context impl SQLiteImpl.
+[2025-05-20T21:06:05.742+0000] {migration.py:216} INFO - Will assume non-transactional DDL.
+[2025-05-20T21:06:05.922+0000] {re_train.py:29} INFO - Nombre de runs trouvés : 1
+[2025-05-20T21:06:05.933+0000] {re_train.py:32} INFO - Run ID initial sélectionné : 177e4cc048674ce3bc1cd827d23d4f3d
+[2025-05-20T21:06:05.997+0000] {re_train.py:39} INFO - Paramètres poussés dans XCom avec succès
+[2025-05-20T21:06:05.998+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-05-20T21:06:06.017+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_model_finetuning_bash_container, task_id=prepare_fine_tune, execution_date=20250520T210559, start_date=20250520T210605, end_date=20250520T210606
+[2025-05-20T21:06:06.070+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T21:06:06.114+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

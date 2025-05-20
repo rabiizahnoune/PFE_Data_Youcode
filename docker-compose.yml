@@ -43,6 +43,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - hadoop_datanode:/mnt/hadoop_data
       - ./scripts/batch:/mnt/scripts/batch
+      - ./ML:/app
     entrypoint: bash -c "airflow db init && airflow users create --username admin --password admin --firstname Admin --lastname User --email admin@example.com --role Admin"
     networks:
       - airflow_network
@@ -73,6 +74,7 @@ services:
       - hadoop_datanode:/mnt/hadoop_data
       - ./scripts/mapreduce:/mnt/hadoop_data/mapreduce
       - ./scripts/batch:/mnt/scripts/batch
+      - ./ML:/app
     command: webserver
     networks:
       - airflow_network
@@ -95,6 +97,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./scripts/mapreduce:/mnt/hadoop_data/mapreduce
       - ./scripts/batch:/mnt/scripts/batch
+      - ./ML:/app
     command: scheduler
     depends_on:
       - postgres
@@ -208,7 +211,6 @@ services:
     volumes:
       - spark-checkpoint:/opt/spark/checkpoint
       - ./stream/spark:/scripts
-      - ./keys/rsa_private_key_pk8.b64:/opt/keys/rsa_private_key_pk8.b64:ro
     networks:
       - airflow_network
  

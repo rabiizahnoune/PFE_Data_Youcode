@@ -10,7 +10,7 @@ from verification import check_fred_api,check_hdfs_connection,check_snowflake_co
 with DAG(
     dag_id="gold_pipelines",
     start_date=datetime(2025, 5, 1),
-    schedule_interval="0 0 1 * *",  # Tous les 1er du mois à 00:00
+    schedule_interval=None,  # Tous les 1er du mois à 00:00
     catchup=False
 ) as dag:
 

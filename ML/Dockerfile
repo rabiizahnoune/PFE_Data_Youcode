@@ -9,7 +9,7 @@ COPY ML/requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Install MLflow
-RUN pip install mlflow
+RUN pip install mlflow==2.17.2
 
 # Create directories for MLflow artifacts and metadata
 RUN mkdir -p /app/mlruns /app/mlflow.db

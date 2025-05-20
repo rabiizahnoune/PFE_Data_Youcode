@@ -1,0 +1,37 @@
+[2025-05-20T21:20:41.711+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.deploy_to_hdfs manual__2025-05-20T21:19:56.669291+00:00 [queued]>
+[2025-05-20T21:20:41.726+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.deploy_to_hdfs manual__2025-05-20T21:19:56.669291+00:00 [queued]>
+[2025-05-20T21:20:41.727+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T21:20:41.748+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): deploy_to_hdfs> on 2025-05-20 21:19:56.669291+00:00
+[2025-05-20T21:20:41.762+0000] {standard_task_runner.py:57} INFO - Started process 950 to run task
+[2025-05-20T21:20:41.767+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_model_finetuning_bash_container', 'deploy_to_hdfs', 'manual__2025-05-20T21:19:56.669291+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/re_train.py', '--cfg-path', '/tmp/tmp76osjhlx']
+[2025-05-20T21:20:41.772+0000] {standard_task_runner.py:85} INFO - Job 84: Subtask deploy_to_hdfs
+[2025-05-20T21:20:41.847+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_model_finetuning_bash_container.deploy_to_hdfs manual__2025-05-20T21:19:56.669291+00:00 [running]> on host be9154bb65cb
+[2025-05-20T21:20:41.955+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_model_finetuning_bash_container' AIRFLOW_CTX_TASK_ID='deploy_to_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T21:19:56.669291+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T21:19:56.669291+00:00'
+[2025-05-20T21:20:42.144+0000] {migration.py:213} INFO - Context impl SQLiteImpl.
+[2025-05-20T21:20:42.145+0000] {migration.py:216} INFO - Will assume non-transactional DDL.
+[2025-05-20T21:20:43.990+0000] {re_train.py:81} ERROR - Erreur dans deploy_to_hdfs : No module named 'numpy._core'
+Traceback (most recent call last):
+  File "/opt/airflow/dags/re_train.py", line 67, in deploy_to_hdfs
+    model = mlflow.sklearn.load_model(model_uri)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/sklearn/__init__.py", line 638, in load_model
+    return _load_model_from_local_file(
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/sklearn/__init__.py", line 457, in _load_model_from_local_file
+    return cloudpickle.load(f)
+ModuleNotFoundError: No module named 'numpy._core'
+[2025-05-20T21:20:43.996+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 192, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/python.py", line 209, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/re_train.py", line 67, in deploy_to_hdfs
+    model = mlflow.sklearn.load_model(model_uri)
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/sklearn/__init__.py", line 638, in load_model
+    return _load_model_from_local_file(
+  File "/home/airflow/.local/lib/python3.8/site-packages/mlflow/sklearn/__init__.py", line 457, in _load_model_from_local_file
+    return cloudpickle.load(f)
+ModuleNotFoundError: No module named 'numpy._core'
+[2025-05-20T21:20:44.009+0000] {taskinstance.py:1398} INFO - Marking task as FAILED. dag_id=gold_model_finetuning_bash_container, task_id=deploy_to_hdfs, execution_date=20250520T211956, start_date=20250520T212041, end_date=20250520T212044
+[2025-05-20T21:20:44.034+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 84 for task deploy_to_hdfs (No module named 'numpy._core'; 950)
+[2025-05-20T21:20:44.115+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-20T21:20:44.141+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

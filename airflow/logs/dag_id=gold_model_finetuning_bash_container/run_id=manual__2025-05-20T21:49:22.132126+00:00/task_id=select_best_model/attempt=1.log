@@ -1,0 +1,17 @@
+[2025-05-20T21:50:11.726+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.select_best_model manual__2025-05-20T21:49:22.132126+00:00 [queued]>
+[2025-05-20T21:50:11.751+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.select_best_model manual__2025-05-20T21:49:22.132126+00:00 [queued]>
+[2025-05-20T21:50:11.752+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T21:50:11.789+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): select_best_model> on 2025-05-20 21:49:22.132126+00:00
+[2025-05-20T21:50:11.807+0000] {standard_task_runner.py:57} INFO - Started process 360 to run task
+[2025-05-20T21:50:11.814+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_model_finetuning_bash_container', 'select_best_model', 'manual__2025-05-20T21:49:22.132126+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/re_train.py', '--cfg-path', '/tmp/tmpof2rw3av']
+[2025-05-20T21:50:11.821+0000] {standard_task_runner.py:85} INFO - Job 89: Subtask select_best_model
+[2025-05-20T21:50:11.925+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_model_finetuning_bash_container.select_best_model manual__2025-05-20T21:49:22.132126+00:00 [running]> on host 42b47e174cf2
+[2025-05-20T21:50:12.070+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_model_finetuning_bash_container' AIRFLOW_CTX_TASK_ID='select_best_model' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T21:49:22.132126+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T21:49:22.132126+00:00'
+[2025-05-20T21:50:12.288+0000] {migration.py:213} INFO - Context impl SQLiteImpl.
+[2025-05-20T21:50:12.292+0000] {migration.py:216} INFO - Will assume non-transactional DDL.
+[2025-05-20T21:50:12.416+0000] {re_train.py:49} INFO - Nombre de runs trouvés pour sélection : 4
+[2025-05-20T21:50:12.422+0000] {re_train.py:52} INFO - Meilleure version sélectionnée avec run_id : 27f32c43894842af9f11fb94b3a21912
+[2025-05-20T21:50:12.447+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-05-20T21:50:12.468+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_model_finetuning_bash_container, task_id=select_best_model, execution_date=20250520T214922, start_date=20250520T215011, end_date=20250520T215012
+[2025-05-20T21:50:12.552+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T21:50:12.577+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

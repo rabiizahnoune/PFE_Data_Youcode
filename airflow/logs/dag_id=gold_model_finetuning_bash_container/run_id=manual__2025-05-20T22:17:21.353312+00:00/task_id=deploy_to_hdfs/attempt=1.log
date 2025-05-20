@@ -1,0 +1,21 @@
+[2025-05-20T22:17:52.058+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.deploy_to_hdfs manual__2025-05-20T22:17:21.353312+00:00 [queued]>
+[2025-05-20T22:17:52.080+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_model_finetuning_bash_container.deploy_to_hdfs manual__2025-05-20T22:17:21.353312+00:00 [queued]>
+[2025-05-20T22:17:52.081+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T22:17:52.099+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): deploy_to_hdfs> on 2025-05-20 22:17:21.353312+00:00
+[2025-05-20T22:17:52.111+0000] {standard_task_runner.py:57} INFO - Started process 1060 to run task
+[2025-05-20T22:17:52.115+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_model_finetuning_bash_container', 'deploy_to_hdfs', 'manual__2025-05-20T22:17:21.353312+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/re_train.py', '--cfg-path', '/tmp/tmpgjssl0bw']
+[2025-05-20T22:17:52.119+0000] {standard_task_runner.py:85} INFO - Job 104: Subtask deploy_to_hdfs
+[2025-05-20T22:17:52.187+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_model_finetuning_bash_container.deploy_to_hdfs manual__2025-05-20T22:17:21.353312+00:00 [running]> on host a9ad06bbacca
+[2025-05-20T22:17:52.328+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_model_finetuning_bash_container' AIRFLOW_CTX_TASK_ID='deploy_to_hdfs' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T22:17:21.353312+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T22:17:21.353312+00:00'
+[2025-05-20T22:17:52.609+0000] {migration.py:213} INFO - Context impl SQLiteImpl.
+[2025-05-20T22:17:52.610+0000] {migration.py:216} INFO - Will assume non-transactional DDL.
+[2025-05-20T22:17:53.160+0000] {re_train.py:77} INFO - Exécution de la commande : docker exec namenode hdfs dfs -chmod -R 777 /gold_price
+[2025-05-20T22:17:56.894+0000] {re_train.py:79} INFO - Permissions modifiées avec succès dans HDFS
+[2025-05-20T22:17:56.896+0000] {client.py:192} INFO - Instantiated <InsecureClient(url='http://namenode:9870')>.
+[2025-05-20T22:17:56.901+0000] {re_train.py:82} INFO - Connexion à HDFS pour déploiement
+[2025-05-20T22:17:56.904+0000] {client.py:496} INFO - Writing to '/gold_price/models/best_model_20250520_221753.joblib'.
+[2025-05-20T22:17:57.513+0000] {re_train.py:88} INFO - Modèle déployé avec succès à /gold_price/models/best_model_20250520_221753.joblib
+[2025-05-20T22:17:57.514+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-05-20T22:17:57.533+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_model_finetuning_bash_container, task_id=deploy_to_hdfs, execution_date=20250520T221721, start_date=20250520T221752, end_date=20250520T221757
+[2025-05-20T22:17:57.617+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T22:17:57.641+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,24 @@
+[2025-05-20T17:42:10.588+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: kill_running_scripts.check_spark_log_errors manual__2025-05-20T17:42:09.047151+00:00 [queued]>
+[2025-05-20T17:42:10.605+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: kill_running_scripts.check_spark_log_errors manual__2025-05-20T17:42:09.047151+00:00 [queued]>
+[2025-05-20T17:42:10.605+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 2
+[2025-05-20T17:42:10.629+0000] {taskinstance.py:1380} INFO - Executing <Task(BashOperator): check_spark_log_errors> on 2025-05-20 17:42:09.047151+00:00
+[2025-05-20T17:42:10.635+0000] {standard_task_runner.py:57} INFO - Started process 839 to run task
+[2025-05-20T17:42:10.639+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'kill_running_scripts', 'check_spark_log_errors', 'manual__2025-05-20T17:42:09.047151+00:00', '--job-id', '64', '--raw', '--subdir', 'DAGS_FOLDER/stoper_streaming.py', '--cfg-path', '/tmp/tmp_71f51rv']
+[2025-05-20T17:42:10.643+0000] {standard_task_runner.py:85} INFO - Job 64: Subtask check_spark_log_errors
+[2025-05-20T17:42:10.698+0000] {task_command.py:415} INFO - Running <TaskInstance: kill_running_scripts.check_spark_log_errors manual__2025-05-20T17:42:09.047151+00:00 [running]> on host 6bb1f84c11d3
+[2025-05-20T17:42:10.807+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='kill_running_scripts' AIRFLOW_CTX_TASK_ID='check_spark_log_errors' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T17:42:09.047151+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T17:42:09.047151+00:00'
+[2025-05-20T17:42:10.810+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-05-20T17:42:10.811+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', '\ndocker exec gold_price_project-spark-1 bash -c \'\n    LOG_FILE="/scripts/logs/spark.log"\n    if grep -i "error" "$LOG_FILE"; then\n        echo "❌ Erreur détectée, envoi à Discord..."\n        grep -i -B 20 -A 20 "error" "$LOG_FILE" > /tmp/spark_error_excerpt.log\n\n        ESCAPED=$(sed \'s/\\\\/\\\\\\\\/g; s/"/\\"/g\' /tmp/spark_error_excerpt.log | head -c 1900)\n\n        curl -X POST -H "Content-Type: application/json"              -d "{"content": "🚨 Erreur détectée dans spark.log à 00:00 :\\n\\n$ESCAPED"}"              https://discord.com/api/webhooks/1374382502981931008/BRaqnl_BHNxEep-dItvMinlhhcd9Tk5-sj3RbKdG3qDzLjwfYGRze8IZTxRoaiQj0DE2\n    else\n        echo "✅ Aucun problème détecté dans spark.log"\n    fi\n\n    echo "" > "$LOG_FILE"\n\'']
+[2025-05-20T17:42:10.824+0000] {subprocess.py:86} INFO - Output:
+[2025-05-20T17:42:10.826+0000] {subprocess.py:93} INFO - /bin/bash: -c: line 15: unexpected EOF while looking for matching `"'
+[2025-05-20T17:42:10.826+0000] {subprocess.py:93} INFO - /bin/bash: -c: line 17: syntax error: unexpected end of file
+[2025-05-20T17:42:10.827+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-05-20T17:42:10.840+0000] {taskinstance.py:1935} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-05-20T17:42:10.844+0000] {taskinstance.py:1398} INFO - Marking task as UP_FOR_RETRY. dag_id=kill_running_scripts, task_id=check_spark_log_errors, execution_date=20250520T174209, start_date=20250520T174210, end_date=20250520T174210
+[2025-05-20T17:42:10.866+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 64 for task check_spark_log_errors (Bash command failed. The command returned a non-zero exit code 2.; 839)
+[2025-05-20T17:42:10.893+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2025-05-20T17:42:10.920+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
