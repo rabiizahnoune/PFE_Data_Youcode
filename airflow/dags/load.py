@@ -93,19 +93,23 @@
 
 
 
-import pandas as pd
-from hdfs import InsecureClient
-import pyarrow.parquet as pq
-import pyarrow as pa
-from datetime import datetime
-from io import BytesIO
-import subprocess
-from sqlalchemy import create_engine
-from snowflake.sqlalchemy import URL
+
 
 # Configurations codées en dur
-HDFS_CLIENT = InsecureClient("http://namenode:9870", user="hadoop")
-SNOWFLAKE_CONN = {
+
+def load_gold_data():
+    import pandas as pd
+    from hdfs import InsecureClient
+    import pyarrow.parquet as pq
+    import pyarrow as pa
+    from datetime import datetime
+    from io import BytesIO
+    import subprocess
+    from sqlalchemy import create_engine
+    from snowflake.sqlalchemy import URL
+
+    HDFS_CLIENT = InsecureClient("http://namenode:9870", user="hadoop")
+    SNOWFLAKE_CONN = {
     "account": "LEKYCXI-ZO52842",
     "user": "ZAHNOUNE",
     "password": "CdFbMNyjc87vueV",
@@ -114,7 +118,6 @@ SNOWFLAKE_CONN = {
     "warehouse": "COMPUTE_WH"
 }
 
-def load_gold_data():
     today = datetime.now().strftime("%Y-%m-%d")
     
     # Définir les permissions HDFS sur le répertoire processed

@@ -1,14 +1,16 @@
-import pandas as pd
-from hdfs import InsecureClient
-import pyarrow.parquet as pq
-import pyarrow as pa
+
 from datetime import datetime
 import os
 import tempfile
 
-HDFS_CLIENT = InsecureClient("http://namenode:9870", user="hadoop")
 
 def transform_gold_data():
+    from hdfs import InsecureClient
+
+    HDFS_CLIENT = InsecureClient("http://namenode:9870", user="hadoop")
+    import pandas as pd
+    import pyarrow.parquet as pq
+    import pyarrow as pa
     today = datetime.now().strftime("%Y-%m-%d")
     
     # Lire et valider le CSV des prix de l'or

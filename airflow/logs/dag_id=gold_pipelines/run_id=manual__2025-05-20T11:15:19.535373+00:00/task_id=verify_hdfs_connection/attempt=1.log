@@ -1,0 +1,16 @@
+[2025-05-20T11:15:21.562+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipelines.verify_hdfs_connection manual__2025-05-20T11:15:19.535373+00:00 [queued]>
+[2025-05-20T11:15:21.580+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipelines.verify_hdfs_connection manual__2025-05-20T11:15:19.535373+00:00 [queued]>
+[2025-05-20T11:15:21.583+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T11:15:21.612+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): verify_hdfs_connection> on 2025-05-20 11:15:19.535373+00:00
+[2025-05-20T11:15:21.625+0000] {standard_task_runner.py:57} INFO - Started process 4705 to run task
+[2025-05-20T11:15:21.632+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipelines', 'verify_hdfs_connection', 'manual__2025-05-20T11:15:19.535373+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpq8oxx7jj']
+[2025-05-20T11:15:21.638+0000] {standard_task_runner.py:85} INFO - Job 14: Subtask verify_hdfs_connection
+[2025-05-20T11:15:21.747+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipelines.verify_hdfs_connection manual__2025-05-20T11:15:19.535373+00:00 [running]> on host a1bf4572f1fa
+[2025-05-20T11:15:21.914+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipelines' AIRFLOW_CTX_TASK_ID='verify_hdfs_connection' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T11:15:19.535373+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T11:15:19.535373+00:00'
+[2025-05-20T11:15:21.926+0000] {client.py:192} INFO - Instantiated <InsecureClient(url='http://namenode:9870')>.
+[2025-05-20T11:15:21.927+0000] {client.py:320} INFO - Fetching status for '/'.
+[2025-05-20T11:15:21.944+0000] {logging_mixin.py:151} INFO - HDFS connection successful
+[2025-05-20T11:15:21.945+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-05-20T11:15:21.961+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_pipelines, task_id=verify_hdfs_connection, execution_date=20250520T111519, start_date=20250520T111521, end_date=20250520T111521
+[2025-05-20T11:15:22.010+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T11:15:22.048+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check

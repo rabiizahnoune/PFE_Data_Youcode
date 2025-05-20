@@ -1,0 +1,65 @@
+[2025-05-20T11:15:26.141+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipelines.extract_gold_data manual__2025-05-20T11:15:19.535373+00:00 [queued]>
+[2025-05-20T11:15:26.156+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipelines.extract_gold_data manual__2025-05-20T11:15:19.535373+00:00 [queued]>
+[2025-05-20T11:15:26.156+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T11:15:26.180+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): extract_gold_data> on 2025-05-20 11:15:19.535373+00:00
+[2025-05-20T11:15:26.187+0000] {standard_task_runner.py:57} INFO - Started process 4712 to run task
+[2025-05-20T11:15:26.191+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipelines', 'extract_gold_data', 'manual__2025-05-20T11:15:19.535373+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmptx5bor97']
+[2025-05-20T11:15:26.196+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask extract_gold_data
+[2025-05-20T11:15:26.257+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipelines.extract_gold_data manual__2025-05-20T11:15:19.535373+00:00 [running]> on host a1bf4572f1fa
+[2025-05-20T11:15:26.398+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipelines' AIRFLOW_CTX_TASK_ID='extract_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T11:15:19.535373+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T11:15:19.535373+00:00'
+[2025-05-20T11:15:27.478+0000] {client.py:192} INFO - Instantiated <InsecureClient(url='http://namenode:9870')>.
+[2025-05-20T11:15:49.154+0000] {logging_mixin.py:151} INFO - Aperçu des données récupérées :
+[2025-05-20T11:15:49.178+0000] {logging_mixin.py:151} INFO -                    raw_date source_name  ... volume         ingestion_timestamp
+0 2025-04-20 16:00:00-04:00    yfinance  ...  12911  2025-05-20T11:15:49.140891
+1 2025-04-20 20:00:00-04:00    yfinance  ...  40214  2025-05-20T11:15:49.141046
+2 2025-04-21 00:00:00-04:00    yfinance  ...  30408  2025-05-20T11:15:49.141133
+3 2025-04-21 04:00:00-04:00    yfinance  ...  28155  2025-05-20T11:15:49.141199
+4 2025-04-21 08:00:00-04:00    yfinance  ...  82173  2025-05-20T11:15:49.141269
+
+[5 rows x 7 columns]
+[2025-05-20T11:15:49.847+0000] {client.py:496} INFO - Writing to '/gold_datalake/raw/gold_prices/2025-05-20.csv'.
+[2025-05-20T11:15:50.318+0000] {client.py:496} INFO - Writing to '/gold_datalake/raw/fed_rates/2025-05-20.csv'.
+[2025-05-20T11:15:50.368+0000] {client.py:496} INFO - Writing to '/gold_datalake/raw/sp500/2025-05-20.csv'.
+[2025-05-20T11:15:50.412+0000] {python.py:194} INFO - Done. Returned value was: (                     raw_date source_name  ... volume         ingestion_timestamp
+0   2025-04-20 16:00:00-04:00    yfinance  ...  12911  2025-05-20T11:15:49.140891
+1   2025-04-20 20:00:00-04:00    yfinance  ...  40214  2025-05-20T11:15:49.141046
+2   2025-04-21 00:00:00-04:00    yfinance  ...  30408  2025-05-20T11:15:49.141133
+3   2025-04-21 04:00:00-04:00    yfinance  ...  28155  2025-05-20T11:15:49.141199
+4   2025-04-21 08:00:00-04:00    yfinance  ...  82173  2025-05-20T11:15:49.141269
+..                        ...         ...  ...    ...                         ...
+127 2025-05-19 04:00:00-04:00    yfinance  ...  26664  2025-05-20T11:15:49.152011
+128 2025-05-19 08:00:00-04:00    yfinance  ...  57282  2025-05-20T11:15:49.152079
+129 2025-05-19 12:00:00-04:00    yfinance  ...  19379  2025-05-20T11:15:49.152149
+130 2025-05-19 16:00:00-04:00    yfinance  ...   5087  2025-05-20T11:15:49.152217
+131 2025-05-19 20:00:00-04:00    yfinance  ...  32482  2025-05-20T11:15:49.152284
+
+[132 rows x 7 columns],          index       date  taux_fed
+0   1954-07-01 1954-07-01      0.80
+1   1954-08-01 1954-08-01      1.22
+2   1954-09-01 1954-09-01      1.07
+3   1954-10-01 1954-10-01      0.85
+4   1954-11-01 1954-11-01      0.83
+..         ...        ...       ...
+845 2024-12-01 2024-12-01      4.48
+846 2025-01-01 2025-01-01      4.33
+847 2025-02-01 2025-02-01      4.33
+848 2025-03-01 2025-03-01      4.33
+849 2025-04-01 2025-04-01      4.33
+
+[850 rows x 3 columns],                          date   prix_sp500  volume_sp500
+0   2025-04-21 09:30:00-04:00  5171.779785             0
+1   2025-04-21 10:30:00-04:00  5147.370117     307457501
+2   2025-04-21 11:30:00-04:00  5132.419922     275202009
+3   2025-04-21 12:30:00-04:00  5115.569824     263487000
+4   2025-04-21 13:30:00-04:00  5115.209961     269582000
+..                        ...          ...           ...
+142 2025-05-19 11:30:00-04:00  5953.450195     224333120
+143 2025-05-19 12:30:00-04:00  5964.330078     219361000
+144 2025-05-19 13:30:00-04:00  5950.370117     216726000
+145 2025-05-19 14:30:00-04:00  5948.459961     234293000
+146 2025-05-19 15:30:00-04:00  5964.160156     349173000
+
+[147 rows x 3 columns])
+[2025-05-20T11:15:50.539+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_pipelines, task_id=extract_gold_data, execution_date=20250520T111519, start_date=20250520T111526, end_date=20250520T111550
+[2025-05-20T11:15:50.585+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T11:15:50.616+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

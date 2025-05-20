@@ -1,0 +1,87 @@
+[2025-05-20T11:01:28.379+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipelines.transform_gold_data manual__2025-05-20T11:00:26.073109+00:00 [queued]>
+[2025-05-20T11:01:28.390+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipelines.transform_gold_data manual__2025-05-20T11:00:26.073109+00:00 [queued]>
+[2025-05-20T11:01:28.391+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T11:01:28.409+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): transform_gold_data> on 2025-05-20 11:00:26.073109+00:00
+[2025-05-20T11:01:28.417+0000] {standard_task_runner.py:57} INFO - Started process 2378 to run task
+[2025-05-20T11:01:28.422+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipelines', 'transform_gold_data', 'manual__2025-05-20T11:00:26.073109+00:00', '--job-id', '5', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpkq70o496']
+[2025-05-20T11:01:28.426+0000] {standard_task_runner.py:85} INFO - Job 5: Subtask transform_gold_data
+[2025-05-20T11:01:28.429+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipelines.transform_gold_data manual__2025-05-20T11:00:26.073109+00:00 [running]> on host a1bf4572f1fa
+[2025-05-20T11:01:28.518+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipelines' AIRFLOW_CTX_TASK_ID='transform_gold_data' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T11:00:26.073109+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T11:00:26.073109+00:00'
+[2025-05-20T11:01:28.520+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/gold_prices/2025-05-20.csv'.
+[2025-05-20T11:01:28.685+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/fed_rates/2025-05-20.csv'.
+[2025-05-20T11:01:28.709+0000] {client.py:724} INFO - Reading file '/gold_datalake/raw/sp500/2025-05-20.csv'.
+[2025-05-20T11:01:28.747+0000] {logging_mixin.py:151} INFO - Dates uniques dans gold_df: <DatetimeArray>
+['2025-04-20 16:00:00', '2025-04-20 20:00:00', '2025-04-21 00:00:00',
+ '2025-04-21 04:00:00', '2025-04-21 08:00:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-20T11:01:28.748+0000] {logging_mixin.py:151} INFO - Dates uniques dans sp500_df: <DatetimeArray>
+['2025-04-21 09:30:00', '2025-04-21 10:30:00', '2025-04-21 11:30:00',
+ '2025-04-21 12:30:00', '2025-04-21 13:30:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-20T11:01:28.756+0000] {logging_mixin.py:151} INFO - Dates uniques dans sp500_4h: <DatetimeArray>
+['2025-04-21 08:00:00', '2025-04-21 12:00:00', '2025-04-22 08:00:00',
+ '2025-04-22 12:00:00', '2025-04-23 08:00:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-20T11:01:28.758+0000] {logging_mixin.py:151} INFO - Dates uniques dans calendar_df: <DatetimeArray>
+['2025-04-20 00:00:00', '2025-04-20 04:00:00', '2025-04-20 08:00:00',
+ '2025-04-20 12:00:00', '2025-04-20 16:00:00']
+Length: 5, dtype: datetime64[ns]
+[2025-05-20T11:01:28.775+0000] {logging_mixin.py:151} INFO - Colonnes dans merged_df: ['date', 'source_name', 'ticker_symbol', 'open_price', 'prix_or', 'volume_or', 'ingestion_timestamp', 'prix_sp500', 'volume_sp500', 'taux_fed']
+[2025-05-20T11:01:28.776+0000] {logging_mixin.py:151} INFO - Taille de merged_df: (186, 10)
+[2025-05-20T11:01:28.783+0000] {logging_mixin.py:151} INFO - Échantillon de merged_df:
+                 date source_name ticker_symbol  open_price      prix_or  volume_or         ingestion_timestamp  prix_sp500  volume_sp500  taux_fed
+0 2025-04-20 00:00:00         NaN           NaN         NaN          NaN        NaN                         NaN         NaN           NaN      4.33
+1 2025-04-20 04:00:00         NaN           NaN         NaN          NaN        NaN                         NaN         NaN           NaN      4.33
+2 2025-04-20 08:00:00         NaN           NaN         NaN          NaN        NaN                         NaN         NaN           NaN      4.33
+3 2025-04-20 12:00:00         NaN           NaN         NaN          NaN        NaN                         NaN         NaN           NaN      4.33
+4 2025-04-20 16:00:00    yfinance          GC=F      3347.0  3361.800049    12911.0  2025-05-20T11:00:56.429429         NaN           NaN      4.33
+[2025-05-20T11:01:28.791+0000] {logging_mixin.py:151} INFO - Taille de merged_df après dropna: (182, 10)
+[2025-05-20T11:01:28.810+0000] {client.py:496} INFO - Writing to '/gold_datalake/processed/gold_prices_2025-05-20.parquet'.
+[2025-05-20T11:01:28.853+0000] {logging_mixin.py:151} INFO - Fichier écrit avec succès dans HDFS: /gold_datalake/processed/gold_prices_2025-05-20.parquet
+[2025-05-20T11:01:28.856+0000] {client.py:496} INFO - Writing to '/gold_datalake/processed/dim_date_2025-05-20.parquet'.
+[2025-05-20T11:01:28.900+0000] {logging_mixin.py:151} INFO - Fichier écrit avec succès dans HDFS: /gold_datalake/processed/dim_date_2025-05-20.parquet
+[2025-05-20T11:01:28.904+0000] {client.py:496} INFO - Writing to '/gold_datalake/processed/dim_marche_2025-05-20.parquet'.
+[2025-05-20T11:01:28.941+0000] {logging_mixin.py:151} INFO - Fichier écrit avec succès dans HDFS: /gold_datalake/processed/dim_marche_2025-05-20.parquet
+[2025-05-20T11:01:28.942+0000] {python.py:194} INFO - Done. Returned value was: (                date_id      prix_or  ...  variation_or_pct  variation_or_abs
+4   2025-04-20 16:00:00  3361.800049  ...          0.000000          0.000000
+5   2025-04-20 20:00:00  3394.000000  ...          0.957819         32.199951
+6   2025-04-21 00:00:00  3397.100098  ...          1.050034         35.300049
+7   2025-04-21 04:00:00  3415.600098  ...          1.600335         53.800049
+8   2025-04-21 08:00:00  3433.899902  ...          2.144680         72.099854
+..                  ...          ...  ...               ...               ...
+181 2025-05-20 04:00:00  3213.199951  ...         -4.420254       -148.600098
+182 2025-05-20 08:00:00  3213.199951  ...         -4.420254       -148.600098
+183 2025-05-20 12:00:00  3213.199951  ...         -4.420254       -148.600098
+184 2025-05-20 16:00:00  3213.199951  ...         -4.420254       -148.600098
+185 2025-05-20 20:00:00  3213.199951  ...         -4.420254       -148.600098
+
+[182 rows x 7 columns],                 date_id  jour  mois  annee  heure trimestre
+4   2025-04-20 16:00:00    20     4   2025     16    2025Q2
+5   2025-04-20 20:00:00    20     4   2025     20    2025Q2
+6   2025-04-21 00:00:00    21     4   2025      0    2025Q2
+7   2025-04-21 04:00:00    21     4   2025      4    2025Q2
+8   2025-04-21 08:00:00    21     4   2025      8    2025Q2
+..                  ...   ...   ...    ...    ...       ...
+181 2025-05-20 04:00:00    20     5   2025      4    2025Q2
+182 2025-05-20 08:00:00    20     5   2025      8    2025Q2
+183 2025-05-20 12:00:00    20     5   2025     12    2025Q2
+184 2025-05-20 16:00:00    20     5   2025     16    2025Q2
+185 2025-05-20 20:00:00    20     5   2025     20    2025Q2
+
+[182 rows x 6 columns],                 date_id  volume_sp500  marche_id
+4   2025-04-20 16:00:00           NaN          1
+5   2025-04-20 20:00:00           NaN          2
+6   2025-04-21 00:00:00           NaN          3
+7   2025-04-21 04:00:00           NaN          4
+8   2025-04-21 08:00:00  5.826595e+08          5
+..                  ...           ...        ...
+181 2025-05-20 04:00:00  1.019553e+09        178
+182 2025-05-20 08:00:00  1.019553e+09        179
+183 2025-05-20 12:00:00  1.019553e+09        180
+184 2025-05-20 16:00:00  1.019553e+09        181
+185 2025-05-20 20:00:00  1.019553e+09        182
+
+[182 rows x 3 columns])
+[2025-05-20T11:01:29.001+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_pipelines, task_id=transform_gold_data, execution_date=20250520T110026, start_date=20250520T110128, end_date=20250520T110129
+[2025-05-20T11:01:29.065+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T11:01:29.093+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check

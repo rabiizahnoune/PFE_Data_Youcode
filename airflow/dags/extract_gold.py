@@ -1,36 +1,40 @@
-import pandas as pd
-import requests
-import yfinance as yf
-from fredapi import Fred
-from hdfs import InsecureClient
-from datetime import datetime, timedelta
-import subprocess
+
 
 # Configurations codées en dur
-HDFS_CLIENT = InsecureClient("http://namenode:9870", user="hadoop")
-ALPHA_VANTAGE_KEY = "NZCIX5506VLLH09X"
-FRED_KEY = "552653b1665602249d879cccf7c6d22f"
-TICKER = "GC=F"
-hdfs_paths = [
+
+
+
+def extract_gold_data():
+    import pandas as pd
+    import requests
+    import yfinance as yf
+    from fredapi import Fred
+    from hdfs import InsecureClient
+    from datetime import datetime, timedelta
+    import subprocess
+    HDFS_CLIENT = InsecureClient("http://namenode:9870", user="hadoop")
+    ALPHA_VANTAGE_KEY = "NZCIX5506VLLH09X"
+    FRED_KEY = "552653b1665602249d879cccf7c6d22f"
+    TICKER = "GC=F"
+    hdfs_paths = [
     "/gold_datalake/raw/gold_prices",
     "/gold_datalake/raw/fed_rates",
     "/gold_datalake/raw/sp500",
     "/gold_datalake/processed"
-]
-
-for hdfs_dir in hdfs_paths:
+]  
+    for hdfs_dir in hdfs_paths:
     # Crée le dossier seulement s'il n'existe pas (équivalent à "if not exist")
-    subprocess.run([
+      subprocess.run([
         "docker", "exec", "-u", "root", "namenode",
         "hdfs", "dfs", "-mkdir", "-p", hdfs_dir
     ], check=True)
 
     # Applique les permissions
-    subprocess.run([
+      subprocess.run([
         "docker", "exec", "-u", "root", "namenode",
         "hdfs", "dfs", "-chmod", "-R", "777", hdfs_dir
     ], check=True)
-def extract_gold_data():
+    
     # 1. Prix de l’or (yfinance, 4H)
     start_date = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
     end_date = datetime.now().strftime("%Y-%m-%d")

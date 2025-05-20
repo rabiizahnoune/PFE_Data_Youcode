@@ -1,0 +1,23 @@
+[2025-05-20T11:13:48.335+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_pipelines.verify_snowflake_connection manual__2025-05-20T11:13:45.907784+00:00 [queued]>
+[2025-05-20T11:13:48.354+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_pipelines.verify_snowflake_connection manual__2025-05-20T11:13:45.907784+00:00 [queued]>
+[2025-05-20T11:13:48.355+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-20T11:13:48.388+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): verify_snowflake_connection> on 2025-05-20 11:13:45.907784+00:00
+[2025-05-20T11:13:48.403+0000] {standard_task_runner.py:57} INFO - Started process 4641 to run task
+[2025-05-20T11:13:48.409+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_pipelines', 'verify_snowflake_connection', 'manual__2025-05-20T11:13:45.907784+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/pipeline.py', '--cfg-path', '/tmp/tmpwts4zw94']
+[2025-05-20T11:13:48.415+0000] {standard_task_runner.py:85} INFO - Job 9: Subtask verify_snowflake_connection
+[2025-05-20T11:13:48.530+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_pipelines.verify_snowflake_connection manual__2025-05-20T11:13:45.907784+00:00 [running]> on host a1bf4572f1fa
+[2025-05-20T11:13:48.774+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_pipelines' AIRFLOW_CTX_TASK_ID='verify_snowflake_connection' AIRFLOW_CTX_EXECUTION_DATE='2025-05-20T11:13:45.907784+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-20T11:13:45.907784+00:00'
+[2025-05-20T11:13:50.104+0000] {logging_mixin.py:151} WARNING - /home/***/.local/lib/python3.8/site-packages/snowflake/connector/options.py:103 UserWarning: You have an incompatible version of 'pyarrow' installed (11.0.0), please install a version that adheres to: 'pyarrow<10.1.0,>=10.0.1; extra == "pandas"'
+[2025-05-20T11:13:50.305+0000] {connection.py:314} INFO - Snowflake Connector for Python Version: 3.1.1, Python Version: 3.8.18, Platform: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.2.5
+[2025-05-20T11:13:50.306+0000] {connection.py:1050} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-05-20T11:13:50.309+0000] {connection.py:1068} INFO - Setting use_openssl_only mode to False
+[2025-05-20T11:13:51.256+0000] {cursor.py:804} INFO - query: [SELECT CURRENT_VERSION()]
+[2025-05-20T11:13:51.378+0000] {cursor.py:817} INFO - query execution done
+[2025-05-20T11:13:51.380+0000] {cursor.py:959} INFO - Number of results in first chunk: 1
+[2025-05-20T11:13:51.382+0000] {connection.py:640} INFO - closed
+[2025-05-20T11:13:51.634+0000] {connection.py:646} INFO - No async queries seem to be running, deleting session
+[2025-05-20T11:13:51.717+0000] {logging_mixin.py:151} INFO - Snowflake connection successful
+[2025-05-20T11:13:51.719+0000] {python.py:194} INFO - Done. Returned value was: None
+[2025-05-20T11:13:51.735+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_pipelines, task_id=verify_snowflake_connection, execution_date=20250520T111345, start_date=20250520T111348, end_date=20250520T111351
+[2025-05-20T11:13:51.789+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-20T11:13:51.810+0000] {taskinstance.py:2776} INFO - 0 downstream tasks scheduled from follow-on schedule check
