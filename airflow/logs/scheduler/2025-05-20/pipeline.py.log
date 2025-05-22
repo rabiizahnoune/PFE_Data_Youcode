@@ -7965,3 +7965,276 @@ Please take a look at these docs to improve your DAG import time:
 [2025-05-20T22:19:25.543+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:19:25.542+0000] {dag.py:2915} INFO - Sync 1 DAGs
 [2025-05-20T22:19:25.566+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:19:25.566+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
 [2025-05-20T22:19:25.595+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.137 seconds
+[2025-05-20T22:19:56.005+0000] {processor.py:157} INFO - Started process (PID=1250) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:19:56.006+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:19:56.008+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:19:56.007+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:19:56.054+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:19:56.135+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:19:56.135+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:19:56.163+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:19:56.162+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:19:56.217+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.217 seconds
+[2025-05-20T22:20:26.446+0000] {processor.py:157} INFO - Started process (PID=1290) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:20:26.448+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:20:26.450+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:20:26.449+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:20:26.509+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:20:26.553+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:20:26.553+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:20:26.580+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:20:26.579+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:20:26.659+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.220 seconds
+[2025-05-20T22:20:57.268+0000] {processor.py:157} INFO - Started process (PID=1324) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:20:57.269+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:20:57.271+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:20:57.270+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:20:57.316+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:20:57.360+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:20:57.360+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:20:57.379+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:20:57.379+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:20:57.411+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.148 seconds
+[2025-05-20T22:21:27.523+0000] {processor.py:157} INFO - Started process (PID=1359) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:21:27.527+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:21:27.529+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:21:27.528+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:21:27.579+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:21:27.630+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:21:27.630+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:21:27.647+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:21:27.647+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:21:27.678+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.160 seconds
+[2025-05-20T22:21:57.956+0000] {processor.py:157} INFO - Started process (PID=1401) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:21:57.959+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:21:57.961+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:21:57.960+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:21:58.039+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:21:58.114+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:21:58.113+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:21:58.146+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:21:58.146+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:21:58.189+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.238 seconds
+[2025-05-20T22:22:28.436+0000] {processor.py:157} INFO - Started process (PID=1443) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:22:28.438+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:22:28.445+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:22:28.440+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:22:28.519+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:22:28.596+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:22:28.596+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:22:28.628+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:22:28.627+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:22:28.694+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.264 seconds
+[2025-05-20T22:22:58.956+0000] {processor.py:157} INFO - Started process (PID=1485) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:22:58.959+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:22:58.960+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:22:58.960+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:22:59.029+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:22:59.088+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:22:59.088+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:22:59.107+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:22:59.107+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:22:59.132+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.186 seconds
+[2025-05-20T22:23:29.355+0000] {processor.py:157} INFO - Started process (PID=1527) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:23:29.357+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:23:29.361+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:23:29.360+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:23:29.414+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:23:29.470+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:23:29.469+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:23:29.491+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:23:29.491+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:23:29.530+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.180 seconds
+[2025-05-20T22:23:59.736+0000] {processor.py:157} INFO - Started process (PID=1569) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:23:59.737+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:23:59.739+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:23:59.738+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:23:59.783+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:23:59.834+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:23:59.834+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:23:59.859+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:23:59.859+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:23:59.891+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.159 seconds
+[2025-05-20T22:24:30.701+0000] {processor.py:157} INFO - Started process (PID=1611) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:24:30.703+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:24:30.704+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:24:30.704+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:24:30.755+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:24:30.794+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:24:30.794+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:24:30.813+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:24:30.813+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:24:30.842+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.148 seconds
+[2025-05-20T22:25:01.198+0000] {processor.py:157} INFO - Started process (PID=1653) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:25:01.199+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:25:01.201+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:25:01.200+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:25:01.240+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:25:01.278+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:25:01.277+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:25:01.293+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:25:01.292+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:25:01.317+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.124 seconds
+[2025-05-20T22:25:32.301+0000] {processor.py:157} INFO - Started process (PID=1695) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:25:32.303+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:25:32.307+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:25:32.306+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:25:32.370+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:25:32.430+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:25:32.430+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:25:32.453+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:25:32.452+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:25:32.488+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.192 seconds
+[2025-05-20T22:26:02.925+0000] {processor.py:157} INFO - Started process (PID=1737) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:26:02.927+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:26:02.928+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:26:02.928+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:26:02.987+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:26:03.033+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:26:03.033+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:26:03.055+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:26:03.055+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:26:03.086+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.166 seconds
+[2025-05-20T22:26:34.080+0000] {processor.py:157} INFO - Started process (PID=1779) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:26:34.083+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:26:34.087+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:26:34.086+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:26:34.168+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:26:34.234+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:26:34.234+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:26:34.251+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:26:34.250+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:26:34.274+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.208 seconds
+[2025-05-20T22:27:04.545+0000] {processor.py:157} INFO - Started process (PID=1821) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:27:04.547+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:27:04.548+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:27:04.548+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:27:04.586+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:27:04.626+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:27:04.625+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:27:04.640+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:27:04.640+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:27:04.676+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.136 seconds
+[2025-05-20T22:27:35.192+0000] {processor.py:157} INFO - Started process (PID=1863) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:27:35.193+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:27:35.194+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:27:35.194+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:27:35.228+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:27:35.263+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:27:35.262+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:27:35.279+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:27:35.279+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:27:35.307+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.119 seconds
+[2025-05-20T22:28:06.318+0000] {processor.py:157} INFO - Started process (PID=1905) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:28:06.319+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:28:06.321+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:28:06.320+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:28:06.355+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:28:06.393+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:28:06.393+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:28:06.407+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:28:06.406+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:28:06.432+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.118 seconds
+[2025-05-20T22:28:36.777+0000] {processor.py:157} INFO - Started process (PID=1947) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:28:36.779+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:28:36.781+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:28:36.780+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:28:36.845+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:28:36.901+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:28:36.900+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:28:36.926+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:28:36.926+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:28:36.961+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.190 seconds
+[2025-05-20T22:29:07.404+0000] {processor.py:157} INFO - Started process (PID=1989) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:29:07.405+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:29:07.406+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:29:07.406+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:29:07.437+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:29:07.472+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:29:07.472+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:29:07.484+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:29:07.484+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:29:07.507+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.107 seconds
+[2025-05-20T22:29:38.517+0000] {processor.py:157} INFO - Started process (PID=2031) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:29:38.518+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:29:38.520+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:29:38.519+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:29:38.567+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:29:38.614+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:29:38.614+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:29:38.634+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:29:38.634+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:29:38.669+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.156 seconds
+[2025-05-20T22:30:08.912+0000] {processor.py:157} INFO - Started process (PID=2073) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T22:30:08.917+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T22:30:08.921+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:30:08.919+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:30:08.994+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T22:30:09.065+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:30:09.064+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T22:30:09.085+0000] {logging_mixin.py:151} INFO - [2025-05-20T22:30:09.085+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T22:30:09.118+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.214 seconds
+[2025-05-20T23:50:51.068+0000] {processor.py:157} INFO - Started process (PID=2123) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:50:51.071+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:50:51.073+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:50:51.072+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:50:51.154+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:50:51.260+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:50:51.260+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:50:51.318+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:50:51.318+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:50:51.415+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.357 seconds
+[2025-05-20T23:51:22.222+0000] {processor.py:157} INFO - Started process (PID=2159) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:51:22.224+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:51:22.225+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:51:22.225+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:51:22.282+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:51:22.322+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:51:22.321+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:51:22.343+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:51:22.343+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:51:22.374+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.156 seconds
+[2025-05-20T23:51:52.778+0000] {processor.py:157} INFO - Started process (PID=2201) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:51:52.780+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:51:52.781+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:51:52.781+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:51:52.841+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:51:52.887+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:51:52.886+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:51:52.905+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:51:52.905+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:51:52.938+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.166 seconds
+[2025-05-20T23:52:23.153+0000] {processor.py:157} INFO - Started process (PID=2243) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:52:23.155+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:52:23.156+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:52:23.156+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:52:23.201+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:52:23.245+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:52:23.245+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:52:23.263+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:52:23.263+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:52:23.296+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.147 seconds
+[2025-05-20T23:52:53.490+0000] {processor.py:157} INFO - Started process (PID=2285) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:52:53.491+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:52:53.492+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:52:53.492+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:52:53.531+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:52:53.569+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:52:53.569+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:52:53.585+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:52:53.585+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:52:53.611+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.124 seconds
+[2025-05-20T23:53:24.075+0000] {processor.py:157} INFO - Started process (PID=2327) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:53:24.077+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:53:24.078+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:53:24.078+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:53:24.121+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:53:24.164+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:53:24.164+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:53:24.180+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:53:24.179+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:53:24.205+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.135 seconds
+[2025-05-20T23:53:54.719+0000] {processor.py:157} INFO - Started process (PID=2369) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:53:54.721+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:53:54.723+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:53:54.722+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:53:54.794+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:53:54.857+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:53:54.856+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:53:54.884+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:53:54.883+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:53:54.917+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.205 seconds
+[2025-05-20T23:54:25.029+0000] {processor.py:157} INFO - Started process (PID=2411) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:54:25.031+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:54:25.033+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:54:25.032+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:54:25.086+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:54:25.122+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:54:25.122+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:54:25.140+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:54:25.140+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:54:25.168+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.143 seconds
+[2025-05-20T23:54:56.018+0000] {processor.py:157} INFO - Started process (PID=2453) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:54:56.019+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:54:56.021+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:54:56.020+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:54:56.079+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:54:56.123+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:54:56.123+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:54:56.139+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:54:56.139+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:54:56.168+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.155 seconds
+[2025-05-20T23:55:26.726+0000] {processor.py:157} INFO - Started process (PID=2495) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:55:26.727+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:55:26.729+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:55:26.729+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:55:26.768+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:55:26.806+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:55:26.806+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:55:26.822+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:55:26.822+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:55:26.851+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.129 seconds
+[2025-05-20T23:55:56.958+0000] {processor.py:157} INFO - Started process (PID=2537) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:55:56.959+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:55:56.961+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:55:56.960+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:55:57.017+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:55:57.072+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:55:57.072+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:55:57.088+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:55:57.088+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:55:57.113+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.159 seconds
+[2025-05-20T23:56:27.560+0000] {processor.py:157} INFO - Started process (PID=2579) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:56:27.561+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:56:27.563+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:56:27.562+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:56:27.624+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:56:27.677+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:56:27.677+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:56:27.698+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:56:27.698+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:56:27.727+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.172 seconds
+[2025-05-20T23:56:58.141+0000] {processor.py:157} INFO - Started process (PID=2621) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:56:58.143+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:56:58.144+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:56:58.143+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:56:58.182+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:56:58.218+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:56:58.218+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:56:58.245+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:56:58.245+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:56:58.277+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.141 seconds
+[2025-05-20T23:57:28.709+0000] {processor.py:157} INFO - Started process (PID=2663) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:57:28.711+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:57:28.713+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:57:28.712+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:57:28.768+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:57:28.805+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:57:28.805+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:57:28.820+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:57:28.819+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:57:28.844+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.140 seconds
+[2025-05-20T23:57:59.162+0000] {processor.py:157} INFO - Started process (PID=2705) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:57:59.163+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:57:59.167+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:57:59.166+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:57:59.247+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:57:59.301+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:57:59.301+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:57:59.325+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:57:59.325+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:57:59.365+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.208 seconds
+[2025-05-20T23:58:30.242+0000] {processor.py:157} INFO - Started process (PID=2747) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:58:30.244+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:58:30.245+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:58:30.245+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:58:30.280+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:58:30.327+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:58:30.326+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:58:30.345+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:58:30.345+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:58:30.372+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.134 seconds
+[2025-05-20T23:59:00.907+0000] {processor.py:157} INFO - Started process (PID=2789) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:59:00.910+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:59:00.912+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:59:00.912+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:59:00.965+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:59:01.011+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:59:01.011+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:59:01.026+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:59:01.026+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:59:01.054+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.153 seconds
+[2025-05-20T23:59:31.897+0000] {processor.py:157} INFO - Started process (PID=2831) to work on /opt/airflow/dags/pipeline.py
+[2025-05-20T23:59:31.899+0000] {processor.py:829} INFO - Processing file /opt/airflow/dags/pipeline.py for tasks to queue
+[2025-05-20T23:59:31.900+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:59:31.900+0000] {dagbag.py:539} INFO - Filling up the DagBag from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:59:31.936+0000] {processor.py:839} INFO - DAG(s) dict_keys(['gold_pipelines']) retrieved from /opt/airflow/dags/pipeline.py
+[2025-05-20T23:59:31.973+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:59:31.972+0000] {dag.py:2915} INFO - Sync 1 DAGs
+[2025-05-20T23:59:31.990+0000] {logging_mixin.py:151} INFO - [2025-05-20T23:59:31.990+0000] {dag.py:3696} INFO - Setting next_dagrun for gold_pipelines to None, run_after=None
+[2025-05-20T23:59:32.023+0000] {processor.py:179} INFO - Processing /opt/airflow/dags/pipeline.py took 0.130 seconds

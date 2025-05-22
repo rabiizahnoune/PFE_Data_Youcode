@@ -4,10 +4,6 @@ import pandas as pd
 from sqlalchemy import create_engine
 from snowflake.sqlalchemy import URL
 import plotly.express as px
-import streamlit as st
-import pandas as pd
-import plotly.graph_objects as go
-import plotly.express as px
 from datetime import datetime, timedelta
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
@@ -15,7 +11,16 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 import numpy as np
+import requests
 
+import google.generativeai as genai  # Ajouté pour Gemini
+
+# Configuration de l'API Gemini
+GEMINI_API_KEY = "AIzaSyBqnMwcPJZqySSrdrcqnG828KmW_f7KkfE"
+try:
+    genai.configure(api_key=GEMINI_API_KEY)
+except Exception as e:
+    st.error(f"Erreur de configuration de l'API Gemini : {str(e)}")
 # Configuration de la page
 st.set_page_config(
     page_title="Gold Analytics Pro",
@@ -33,6 +38,19 @@ st.markdown("""
         .metric-card {padding: 1.5rem; border-radius: 10px; background-color: #1A1D24;}
         footer {color: #FFD700; text-align: center; padding: 1rem;}
         .stDataFrame {border-radius: 10px;}
+        .news-card {
+            background-color: #1A1D24;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #FFD700;
+        }
+        .impact-high {color: #FF4B4B;}
+        .impact-medium {color: #FFA500;}
+        .impact-low {color: #2ECC71;}
+        .sentiment-positive {color: #2ECC71;}
+        .sentiment-negative {color: #FF4B4B;}
+        .sentiment-neutral {color: #3498DB;}
     </style>
 """, unsafe_allow_html=True)
 
@@ -75,9 +93,9 @@ with st.sidebar:
     # Filtres dans des colonnes
     col1, col2 = st.columns(2)
     with col1:
-        selected_year = st.selectbox("Année", options=df["date_id"].dt.year.unique())
+        selected_year = st.selectbox("Année", options=sorted(df["date_id"].dt.year.unique(), reverse=True))
     with col2:
-        analysis_type = st.selectbox("Type d'Analyse", ["Technique", "Fundamentale"])
+        analysis_type = st.selectbox("Type d'Analyse", ["Technique", "Fundamentale", "Chat AI"])
     
     date_range = st.date_input("Période", 
                              [df["date_id"].min(), df["date_id"].max()],
@@ -85,6 +103,7 @@ with st.sidebar:
                              max_value=df["date_id"].max())
     
     st.info("ℹ️ Sélectionnez les paramètres d'analyse et la période souhaitée")
+
 if analysis_type == 'Technique':
     # Filtrage des données
     filtered_df = df[(df["date_id"].dt.year == selected_year) & 
@@ -193,8 +212,7 @@ if analysis_type == 'Technique':
             <p style='font-size: 0.8rem; color: #888;'>Données mises à jour quotidiennement à 00:00 UTC</p>
         </div>
     """, unsafe_allow_html=True)
-
-if analysis_type == 'Fundamentale':
+elif analysis_type == 'Fundamentale':
     # Connexion Cassandra (version Docker)
     @st.cache_resource
     def create_cassandra_connection():
@@ -204,7 +222,7 @@ if analysis_type == 'Fundamentale':
                 port=9042,
                 protocol_version=4
             )
-            session = cluster.connect('gold_news', wait_for_all_pools=True)
+            session = cluster.connect('gold_market', wait_for_all_pools=True)
             return session
         except Exception as e:
             st.error(f"Erreur de connexion Cassandra: {str(e)}")
@@ -215,60 +233,145 @@ if analysis_type == 'Fundamentale':
     if session:
         # Chargement des données
         @st.cache_data(ttl=60)
-        def load_cassandra_data():
+        def load_news_impact_data():
             try:
-                # Récupération des news avec traitement du titre
-                news_rows = session.execute("SELECT id, title, ingestion_time, url FROM raw_news")
+                # Récupération des actualités
+                news_rows = session.execute("SELECT title, source, published_at, url, impact FROM news_impact")
                 news_df = pd.DataFrame(list(news_rows))
                 
-                # Traitement du titre
                 if not news_df.empty:
-                    news_df['short_title'] = news_df['title'].apply(
-                        lambda x: ' '.join(x.split()[:6]) + '...' if len(x.split()) > 6 else x
-                    )
+                    # Convertir la date en datetime et gérer les timezones
+                    news_df['published_at'] = pd.to_datetime(news_df['published_at']).dt.tz_localize(None)
+                    # Trier par date (plus récent en premier)
+                    news_df = news_df.sort_values('published_at', ascending=False)
                 
-                # Récupération des analyses d'impact
-                impact_rows = session.execute("SELECT explanation, impact FROM impact_analysis")
-                impact_df = pd.DataFrame(list(impact_rows))
-                
-                return news_df, impact_df
+                return news_df
             except Exception as e:
                 st.error(f"Erreur de chargement: {str(e)}")
-                return pd.DataFrame(), pd.DataFrame()
+                return pd.DataFrame()
 
-        news_df, impact_df = load_cassandra_data()
+        news_df = load_news_impact_data()
 
-        # Section Actualités
-        st.subheader("📌 Dernières Publications")
+        # Titre
+        st.title("🔍 Analyse Fondamentale du Marché de l'Or")
+        st.write("Liste des actualités avec leur impact et source")
+
+        # Tableau des actualités
         if not news_df.empty:
-            news_df['ingestion_time'] = pd.to_datetime(news_df['ingestion_time']).dt.strftime('%d/%m/%Y %H:%M')
+            st.subheader("📰 Liste des Actualités")
+            # Préparer le tableau pour l'affichage
+            display_df = news_df[['title', 'source', 'published_at', 'url', 'impact']].copy()
+            display_df['published_at'] = display_df['published_at'].dt.strftime('%d/%m/%Y %H:%M')
+            display_df = display_df.rename(columns={
+                'title': 'Titre',
+                'source': 'Source',
+                'published_at': 'Date',
+                'url': 'Lien',
+                'impact': 'Impact'
+            })
             
-            for _, row in news_df.iterrows():
-                with st.expander(f"{row['short_title']} - {row['ingestion_time']}", expanded=False):
-                    col1, col2 = st.columns([4, 1])
-                    with col1:
-                        st.markdown(f"**Source complète:** {row['title']}")
-                    with col2:
-                        st.link_button("Lien direct", row['url'])
-                    st.markdown("---")
-        else:
-            st.warning("Aucune publication disponible")
+            # Rendre les liens cliquables
+            display_df['Lien'] = display_df['Lien'].apply(
+                lambda x: f'<a href="{x}" target="_blank">Consulter</a>' if pd.notna(x) else ''
+            )
+            
+            # Afficher le tableau
+            st.markdown(
+                display_df.to_html(escape=False, index=False),
+                unsafe_allow_html=True
+            )
 
-        # Section Analyse d'Impact
-        st.subheader("📊 Analyse d'Impact")
-        if not impact_df.empty:
-            col1, col2 = st.columns([3, 2])
+            # Calculer le nombre d'actualités par source
+            st.subheader("📊 Nombre d'Actualités par Source")
+            source_counts = news_df['source'].value_counts().reset_index()
+            source_counts.columns = ['Source', 'Nombre']
             
-            with col2:
-                st.markdown("**Détail des Explications**")
-                for idx, row in impact_df.iterrows():
-                    with st.container(border=True):
-                        st.markdown(f"**Impact {row['impact']}/10**")
-                        st.caption(row['explanation'])
-                    st.markdown("")
+           
+        # Footer avec actualisation
+        st.markdown("---")
+        st.markdown("🔄 Actualisation automatique toutes les 60 secondes")
+        st.markdown("""
+            <div style='text-align: center; padding: 1rem;'>
+                <p style='color: #FFD700;'>© 2024 Gold Analytics Pro • Plateforme Professionnelle d'Analyse de Marché</p>
+            </div>
+        """, unsafe_allow_html=True)
+
+elif analysis_type == 'Chat AI':
+    st.title("🤖 Chat AI - Analyse Interactive avec Gemini")
+    st.write("Posez vos questions sur le marché de l'or ou l'analyse financière. Gemini vous répondra en temps réel.")
+
+    # Clé API Gemini
+    GEMINI_API_KEY = "AIzaSyBqnMwcPJZqySSrdrcqnG828KmW_f7KkfE"
+    API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+
+    # Initialiser l'historique du chat dans la session
+    if "chat_history" not in st.session_state:
+        st.session_state.chat_history = []
+
+    # Zone de saisie pour la question
+    user_input = st.text_area("💬 Votre question :", height=100, placeholder="Ex. : Quels facteurs influencent le prix de l'or ?")
+
+    # Bouton pour envoyer la question
+    if st.button("Envoyer", key="send_chat"):
+        if user_input:
+            try:
+                # Préparer la requête pour l'API Gemini
+                headers = {
+                    "Content-Type": "application/json"
+                }
+                payload = {
+                    "contents": [
+                        {
+                            "parts": [
+                                {"text": user_input}
+                            ]
+                        }
+                    ]
+                }
+                response = requests.post(f"{API_URL}?key={GEMINI_API_KEY}", json=payload, headers=headers)
+
+                # Vérifier si la requête a réussi
+                if response.status_code == 200:
+                    response_data = response.json()
+                    # Extraire le texte de la réponse
+                    answer = response_data.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "Aucune réponse reçue.")
+                    # Ajouter la question et la réponse à l'historique
+                    st.session_state.chat_history.append({"role": "user", "content": user_input})
+                    st.session_state.chat_history.append({"role": "assistant", "content": answer})
+                else:
+                    st.error(f"Erreur de l'API Gemini : {response.status_code} - {response.text}")
+
+            except Exception as e:
+                st.error(f"Erreur lors de la génération de la réponse : {str(e)}")
         else:
-            st.warning("Aucune donnée d'analyse disponible")
+            st.warning("Veuillez entrer une question.")
+
+    # Afficher l'historique du chat
+    st.subheader("📜 Historique du Chat")
+    for message in st.session_state.chat_history:
+        if message["role"] == "user":
+            st.markdown(f"""
+                <div class='news-card' style='border-left: 4px solid #FFD700;'>
+                    <strong>Vous :</strong> {message['content']}
+                </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+                <div class='news-card' style='border-left: 4px solid #3498DB;'>
+                    <strong>Gemini :</strong> {message['content']}
+                </div>
+            """, unsafe_allow_html=True)
+
+    # Bouton pour réinitialiser l'historique
+    if st.button("Effacer l'historique", key="clear_chat"):
+        st.session_state.chat_history = []
+        st.success("Historique du chat effacé.")
 
     # Footer
     st.markdown("---")
-    st.markdown("🔄 Actualisation automatique toutes les 60 secondes")
+    st.markdown("""
+        <div style='text-align: center; padding: 1rem;'>
+            <p style='color: #FFD700;'>© 2024 Gold Analytics Pro • Plateforme Professionnelle d'Analyse de Marché</p>
+            <p style='font-size: 0.8rem; color: #888;'>Powered by Gemini AI</p>
+        </div>
+    """, unsafe_allow_html=True)

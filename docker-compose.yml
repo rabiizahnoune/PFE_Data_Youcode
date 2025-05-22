@@ -13,6 +13,7 @@ volumes:
   # mlflow_data:
   spark-checkpoint:
   cassandra-data:
+  # ollama:
 
 
 services:
@@ -211,6 +212,7 @@ services:
     volumes:
       - spark-checkpoint:/opt/spark/checkpoint
       - ./stream/spark:/scripts
+      - ./ML:/app
     networks:
       - airflow_network
  
@@ -268,6 +270,25 @@ services:
       - ./dashboard_batch:/app
     networks:
       - airflow_network
+
+
+  # ollama:
+  #    build:
+  #     context: .
+  #     dockerfile: ./ollama_llm/Dockerfile
+  #    container_name: ollama
+  #    ports:
+  #     - "11434:11434"
+  #    volumes:
+  #     - ollama:/root/.ollama
+  #    mem_limit: 6g  # Adjusted for 8 GB total RAM
+  #    mem_reservation: 4g  # Reserve enough for Mistral or smaller models
+  #    cpus: 2
+  #    restart: unless-stopped
+  #    environment:
+  #     - OLLAMA_HOST=0.0.0.0
+  #    networks:
+  #     - airflow_network
 
 
 

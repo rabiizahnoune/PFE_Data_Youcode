@@ -1,0 +1,44 @@
+[2025-05-21T13:40:58.485+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_news_pipeline.analyze_news manual__2025-05-21T13:40:39.817082+00:00 [queued]>
+[2025-05-21T13:40:58.502+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_news_pipeline.analyze_news manual__2025-05-21T13:40:39.817082+00:00 [queued]>
+[2025-05-21T13:40:58.503+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-21T13:40:58.535+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): analyze_news> on 2025-05-21 13:40:39.817082+00:00
+[2025-05-21T13:40:58.547+0000] {standard_task_runner.py:57} INFO - Started process 6705 to run task
+[2025-05-21T13:40:58.558+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_news_pipeline', 'analyze_news', 'manual__2025-05-21T13:40:39.817082+00:00', '--job-id', '159', '--raw', '--subdir', 'DAGS_FOLDER/news_batch.py', '--cfg-path', '/tmp/tmpk6vkgre5']
+[2025-05-21T13:40:58.564+0000] {standard_task_runner.py:85} INFO - Job 159: Subtask analyze_news
+[2025-05-21T13:40:58.670+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_news_pipeline.analyze_news manual__2025-05-21T13:40:39.817082+00:00 [running]> on host 5c6832b8ad2a
+[2025-05-21T13:40:58.841+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_news_pipeline' AIRFLOW_CTX_TASK_ID='analyze_news' AIRFLOW_CTX_EXECUTION_DATE='2025-05-21T13:40:39.817082+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-21T13:40:39.817082+00:00'
+[2025-05-21T13:40:58.863+0000] {news_batch.py:162} INFO - Lecture du fichier JSON depuis HDFS : /gold_price/news/raw/year=2025/month=5/day=21/news_data.json...
+[2025-05-21T13:40:58.865+0000] {client.py:192} INFO - Instantiated <InsecureClient(url='http://namenode:9870')>.
+[2025-05-21T13:40:58.867+0000] {client.py:724} INFO - Reading file '/gold_price/news/raw/year=2025/month=5/day=21/news_data.json'.
+[2025-05-21T13:40:58.939+0000] {news_batch.py:172} WARNING - Cluster.__init__ called with contact_points specified, but no load_balancing_policy. In the next major version, this will raise an error; please specify a load-balancing policy. (contact_points = ['cassandra'], lbp = None)
+[2025-05-21T13:40:58.947+0000] {news_batch.py:173} WARNING - Downgrading core protocol version from 66 to 65 for 172.18.0.2:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2025-05-21T13:40:58.952+0000] {news_batch.py:173} WARNING - Downgrading core protocol version from 65 to 5 for 172.18.0.2:9042. To avoid this, it is best practice to explicitly set Cluster(protocol_version) to the version supported by your cluster. http://datastax.github.io/python-driver/api/cassandra/cluster.html#cassandra.cluster.Cluster.protocol_version
+[2025-05-21T13:40:58.967+0000] {policies.py:289} INFO - Using datacenter 'DC1' for DCAwareRoundRobinPolicy (via host '172.18.0.2:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+[2025-05-21T13:40:59.226+0000] {news_batch.py:208} INFO - Nombre total de news à analyser : 99
+[2025-05-21T13:40:59.227+0000] {news_batch.py:192} INFO - Analyse de la news : Advertiser Disclosure
+Terms apply to American Expr...
+[2025-05-21T13:40:59.511+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be9502eb0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:41:59.310+0000] {news_batch.py:192} INFO - Analyse de la news : Barcelona are supposedly set for a quieter summer ...
+[2025-05-21T13:41:59.347+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be9502160>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:42:59.147+0000] {news_batch.py:192} INFO - Analyse de la news : The American Customer Satisfaction Index released ...
+[2025-05-21T13:42:59.242+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be9563e20>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:43:59.043+0000] {news_batch.py:192} INFO - Analyse de la news : The Monster Energy Aesthetic and Branding
+Design ...
+[2025-05-21T13:43:59.246+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be9555670>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:44:59.039+0000] {news_batch.py:192} INFO - Analyse de la news : It was just a couple of months ago, as I write thi...
+[2025-05-21T13:44:59.255+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be955ee80>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:45:59.021+0000] {news_batch.py:192} INFO - Analyse de la news : Why you can trust Windows Central
+Our expert revi...
+[2025-05-21T13:45:59.073+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be9551160>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:46:58.878+0000] {news_batch.py:192} INFO - Analyse de la news : The US Senate has advanced the GENIUS Act, a bill ...
+[2025-05-21T13:46:59.148+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be9544df0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:47:58.951+0000] {news_batch.py:192} INFO - Analyse de la news : China-linked UnsolicitedBooker APT used new backdo...
+[2025-05-21T13:47:59.042+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2be95443a0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:48:58.831+0000] {news_batch.py:192} INFO - Analyse de la news : Canada has a flashy new 3D coin that collectors wi...
+[2025-05-21T13:48:58.885+0000] {news_batch.py:201} ERROR - Erreur lors de l'appel à l'API Gemini : HTTPSConnectionPool(host='api.gemini.ai', port=443): Max retries exceeded with url: /v1/analyze (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7f2c01a37940>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+[2025-05-21T13:49:12.442+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2025-05-21T13:49:12.449+0000] {process_utils.py:131} INFO - Sending 15 to group 6705. PIDs of all processes in the group: [6705]
+[2025-05-21T13:49:12.450+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 6705
+[2025-05-21T13:49:12.451+0000] {taskinstance.py:1630} ERROR - Received SIGTERM. Terminating subprocesses.
+[2025-05-21T13:49:12.452+0000] {news_batch.py:232} ERROR - Erreur dans analyze_news : Task received SIGTERM signal
+[2025-05-21T13:49:12.504+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=6705, status='terminated', exitcode=0, started='13:40:57') (6705) terminated with exit code 0

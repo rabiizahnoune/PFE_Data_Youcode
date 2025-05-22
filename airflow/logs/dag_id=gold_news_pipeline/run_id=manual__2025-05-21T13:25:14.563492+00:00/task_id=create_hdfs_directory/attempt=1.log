@@ -1,0 +1,15 @@
+[2025-05-21T13:25:24.570+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_news_pipeline.create_hdfs_directory manual__2025-05-21T13:25:14.563492+00:00 [queued]>
+[2025-05-21T13:25:24.583+0000] {taskinstance.py:1157} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_news_pipeline.create_hdfs_directory manual__2025-05-21T13:25:14.563492+00:00 [queued]>
+[2025-05-21T13:25:24.584+0000] {taskinstance.py:1359} INFO - Starting attempt 1 of 1
+[2025-05-21T13:25:24.605+0000] {taskinstance.py:1380} INFO - Executing <Task(PythonOperator): create_hdfs_directory> on 2025-05-21 13:25:14.563492+00:00
+[2025-05-21T13:25:24.615+0000] {standard_task_runner.py:57} INFO - Started process 5377 to run task
+[2025-05-21T13:25:24.620+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'gold_news_pipeline', 'create_hdfs_directory', 'manual__2025-05-21T13:25:14.563492+00:00', '--job-id', '152', '--raw', '--subdir', 'DAGS_FOLDER/news_batch.py', '--cfg-path', '/tmp/tmpyb6pf2wt']
+[2025-05-21T13:25:24.624+0000] {standard_task_runner.py:85} INFO - Job 152: Subtask create_hdfs_directory
+[2025-05-21T13:25:24.682+0000] {task_command.py:415} INFO - Running <TaskInstance: gold_news_pipeline.create_hdfs_directory manual__2025-05-21T13:25:14.563492+00:00 [running]> on host 5c6832b8ad2a
+[2025-05-21T13:25:24.788+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='gold_news_pipeline' AIRFLOW_CTX_TASK_ID='create_hdfs_directory' AIRFLOW_CTX_EXECUTION_DATE='2025-05-21T13:25:14.563492+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-05-21T13:25:14.563492+00:00'
+[2025-05-21T13:25:24.790+0000] {news_batch.py:108} INFO - Création du répertoire HDFS et ajustement des permissions
+[2025-05-21T13:25:29.617+0000] {news_batch.py:119} INFO - Répertoire /gold_price/news/raw/year=2025/month=5/day=21 créé et permissions ajustées à 777
+[2025-05-21T13:25:29.618+0000] {python.py:194} INFO - Done. Returned value was: True
+[2025-05-21T13:25:29.651+0000] {taskinstance.py:1398} INFO - Marking task as SUCCESS. dag_id=gold_news_pipeline, task_id=create_hdfs_directory, execution_date=20250521T132514, start_date=20250521T132524, end_date=20250521T132529
+[2025-05-21T13:25:29.678+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2025-05-21T13:25:29.707+0000] {taskinstance.py:2776} INFO - 1 downstream tasks scheduled from follow-on schedule check
